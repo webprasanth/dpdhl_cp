@@ -1,0 +1,195 @@
+// .loading {
+//   background-color: #fff;
+//   opacity: 0.5;
+//   width: 100%;
+//   height: 100%;
+//   position: fixed;
+//   z-index: 99999999999;
+//   top: 0;
+//   left: 0;
+//   #loading-bar-spinner.spinner {
+//     left: 50%;
+//     margin-left: -20px;
+//     top: 50%;
+//     margin-top: -20px;
+//     position: absolute;
+//     z-index: 19 !important;
+//     animation: loading-bar-spinner 400ms linear infinite;
+//   }
+
+//   #loading-bar-spinner.spinner .spinner-icon {
+//     width: 40px;
+//     height: 40px;
+//     border: solid 4px transparent;
+//     border-top-color: #fecb07 !important;
+//     border-left-color: #fecb07 !important;
+//     border-radius: 50%;
+//   }
+
+//   @keyframes loading-bar-spinner {
+//     0% {
+//       transform: rotate(0deg);
+//       transform: rotate(0deg);
+//     }
+//     100% {
+//       transform: rotate(360deg);
+//       transform: rotate(360deg);
+//     }
+//   }
+// }
+// .routerOutlet {
+//   &.menu-width {
+//     margin-top: 55px;
+//     width: calc(100% - 110px);
+//     margin-left: 110px;
+//     .router-content {
+//       min-height: 600px;
+//       padding: 10px 50px 30px 30px;
+//       position: relative;
+//       &::before{
+//         // content:"";
+//         // position: absolute;
+//         // height: 100px;
+//         // width: 100%;
+//         // background: #e6e6e6;
+//         // left: 0;
+//         // top: 0;
+//       }
+//     }
+//   }
+//   &.inner-page {
+//     .router-content {
+//       background-color: #fff;
+//       margin-left: 20px;
+//       margin-right: 20px;
+//       margin-bottom: 20px;
+//     }
+//   }
+//   &.full-width {
+//     margin-top: 115px;
+//     width: 100%;
+//   }
+// }
+// #div1,
+// #div2 {
+//   float: left;
+//   width: 100px;
+//   height: 35px;
+//   margin: 10px;
+//   padding: 10px;
+//   border: 1px solid black;
+// }
+
+// /*Responsive CSS*/
+// @media screen and (min-width:320px) and (max-width:767px) {
+//   .routerOutlet.menu-width {
+//     margin-top: 45px;
+//     width: calc(100% - 75px);
+//     margin-left: 75px;
+//     .router-content {
+//       padding: 1rem;
+//     }
+//   }
+//   .last-view-all {
+//     display: none;
+//   }
+// }
+.loading {
+  background-color: #fff;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99999999999;
+  top: 0;
+  left: 0;
+  #loading-bar-spinner.spinner {
+    left: 50%;
+    margin-left: -20px;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+    z-index: 19 !important;
+    animation: loading-bar-spinner 400ms linear infinite;
+  }
+
+  #loading-bar-spinner.spinner .spinner-icon {
+    width: 40px;
+    height: 40px;
+    border: solid 4px transparent;
+    border-top-color: #fecb07 !important;
+    border-left-color: #fecb07 !important;
+    border-radius: 50%;
+  }
+
+  @keyframes loading-bar-spinner {
+    0% {
+      transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}
+.routerOutlet {
+  &.menu-width {
+    margin-top: 55px;
+    width: calc(100% - 65px);
+    margin-left: 65px;
+    min-height: 100%;
+    .router-content {
+      min-height: 600px;
+      padding: 10px 50px 30px 20px;
+      padding: 25px;
+      position: relative;
+      &::before {
+        // content:"";
+        // position: absolute;
+        // height: 100px;
+        // width: 100%;
+        // background: #e6e6e6;
+        // left: 0;
+        // top: 0;
+      }
+    }
+  }
+  &.inner-page {
+    .router-content {
+      background-color: #fff;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 0px;
+    }
+  }
+  &.full-width {
+    margin-top: 115px;
+    width: 100%;
+    height: 100%;
+  }
+}
+#div1,
+#div2 {
+  float: left;
+  width: 100px;
+  height: 35px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+/*Responsive CSS*/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .routerOutlet.menu-width {
+    margin-top: 52px;
+    width: calc(100% - 0px);
+    margin-left: 0px;
+    .router-content {
+      padding: 1rem;
+    }
+  }
+  .last-view-all {
+    display: none;
+  }
+}

@@ -1,0 +1,83 @@
+.page-title {
+  font-size: 21px;
+  font-weight: bold;
+}
+.modal-content{
+  height: 530px;
+   padding: 20px;
+}
+.modal-dialog {
+
+  width: 1140px;
+  position: absolute;
+  top: 55px;
+  /* margin: 30px auto; */
+}
+
+.modal-body { 
+  padding-top: 0px;
+}
+.modal-footer {  
+  text-align: left;
+ color: #ccc;
+}
+.modal-header {  
+  margin-bottom: 20px;
+}
+// .table-fixed{
+//   width: 100%;
+//   border: 1px solid #ccc;
+//   tbody{
+//     height:150px;
+//     overflow-y:auto;
+//     width: 100%;
+//     display: flow-root;
+//     }
+//   thead,tbody,tr,td,th{
+  
+//   }
+//   tbody{
+//     td{
+//       float:left;
+//     }
+//   }
+//   thead {
+//     tr{
+//       th{
+//         float:left;
+//        background-color: #f0f5fc;
+//        background-color: #f0f5fc;
+      
+//       }
+//     }
+//   }
+// }
+.wrap{
+  word-wrap: break-word;
+}
+.fade{
+background: rgba(0,0,0,0.5);
+opacity: 1;
+position: fixed;
+z-index: 9999999999;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+.modal-dialog{
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+  th{
+	background: rgb(209, 221, 240)
+}

@@ -1,0 +1,56 @@
+<div class="page-title">Device Onboarding</div>
+<div class="navigation-button-group margin-bottom40">
+  <div class="btn-group" role="group" aria-label="...">
+    <button
+      type="button"
+      class="btn btn-default active"
+      [routerLink]="'/devices'"
+    >
+      <i class="fa fa-list"></i>&nbsp;Device List
+    </button>
+    <!-- <button
+      type="button"
+      class="btn btn-default"
+      [routerLink]="'/devices/group'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Group List
+    </button> -->
+    <button
+      type="button"
+      class="btn btn-default"
+      [routerLink]="'/devices/onboard/0'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Onboarding
+    </button>
+  </div>
+</div>
+<ul class="status">
+  <label>STATUS</label>
+  <li><span></span>In Active</li>
+  <li><span></span>Active</li>
+</ul>
+<div class="sortTableFld">
+  <mat-select placeholder="Select columns to view" multiple>
+    <mat-option #allSelected (click)="toggleAllSelection(displayedColumns)"
+      >Select/De-Select All</mat-option
+    >
+    <!-- <mat-option (click)="toggleDeAllSelection(displayedColumns)"
+      >De-select All</mat-option
+    > -->
+    <mat-option
+      (onSelectionChange)="onChange($event)"
+      *ngFor="let property of displayedColumnsTemp; let i = index"
+      [value]="property"
+    >
+      {{ property }}
+    </mat-option>
+  </mat-select>
+</div>
+
+<dpdhl-mat-grid
+  [displayedColumns]="displayedColumns"
+  [data]="deviceList"
+  [configuration]="configuration"
+  (refreshEvent)="refreshData($event)"
+>
+</dpdhl-mat-grid>

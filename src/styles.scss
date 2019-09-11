@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "./assets/css/bootstrap.min.css";
+@import './assets/css/style.css';
+@import './assets/css/media_query.css';
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
+@import '~angular-tree-component/dist/angular-tree-component.css';
+@import '~@angular/material/theming';
+@import './assets/scss/index.scss';
+
+.cdk-overlay-container {
+  z-index: 99999999999999999;
+}

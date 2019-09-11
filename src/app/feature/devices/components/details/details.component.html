@@ -1,0 +1,218 @@
+<div class="container-fluid form-panel">
+  <ul class="nav nav-tabs"
+    style="background: #ccc;margin-left: -31px;border: none;margin-right: -30px;margin-top: -10px;border-radius: 5px;">
+    <li class="active">
+      <a href="#1" data-toggle="tab">Onboard Single Device</a>
+    </li>
+    <li>
+      <a href="#2" data-toggle="tab">Onboard Bulk Devices</a>
+    </li>
+  </ul>
+  <div class="tab-content ">
+    <div class="tab-pane active" id="1">
+      <form [formGroup]="deviceForm" (ngSubmit)="onSubmit()">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-panel-header">
+                <div class="title">
+                  {{deviceData.id > 0? 'Edit' : 'Add' }} Device Details
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row margin-top margin-top">
+            <div class="col-md-5">
+              <div class="form-group">
+                <label for="name">Device Name:
+                  <sup>*</sup>
+                </label>
+                <input type="text" class="form-control" formControlName="deviceName" id="deviceName"
+                  placeholder="Device Name" />
+              </div>
+              <div class="form-group">
+                <label for="name">UUID:
+                </label>
+                <input type="text" class="form-control" formControlName="uuID" id="uuID" placeholder="UUID" />
+              </div>
+              <div class="form-group">
+                <label for="name">Serial Number:
+                </label>
+                <input type="text" class="form-control" formControlName="serialNumber" id="serialNumber"
+                  placeholder="Serial Number" />
+              </div>
+              <div class="form-group">
+                <label for="name">Status:
+                </label>
+                <input type="text" class="form-control" formControlName="status" id="status" placeholder="Status" />
+              </div>
+              <div class="form-group">
+                <label for="name">Protocol:
+                </label>
+                <input type="text" class="form-control" formControlName="protocol" id="protocol"
+                  placeholder="protocol" />
+              </div>
+            </div>
+            <div class="col-md-2 "></div>
+            <div class="col-md-5 ">
+              <div class="form-group">
+                <label for="name">Device Health:
+                </label>
+                <input type="text" class="form-control" formControlName="deviceHealth" id="deviceHealth"
+                  placeholder="deviceHealth" />
+              </div>
+              <div class="form-group">
+                <label for="name">OnboardedBy:
+                </label>
+                <input type="text" class="form-control" formControlName="onboardedBy" id="onboardedBy"
+                  placeholder="onboardedBy" />
+              </div>
+              <div class="form-group">
+                <label for="name">DeviceOwner:
+                </label>
+                <input type="text" class="form-control" formControlName="deviceOwner" id="deviceOwner"
+                  placeholder="deviceOwner" />
+              </div>
+              <div class="form-group">
+                <label for="name">Power Type:
+                </label>
+                <input type="text" class="form-control" formControlName="powerType" id="powerType"
+                  placeholder="powerType" />
+              </div>
+              <div class="form-group">
+                <label for="name">Mac Address:
+                </label>
+                <input type="text" class="form-control" formControlName="macAddress" id="macAddress"
+                  placeholder="macAddress" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group form-button">
+                <div class="col-sm-offset-8 col-sm-4">
+                  <button type="button" class="btn btn-default" [routerLink]="'/devices'">
+                    Cancel
+                  </button>
+                  <button type="submit" [disabled]="
+                    deviceForm.invalid ||
+                      !deviceForm.dirty " class="btn btn-primary">
+                    {{deviceData.id > 0 ? 'Update' : 'Create' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="generalInfoBlk">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Provider">Service Provider:
+                    </label>
+                    <input type="text" class="form-control" formControlName="Provider" id="Provider"
+                      placeholder="SigFox" />
+                  </div>
+                  <div class="form-group">
+                    <label for="deviceType">Device Type:
+                    </label>
+                    <input type="text" class="form-control" formControlName="deviceType" id="deviceType"
+                      placeholder="Lyka4" />
+                  </div>
+                  <div class="form-group">
+                    <label for="deviceGroupName">Device Group Name:
+                    </label>
+                    <input type="text" class="form-control" formControlName="deviceGroupName" id="deviceGroupName"
+                      placeholder="PnP Group" />
+                  </div>
+                </div>
+                <div class="col-md-6 deviceStatusBlk">
+                  <h3 class="display-title">Device Status API Authentication Details:</h3>
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" formControlName="username" id="username"
+                      placeholder="Enter username" />
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" formControlName="password" id="password"
+                      placeholder="Enter username" />
+                    <i class="fa fa-lock"></i>
+                  </div>
+                  <div class="button-group buttonGrpBlk btnAction">
+                    <label class="deviceRadioBtn">Manual
+                      <input type="radio" checked="checked" name="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="deviceRadioBtn">Automatic
+                      <input type="radio" name="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <button class="btn btn-success" type="button">Next</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="generalInfoBlk">
+              <div class="row">
+                <div class="device-onboard-container">
+                  <div class="col-md-4 bulkServiceBlk">
+                    <p>Would you like to add more than one device?</p>
+                    <ul>
+                      <li>1. Download device template file.</li>
+                      <li>2. Fill in the device details offline.</li>
+                      <li>3. Upload the updated device file.</li>
+                      <li>4. Click on submit to onboard multiple devices.</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="fileUploadBox bulkDeviceBlk onBoardBulkDeviceBlk">
+                      <div class="pull-left">
+                        <h3>Step 1</h3>
+                        <button type="button" class="downloadFile">
+                          <i class="fa fa-file-excel-o"></i>
+                          <i class="fa fa-download"></i>
+                          Download file
+                        </button>
+                      </div>
+                      <div class="pull-right">
+                        <h3>Step 2</h3>
+                        <label class="file-holder" for="upload">
+                          <input id="upload" style="display:none" type="file">
+                          <div class="file-upload">
+                            <div class="innerFileUpload">
+                              <p>Drag & drop file here / Click to upload
+                              </p>
+                            </div>
+                          </div>
+                        </label>
+                        <p class="maxUpload">Max. Size 2MB<span>No file uploaded</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-group buttonGrpBlk">
+                    <button class="btn btn-default" type="button">Cancel</button>
+                    <button class="btn btn-success" type="submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="tab-pane " id="2">
+      <!-- tab 2 -->
+      <dpdhl-bulk-upload (uplaodDeviceData)="bulkUploadData($event)"></dpdhl-bulk-upload>
+    </div>
+  </div>
+
+
+
+  <!-- <dpdhl-pop-up
+  *ngIf="popUpVisibility"
+  [popUpConfig]="popUpConfig"
+  (popUpAction)="popUpEvent($event)"
+></dpdhl-pop-up> -->

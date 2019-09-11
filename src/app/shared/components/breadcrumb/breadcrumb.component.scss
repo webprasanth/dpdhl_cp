@@ -1,0 +1,22 @@
+.breadcrumb {
+  padding: 0;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  margin: 0;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 4px;
+}
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #000;
+  content: '->';
+}
+
+.breadcrumb>li .breadcrumb{
+  font-weight: bold;
+}
+.breadcrumb>li a{
+  font-weight: normal;
+  text-decoration: none;
+}

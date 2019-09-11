@@ -1,0 +1,111 @@
+.form-background {
+  background: #ffffff;
+}
+.form-control {
+  background-color: #fff;
+  width: 332px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 14px;
+}
+textarea.form-control {
+  height: auto; 
+}
+.margin-top {
+  margin-top: 50px;
+}
+.margin-left {
+  margin-left: 20px;
+}
+.form-success-msg {
+  color: green;
+}
+.file-holder {
+  text-align: center;
+  cursor: pointer;
+  .error {
+    padding: 5px 0;
+    color: red;
+  }
+  img {
+    width: 100%;
+  }
+  .file-upload {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 100px;
+    padding-top: 45px;
+    margin-bottom: 5px;
+  }
+}
+.display-title{
+  
+}  
+.maxProfileSize{
+  color: #c2c0d6;
+  font-weight: normal;
+  strong{
+    color: #000;
+    font-weight: bold;
+  }
+}
+.form-panel .form-group.form-group-search button{
+  right: 36px;
+}
+ 
+/***Responsive CSS***/
+@media screen and (min-width: 320px) and (max-width:767px){
+  .margin-top{
+    margin-top: 15px;
+  }
+  .form-panel .form-panel-header{
+    margin-top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .form-control{
+    width: 100%;
+  }
+  .form-panel .form-group.form-group-search button{
+    right: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width:1023px){ 
+  .form-control{
+    width: 100%;
+  }
+  .margin-top{
+    margin-top: 0px;
+  }  
+  .form-panel{
+    .form-group{
+      &.form-group-search{
+        button{
+          right: 10px;
+        }
+      }
+      &.form-button{
+        margin-right: 15px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px) and (max-width:1259px){
+  .form-panel{
+    .form-control{
+      width: 100%;
+    }
+    .form-group{
+      &.form-group-search{
+        button{
+          right: 10px;
+        }
+      }
+    }
+  }
+  .maxProfileSize{
+    font-size: 12px;
+  } 
+}

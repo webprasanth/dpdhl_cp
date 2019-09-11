@@ -1,0 +1,14 @@
+<div class="page-title">Entity Onboarding</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active" [routerLink]="'/entity'">
+      <i class="fa fa-list"></i>&nbsp;Entity List
+    </button>
+    <!-- <button type="button" class="btn btn-default" [routerLink]="'/entity/add'">
+      <i class="fa fa-share-alt"></i>&nbsp;Add Entity
+    </button> -->
+  </div>
+</div>
+<dpdhl-mat-grid *ngIf="role.entities_list_view " [displayedColumns]="displayedColumns" [data]="entityList"
+  [configuration]="configuration" [popUpConfig]="popUpConfig" (editEvent)="editEntity($event)"
+  (viewEvent)="viewEntity($event)" (deleteEvent)="deleteEntity($event)"></dpdhl-mat-grid>

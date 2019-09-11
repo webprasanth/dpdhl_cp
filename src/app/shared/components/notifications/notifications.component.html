@@ -1,0 +1,69 @@
+<div dpdhlClickOutside (dpdhlClickOutside)="clickOutside()">
+
+  <div class="notification-sidebar">
+    <div class="notification-icons" (click)="toggle('dpdhl_notification')">
+      <i class="fa fa-bell-o"></i>
+      <span class="count">{{ notification?.length }}</span>
+    </div>
+    <div class="notification-icons" (click)="toggle('dpdhl_favoriteApp')">
+      <i class="fa fa-heart"></i>
+      <span class="count">3</span>
+    </div>
+    <div class="notification-icons">
+      <i class="fa fa-cog"></i>
+    </div>
+  </div>
+  <div *ngIf="show" class="notification-sidebar-popover" [ngClass]="favoriteLabel ? 'favorite-class' : 'notification-class'">
+    <div class="notification-sidebar-popover-heading">
+      <b class="notification" *ngIf="notificationLabel">Alerts & Notifications </b>
+      <b class="notification" *ngIf="favoriteLabel">Favourite</b>
+      <div class="notification-view-all-container">
+        <span>
+          <a class="notification-view-all" (click)="closePopup()" [routerLink]="'/application/favorite'" *ngIf="favoriteLabel">
+            View All</a>
+          <a class="notification-view-all" (click)="closePopup()" [routerLink]="'/notifications'" *ngIf="notificationLabel">
+            View All</a>
+        </span>
+        <span class="notification-close" (click)="closePopup()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <ul *ngIf="favoriteLabel">
+      <div *ngFor="let app of Applist">
+
+        <div *ngIf="app.isFavorite" class="notification-sidebar-popover-list-item">
+          <span class="alert-icon">
+            <!-- <i class="fa fa-heart" [ngClass]="app.icon" aria-hidden="true"></i> -->
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </span>
+          <b class="notification-heading">
+            {{ app.appName }}</b>
+          <div class="notification-content">
+            <p class="notification-description pull-left">
+              {{ app.description }}
+            </p>
+            <p *ngIf="notificationLabel" class="notification-duration pull-right">
+              2d
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </ul>
+    <ul *ngIf="notificationLabel">
+      <li *ngFor="let option of NotificationList  | slice:0:3; let i=option" class="notification-sidebar-popover-list-item">
+        <span class="alert-icon">
+          <i class="fa fa-bell" [ngClass]="option.icon" aria-hidden="true"></i>
+        </span>
+        <b class="notification-heading">{{ option.title }}</b>
+        <div class="notification-content">
+          <span class="notification-description ">
+            {{ option.message }}
+          </span>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

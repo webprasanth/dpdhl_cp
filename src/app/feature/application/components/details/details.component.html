@@ -1,0 +1,234 @@
+<div class="container-fluid form-panel">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#1" data-toggle="tab">Onboard Single Application</a>
+    </li>
+    <li>
+      <a href="#2" data-toggle="tab">Onboard Bulk Application</a>
+    </li>
+  </ul>
+
+  <div class="tab-content ">
+    <div class="tab-pane active" id="1">
+      <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-panel-header">
+                <div class="title">
+                  {{ applicationData.id > 0 ? 'Edit' : 'Add' }} Application Details
+                </div>
+                <div class="multiple-edit" *ngIf="multipleEdit && multipleEdit.length > 1">
+                  <button type="button" [disabled]="slidesIndex == 0">
+                    <i (click)="decreaseEdit()" class="fa fa-chevron-left"></i>
+                  </button>
+                  <button type="button" [disabled]="multipleEdit.length - 1 == slidesIndex">
+                    <i (click)="increaseEdit()" class="fa fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row margin-top">
+            <div class="col-md-3 text-center">
+              <label for="upload" class="file-holder">
+                <div class="file-upload" *ngIf="!appImage">App Icon</div>
+                <img [src]="appImage" *ngIf="appImage" alt="app Image" /> Upload/Change Icon
+                <span class="fa fa-upload" aria-hidden="true"></span>
+                <input type="file" id="upload" accept="image/png, image/jpeg" (change)="handleUpload($event)"
+                  style="display:none" />
+
+                <div *ngIf="fileUploadMessage" class="error">
+                  File exceeded the maximum size
+                </div>
+              </label>
+              <div class="maxProfileSize">Max size
+                <strong>2mb</strong> | Format
+                <strong>JPEG, PNG</strong>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="name"> Application Name:
+                  <sup>*</sup>
+                </label>
+                <input type="text" class="form-control" formControlName="appName" id="name"
+                  placeholder="Application Name" dpdhlChractersOnly />
+                <div *ngIf="formCtrl.appName.touched && formCtrl.appName.errors" class="invalid-feedback">
+                  <div *ngIf="formCtrl.appName.errors.required" class="form-error-msg"> App Name is required .</div>
+                </div>
+              </div>
+              <div class="form-group form-group-textarea">
+                <label class="control-label" for="description">Description:</label>
+                <textarea class="form-control" formControlName="appDescription" rows="3" id="description"
+                  placeholder="Write Description"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="url"> Application URL<sup>*</sup>:</label>
+                <input type="text" class="form-control" formControlName="url" id="url" placeholder="Application URL" />
+              </div>
+              <!-- <div class="radioButton">
+                
+                <input 
+                (click)="showResourceGroup()"  type="radio" name="userOption"> Existing User
+                <input type="radio" name="userOption"  (click)="onSelectionChange()"checked> New User</div>
+              <div class="form-group" *ngIf="resourceGroupListData">
+                <label for="Business">Resource Group:
+                  <sup>*</sup>
+                </label>
+                <mat-form-field>
+                  <mat-select formControlName="resourceGroupName" placeholder="Select Resource group" (selectionChange)="onResourceSelect($event.value)"
+                    class="form-control">
+                    <mat-option *ngFor="let resource of ResourceGroup" [value]="resource.name">
+                      {{ resource.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="formCtrl.resourceGroupName.touched && formCtrl.resourceGroupName.errors" class="invalid-feedback">
+                  <div *ngIf="formCtrl.resourceGroupName.errors.required" class="form-error-msg"> Resource Group is required .</div>
+                </div>
+              </div> -->
+            </div>
+            <div class="col-md-4 col-md-offset-1">
+              <div class="form-group">
+                <label for="buID">BU Name:</label>
+                <mat-form-field>
+                  <!-- <mat-select placeholder="Select Business unit" class="form-control" formControlName="buID"> -->
+                  <mat-select placeholder="Select Business unit" class="form-control"
+                    (selectionChange)="onBUSelection($event.value)" formControlName="parentID">
+                    <mat-option [value]="null">Select Business unit</mat-option>
+                    <mat-option *ngFor="let buName of BUList" [value]="buName.id">
+                      {{ buName.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="formCtrl.buID.touched && formCtrl.buID.errors" class="invalid-feedback">
+                  <div *ngIf="formCtrl.buID.errors.required" class="form-error-msg"> BU Name is required .</div>
+                </div>
+              </div>
+
+              <div class="form-group form-group-search">
+                <label for="appOwner">App Owner Name
+                  <sup>*</sup>
+                </label>
+                <input type="text" class="form-control" formControlName="appOwner" id="appOwner"
+                  placeholder="Application Owner" />
+                <button type="button" (click)="searchBUOwner()">
+                  <i class="fa fa-search"></i>
+                </button>
+
+                <div *ngIf="BUHeadStatus" class="form-error-msg">
+                  Application Owner not registered
+                </div>
+                <div *ngIf="
+                    applicationForm.controls['appOwner'].errors &&
+                    !applicationForm.controls['appOwner'].pristine
+                  " class="form-error-msg">
+                  <div [hidden]="
+                      !applicationForm.controls['appOwner'].errors.required
+                    ">
+                    Email is required.
+                  </div>
+                  <div [hidden]="
+                      !applicationForm.controls['appOwner'].errors.email
+                    ">
+                    Email is invalid.
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="form-group">
+                <label for="group" class="control-label">App Group Name:</label>
+                <input type="text" class="form-control" formControlName="appGroupName" id="group" placeholder="Appication Group" />
+              </div> -->
+
+              <div class="form-group">
+                <label for="buID">Application Vertical:
+                  <sup>*</sup>
+                </label>
+                <mat-form-field>
+                  <mat-select placeholder="Select App group name" class="form-control" formControlName="appGroupName">
+                    <mat-option *ngFor="let buName of appGroupList" [value]="buName">
+                      {{ buName }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="formCtrl.appGroupName.touched && formCtrl.appGroupName.errors" class="invalid-feedback">
+                  <div *ngIf="formCtrl.appGroupName.errors.required" class="form-error-msg"> App Group Name is required
+                    .
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="name"> App Creator Name :</label>
+                <input type="text" class="form-control" formControlName="appCreatedBy" id="name"
+                  placeholder="Application creator" />
+              </div>
+
+              <div class="form-group"
+                *ngIf="applicationForm.controls['parentName'].value && applicationForm.controls['parentName'].value != ''">
+                <label for="parentName"> Associated To:</label>
+                <input type="text" class="form-control" formControlName="parentName" id="parentName" />
+              </div>
+            </div>
+          </div>
+
+          <label for="name" *ngIf="ResourceList && ResourceList.length > 0"> Azure Component: </label>
+          <div class="row" class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+            <table *ngIf="ResourceList && ResourceList.length > 0" class="table table-details table-striped mb-0">
+              <thead>
+                <tr>
+                  <th>Resource Name</th>
+                  <th>Resource Type</th>
+                  <th>Tier</th>
+                  <th>Creation date</th>
+                  <th>Region</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let resource of ResourceList; let i = index">
+                  <td>
+                    {{ resource.name}}
+                  </td>
+                  <td>
+                    {{ resource.type }}
+                  </td>
+                  <td>
+                    {{ resource?.sku?.tier }}
+                  </td>
+                  <td>
+                    {{ resource.createdTime | date: 'MM/dd/yy' }}
+                  </td>
+                  <td>
+                    {{ resource.location }}
+                  </td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="form-group form-button">
+              <div class="col-sm-offset-8 col-sm-4">
+                <button type="button" class="btn btn-default" [routerLink]="'/application'">
+                  Cancel
+                </button>
+                <button type="submit" [disabled]="applicationForm.invalid || !applicationForm.dirty"
+                  class="btn btn-primary">
+                  {{ applicationData.id > 0 ? 'Update' : 'Create' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="tab-pane" id="2">
+      <dpdhl-bulk-upload (uplaodAppData)="buldUploadData($event)"></dpdhl-bulk-upload>
+    </div>
+  </div>
+</div>
+<dpdhl-pop-up *ngIf="popUpVisibility" [popUpConfig]="popUpConfig" (popUpAction)="popUpEvent($event)"></dpdhl-pop-up>

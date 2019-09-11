@@ -1,0 +1,43 @@
+
+  .nav>li>a{
+    padding: 15px 0;
+    width: 200px;
+    text-align: center;
+  }
+  .nav-tabs li a{
+      font-size: 15px;
+      font-weight: bold;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+  }
+  .nav-tabs>li.active>a{
+      background: #fff;
+  }
+  .nav-tabs>li>a{ 
+      background: #eee;
+  }
+  .tab-content{
+      background: #fff;   
+      position: relative;
+  }
+  .tab-content>.tab-pane{
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      padding-bottom: 2em;
+  }
+  
+  .margin-top12{
+    margin-top: 14px;
+  }
+  .filter-class{
+    margin-bottom: -35px;
+    margin-top: 20px;
+  }
+  .page-title {
+    font-size: 21px;
+    font-weight: bold;
+  }

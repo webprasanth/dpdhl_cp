@@ -1,0 +1,143 @@
+.graph-area-container {
+  background-color: white;
+  border: 0 solid #d7e0f1;
+  border-radius: 8px;
+  padding: 0;
+  min-height: 340px;
+  box-shadow: 0px 3px 4px #c4d9e2;
+  hr {
+    margin-top: 12px;
+  }
+}
+.graph-title{
+  font-size: 16px;
+  position: relative;
+  font-weight: bold;
+  margin: 0 0 10px;
+  border-bottom: 1px solid #eee;
+  padding:10px;
+  padding:15px 20px 10px;
+  color: #000;
+} 
+.datepicker-container{
+  position: relative;
+  float: right;
+  right: 20px;
+  .mat-input-element{ 
+    border: none;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    text-align: center;
+    width: 75px;
+    margin: 0;
+    padding: 0;
+  }
+  .mat-icon-button{
+    width: 20px;
+    height: 20px; 
+    line-height: 20px;
+    margin-left: 10px;
+  }
+  .fa{
+    font-size: 10px;
+    cursor: pointer;
+  }
+}
+.datepicker-container .mat-icon-button{
+  margin: 0;
+}
+.datepicker-container .mat-icon-button svg{
+  width: 18px;
+}  
+/*Responsive CSS*/
+@media screen and (min-width:320px) and (max-width:767px) { 
+  .graph-area-container {  
+    margin: 5px 0; 
+   // padding: 1rem; 
+    .user-onboarded-text {
+      padding: 0px 0px;
+      width: 170px;
+      .mat-select-value-text {
+        font-size: 1.5rem;
+      }
+    }
+    .graph-chart-icon {
+      position: absolute;
+      right: 0;
+      top: -30px;
+    }
+    .updated-year {
+      padding: 0;
+    }
+    .graph-choose-year {
+      position: absolute;
+      right: 0;
+      top: -34px;
+      .user-onboarded-text {
+        width: 90px;
+      }
+    }
+  }
+  .graph-area-container {
+    .graph-legend {
+      .user-onboarded-circle{
+        left: 80px;
+      }
+    }
+  }
+} 
+.nvd3 .tick text {
+  font: normal 12px Arial, sans-serif;
+  fill: #6d7278;
+  font-size: 10px;
+  font-family: 'Delivery';
+  font-weight: bold;
+}
+
+.nvtooltip{
+  color:#fff!important;
+  background: #d40511 !important;
+  font-family:  'Delivery'!important;
+  font-weight: bold!important;
+  border: none!important;
+}
+.nvd3 .nv-multibar .nv-groups rect:hover, .nvd3 .nv-multibarHorizontal .nv-groups rect:hover, .nvd3 .nv-multiBar .nv-ticks rect:hover, .nvd3 .nv-multibar{
+  fill: #ffcc00 !important;
+}
+.nvd3 .nv-multibar .nv-groups rect{
+  width: 25px!important;
+}
+
+.noDataMsg{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  p{
+      margin: 25px 0;
+      font-family: 'Delivery_Regular';
+      font-size: 12px;
+      width: 60%;
+      text-align: center;
+  }
+  i{
+      color: #a5a5a5;
+      font-size: 16px;
+      margin-right: 10px;
+      position: relative;
+      top: 1px;
+  }
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+	.graph-area-container {
+		margin-bottom: 2rem;
+	}
+}
+@media screen and (min-width:1024px) and (max-width:1259px) {
+  .graph-area-container{
+    margin-top: 15px;
+  }
+}

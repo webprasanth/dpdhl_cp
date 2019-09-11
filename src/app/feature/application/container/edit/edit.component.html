@@ -1,0 +1,19 @@
+<div class="page-title">
+  Application
+</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/application'">
+      <i class="fa fa-list"></i>&nbsp;Application List
+    </button>
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-share-alt"></i>&nbsp;Edit Application
+    </button>
+  </div>
+</div>
+<div class="onboardingBlock">
+  <dpdhl-details [applicationData]="applicationData" [BUList]="BUList" [ResourceGroup]="ResourceGroup"
+    [ResourceList]="ResourceList" [BUHeadStatus]="BUHeadStatus" [multipleEdit]="multipleEdit"
+    [slidesIndex]="slidesIndex" [editNavigation]="editNavigation" (checkAppOwner)="searchBUHead($event)"
+    (getRoleGroup)="getRoleGroup($event)" (applicationFormData)="updateApplication($event)"></dpdhl-details>
+</div>

@@ -1,0 +1,153 @@
+<div class="container-fluid form-panel">
+  <div class="row extCompBlk">
+    <form [formGroup]="inviteExternalForm" (ngSubmit)="sendInvite()" novalidate>
+      <div class="col-md-5 mt-50">
+        <h3 class="display-title">
+          Single Ext User Invite
+          <!-- <p class="groupNameTitle">User Group name: <strong>Shop Owner
+            UG</strong></p> -->
+        </h3>
+        <div class="form-group">
+          <label for="emailId">Enter Email: </label>
+          <input
+            type="email"
+            formControlName="emailId"
+            (focusout)="checkAddedUser()"
+            class="form-control"
+            name="emailId"
+            id="emailId"
+          />
+          <div class="form-error-msg" *ngIf="existuser">
+            User already added to application.
+          </div>
+          <div
+            *ngIf="
+              inviteExternalForm.controls['emailId'].touched &&
+              inviteExternalForm.controls['emailId'].errors
+            "
+          >
+            <div
+              *ngIf="inviteExternalForm.controls['emailId'].errors.required"
+              class="form-error-msg"
+            >
+              Email is required.
+            </div>
+            <div
+              *ngIf="inviteExternalForm.controls['emailId'].errors.email"
+              class="form-error-msg"
+            >
+              Email is invalid.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="displayName">Enter Full Name: </label>
+          <input
+            type="text"
+            formControlName="displayName"
+            class="form-control"
+            name="displayName"
+            id="displayName"
+          />
+          <div
+            *ngIf="
+              inviteExternalForm.controls['displayName'].errors &&
+              !inviteExternalForm.controls['displayName'].pristine
+            "
+            class="form-error-msg"
+          >
+            <div
+              [hidden]="
+                !inviteExternalForm.controls['displayName'].errors.required
+              "
+            >
+              Full Name is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Enter Phone Number: </label>
+          <input
+            type="text"
+            formControlName="phone"
+            class="form-control"
+            name="phone"
+            id="phone"
+            dpdhlNumberOnly
+            minlength="10"
+            maxlength="12"
+          />
+          <div
+            *ngIf="
+              inviteExternalForm.controls['phone'].errors &&
+              !inviteExternalForm.controls['phone'].pristine
+            "
+            class="form-error-msg"
+          >
+            <div
+              [hidden]="!inviteExternalForm.controls['phone'].errors.required"
+            >
+              Enter Phone Number
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividerBlk">
+        <span>Or</span>
+      </div>
+      <div class="col-md-7 mt-50 pl-75">
+        <!-- <div class="upload-drop-zone file-upload">
+        Drag files to Upload
+        <label for="singleFile" style="color:red">/Click to browse</label>
+        <input type="file" (change)="onFileChange($event)" #fileInput />
+      </div> -->
+        <h3 class="display-title">
+          Bulk Ext Users Invite
+          <button type="submit" class="btn btn-default btnDownloadTemp">
+            <a
+              href="https://cpiconsfilesblobstorage.blob.core.windows.net/cpappdevfactemplates/inviteUser.xlsx"
+            >
+              <img
+                src="./../../../../assets/images/downloadTemplateIco.png"
+                alt=""
+              />
+              Download Template
+            </a>
+          </button>
+        </h3>
+        <div class="fileUploadBox">
+          <label class="file-holder" for="upload">
+            <input
+              id="upload"
+              style="display:none"
+              type="file"
+              (change)="onFileChange($event)"
+              #fileInput
+            />
+            <div class="file-upload">
+              <div class="innerFileUpload">
+                <i class="fa fa-arrow-circle-o-down"></i>
+                <p>Drag Files to Upload <span>Browse Files</span></p>
+              </div>
+            </div>
+          </label>
+        </div>
+        <div *ngIf="errorMessage" style="color:red">
+          <p>Please uplaod valid XLSX file</p>
+        </div>
+      </div>
+      <div class="form-group button-group">
+        <button type="button" [routerLink]="['/users']" class="btn cancelBtn">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="inviteExternalForm.invalid || existuser"
+          class="btn inviteBtn"
+        >
+          Invite
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

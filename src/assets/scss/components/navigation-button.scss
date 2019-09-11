@@ -1,0 +1,47 @@
+.navigation-button-group {
+  position: relative;
+  height: 50px;
+  margin-top: 15px;
+  height: 35px;
+  margin: 0 0 10px;
+  .btn-group {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    .btn {
+      border-color: #fecb07;
+      border-width: 2px;
+      background: #fff;
+      box-shadow: none;
+      padding: 10px 10px 5px;
+      font-weight: bold;
+      font-size: 12px;
+  
+      &.active { 
+        background: #fecb07;
+      }
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+/*Responsive CSS*/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .navigation-button-group{
+    margin: 0;
+  }
+  .navigation-button-group .btn-group{
+    width: 100%;
+  }
+  .navigation-button-group .btn-group .btn
+  { 
+    display: inline-block;
+    width: 50%;
+    padding: 7px 0 5px;
+  }
+  .navigation-button-group .btn-group .btn i{
+    margin-right: 2px;
+  }
+} 

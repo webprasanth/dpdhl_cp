@@ -1,0 +1,54 @@
+<div class="page-title">User Onboarding</div>
+<div class="navigation-button-group navigation-user-list">
+  <div class="btn-group" role="group" aria-label="...">
+    <button
+      type="button"
+      class="btn btn-default active"
+      [routerLink]="'/users'"
+    >
+      <i class="fa fa-list"></i>&nbsp;User List
+    </button>
+    <button
+      *ngIf="appUser !== 'Default App User Role'"
+      type="button"
+      class="btn btn-"
+      [routerLink]="'/users/group-list'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;User Group List
+    </button>
+    <button
+      *ngIf="appUser !== 'Default App User Role'"
+      type="button"
+      class="btn btn-default"
+      [routerLink]="'/users/onboard/0'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;User Onboarding
+    </button>
+    <button
+      *ngIf="appUser !== 'Default App User Role'"
+      type="button"
+      class="btn btn-default"
+      [routerLink]="'/users/ext-invite'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Invite Ext User
+    </button>
+  </div>
+</div>
+<div class="matGridControlBlk">
+  <dpdhl-mat-grid
+    *ngIf="role.user_list_view || userListView"
+    [displayedColumns]="displayedColumns"
+    [data]="userList"
+    [configuration]="configuration"
+    [popUpConfig]="popUpConfig"
+    (editEvent)="editUser($event)"
+    (deleteEvent)="deleteUser($event)"
+    (viewEvent)="viewUserDetails($event)"
+  >
+  </dpdhl-mat-grid>
+</div>
+<dpdhl-view
+  *ngIf="viewUserPopup"
+  [viewUserDetails]="userAppdata"
+  (closeView)="closePopup($event)"
+></dpdhl-view>

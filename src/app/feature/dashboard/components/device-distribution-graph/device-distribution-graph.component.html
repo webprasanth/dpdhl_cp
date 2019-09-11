@@ -1,0 +1,60 @@
+<div class="deviceDistGraphBlk">
+  <div class="graph-area-sub-container">
+    <h3 class="graph-title">
+      Device Distribution
+    </h3>
+    <div class="datepicker-container" [formGroup]="graphUserData">
+      <input
+        matInput
+        [matDatepicker]="fromDatepicker"
+        formControlName="fromDate"
+        [max]="maxDate"
+        (dateChange)="fromDateEvent('change', $event)"
+        placeholder="mm/dd/yy"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="fromDatepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #fromDatepicker></mat-datepicker>
+
+      <input
+        matInput
+        [matDatepicker]="toDatepicker"
+        [min]="minDate"
+        [max]="maxDate"
+        (dateChange)="toDateEvent('change', $event)"
+        formControlName="toDate"
+        placeholder="mm/dd/yy"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="toDatepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #toDatepicker></mat-datepicker>
+    </div>
+    <nvd3
+      *ngIf="
+        deviceDestributionGraphDataList &&
+        deviceDestributionGraphDataList.length > 0
+      "
+      [options]="options"
+      [data]="data"
+    ></nvd3>
+    <div
+      class="noDataMsg"
+      *ngIf="
+        deviceDestributionGraphDataList &&
+        deviceDestributionGraphDataList.length == 0
+      "
+    >
+      <p>
+        <i class="fa fa-info-circle"></i>No Devices has been Onboarded during
+        the selected date range
+      </p>
+    </div>
+    <p class="totalDevice">
+      Total Devices: <strong>{{ totalDevice }} </strong>
+    </p>
+  </div>
+</div>

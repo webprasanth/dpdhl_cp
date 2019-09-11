@@ -1,0 +1,1821 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>common-platform documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">common-platform documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>OnboardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/feature/users/components/onboard/onboard.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>dpdhl-onboard</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./onboard.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./onboard.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createGroupForm">createGroupForm</a>
+                            </li>
+                            <li>
+                                <a href="#emailExist">emailExist</a>
+                            </li>
+                            <li>
+                                <a href="#showAddUser">showAddUser</a>
+                            </li>
+                            <li>
+                                <a href="#step">step</a>
+                            </li>
+                            <li>
+                                <a href="#userAdded">userAdded</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addUser">addUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onChildSelect">onChildSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onParentSelect">onParentSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit">onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#removeAddedUser">removeAddedUser</a>
+                            </li>
+                            <li>
+                                <a href="#searchEmailId">searchEmailId</a>
+                            </li>
+                            <li>
+                                <a href="#searchUserGroup">searchUserGroup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#BUHeadStatus">BUHeadStatus</a>
+                            </li>
+                            <li>
+                                <a href="#buList">buList</a>
+                            </li>
+                            <li>
+                                <a href="#childEntity">childEntity</a>
+                            </li>
+                            <li>
+                                <a href="#emailData">emailData</a>
+                            </li>
+                            <li>
+                                <a href="#groupNameExists">groupNameExists</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addUserGroup">addUserGroup</a>
+                            </li>
+                            <li>
+                                <a href="#registeredEmail">registeredEmail</a>
+                            </li>
+                            <li>
+                                <a href="#selectedBU">selectedBU</a>
+                            </li>
+                            <li>
+                                <a href="#selectedChild">selectedChild</a>
+                            </li>
+                            <li>
+                                <a href="#verifyUserGroup">verifyUserGroup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BUHeadStatus"></a>
+                        <b>BUHeadStatus</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:12</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buList"></a>
+                        <b>buList</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:10</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="childEntity"></a>
+                        <b>childEntity</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:11</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emailData"></a>
+                        <b>emailData</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="groupNameExists"></a>
+                        <b>groupNameExists</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addUserGroup"></a>
+                        <b>addUserGroup</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="registeredEmail"></a>
+                        <b>registeredEmail</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedBU"></a>
+                        <b>selectedBU</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedChild"></a>
+                        <b>selectedChild</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="verifyUserGroup"></a>
+                        <b>verifyUserGroup</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addUser"></a>
+                    <span class="name">
+                        <b>
+                            addUser
+                        </b>
+                        <a href="#addUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChildSelect"></a>
+                    <span class="name">
+                        <b>
+                            onChildSelect
+                        </b>
+                        <a href="#onChildSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChildSelect(value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onParentSelect"></a>
+                    <span class="name">
+                        <b>
+                            onParentSelect
+                        </b>
+                        <a href="#onParentSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onParentSelect(value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <b>
+                            onSubmit
+                        </b>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAddedUser"></a>
+                    <span class="name">
+                        <b>
+                            removeAddedUser
+                        </b>
+                        <a href="#removeAddedUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeAddedUser(i)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>i</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchEmailId"></a>
+                    <span class="name">
+                        <b>
+                            searchEmailId
+                        </b>
+                        <a href="#searchEmailId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchEmailId()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchUserGroup"></a>
+                    <span class="name">
+                        <b>
+                            searchUserGroup
+                        </b>
+                        <a href="#searchUserGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchUserGroup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createGroupForm"></a>
+                        <span class="name">
+                            <b>
+                            createGroupForm</b>
+                            <a href="#createGroupForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emailExist"></a>
+                        <span class="name">
+                            <b>
+                            emailExist</b>
+                            <a href="#emailExist"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showAddUser"></a>
+                        <span class="name">
+                            <b>
+                            showAddUser</b>
+                            <a href="#showAddUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="step"></a>
+                        <span class="name">
+                            <b>
+                            step</b>
+                            <a href="#step"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userAdded"></a>
+                        <span class="name">
+                            <b>
+                            userAdded</b>
+                            <a href="#userAdded"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/feature/users/components/onboard/onboard.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
+
+@Component({
+  selector: &#x27;dpdhl-onboard&#x27;,
+  templateUrl: &#x27;./onboard.component.html&#x27;,
+  styleUrls: [&#x27;./onboard.component.scss&#x27;]
+})
+export class OnboardComponent implements OnInit {
+  @Input() buList: any;
+  @Input() childEntity: any;
+  @Input() BUHeadStatus: boolean;
+  @Input() emailData: any;
+  @Input() groupNameExists: any;
+
+  @Output() selectedBU: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() selectedChild: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() registeredEmail: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() addUserGroup: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() verifyUserGroup: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  createGroupForm: FormGroup;
+  step: boolean &#x3D; true;
+  userAdded: Array&lt;any&gt; &#x3D; [];
+  emailExist: boolean &#x3D; false;
+  showAddUser: boolean &#x3D; false;
+  constructor(private _fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.createGroupForm &#x3D; this._fb.group({
+      groupName: [&#x27;&#x27;],
+      emailId: [&#x27;&#x27;],
+      users: [&#x27;&#x27;],
+      newGroup: [&#x27;&#x27;],
+      businessUnit: [&#x27;&#x27;],
+      application: [&#x27;&#x27;]
+    });
+  }
+
+  onParentSelect(value) {
+    this.selectedBU.emit(value);
+  }
+
+  onChildSelect(value) {
+    if (value.type !&#x3D; &#x27;Application&#x27;) {
+      this.createGroupForm.patchValue({
+        application: value
+      });
+      this.selectedChild.emit(value);
+    }
+  }
+
+  searchEmailId() {
+    this.registeredEmail.emit(this.createGroupForm.get(&#x27;emailId&#x27;).value);
+  }
+
+  addUser() {
+    var index &#x3D; this.userAdded.findIndex(
+      obj &#x3D;&gt; obj.mail &#x3D;&#x3D; this.createGroupForm.get(&#x27;emailId&#x27;).value
+    );
+    if (index &#x3D;&#x3D; -1) {
+      this.userAdded.push(this.emailData);
+      this.createGroupForm.patchValue({
+        emailId: &#x27;&#x27;
+      });
+      this.emailData &#x3D; &#x27;&#x27;;
+      this.emailExist &#x3D; false;
+    } else {
+      this.emailExist &#x3D; true;
+    }
+  }
+
+  removeAddedUser(i) {
+    this.userAdded.splice(i, 1);
+  }
+
+  searchUserGroup() {
+    this.verifyUserGroup.emit(this.createGroupForm.get(&#x27;groupName&#x27;).value);
+  }
+
+  onSubmit() {
+    this.createGroupForm.patchValue({
+      users: this.userAdded
+    });
+    this.addUserGroup.emit(this.createGroupForm.getRawValue());
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid form-panel&quot;&gt;
+  &lt;form [formGroup]&#x3D;&quot;createGroupForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+    &lt;div class&#x3D;&quot;titleGroup&quot;&gt;
+      &lt;hr /&gt;
+      &lt;label for&#x3D;&quot;Business&quot;&gt;&lt;span&gt;1&lt;/span&gt;Select Entity&lt;/label&gt;
+      &lt;label for&#x3D;&quot;AddUser&quot;&gt;&lt;span&gt;2&lt;/span&gt;Add user&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot; *ngIf&#x3D;&quot;step&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-lg-6&quot;&gt;
+          &lt;div class&#x3D;&quot;onBoardUserBlk&quot;&gt;
+            &lt;ol class&#x3D;&quot;breadcrumb&quot;&gt;
+              &lt;li&gt;&lt;a class&#x3D;&quot;breadcrumb&quot; href&#x3D;&quot;#&quot;&gt;All BU&lt;/a&gt;&lt;/li&gt;
+              &lt;li class&#x3D;&quot;visible ng-star-inserted&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot;&gt;Example_1&lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ol&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+              &lt;label for&#x3D;&quot;ChildEntity&quot;&gt;Select Child Entity: &lt;/label&gt;
+              &lt;mat-form-field&gt;
+                &lt;mat-select
+                  placeholder&#x3D;&quot;Select Entity Name&quot;
+                  formControlName&#x3D;&quot;businessUnit&quot;
+                  (selectionChange)&#x3D;&quot;onParentSelect($event.value)&quot;
+                  class&#x3D;&quot;form-control&quot;
+                &gt;
+                  &lt;mat-option *ngFor&#x3D;&quot;let bu of buList&quot; [value]&#x3D;&quot;bu&quot;&gt;
+                    {{ bu.name }}
+                  &lt;/mat-option&gt;
+                &lt;/mat-select&gt;
+              &lt;/mat-form-field&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group&quot; *ngIf&#x3D;&quot;childEntity &amp;&amp; childEntity.length&quot;&gt;
+              &lt;label for&#x3D;&quot;ChildEntity&quot;&gt;Select Child Entity: &lt;/label&gt;
+              &lt;mat-form-field&gt;
+                &lt;mat-select
+                  placeholder&#x3D;&quot;Select Entity Name&quot;
+                  formControlName&#x3D;&quot;application&quot;
+                  (selectionChange)&#x3D;&quot;onChildSelect($event.value)&quot;
+                  class&#x3D;&quot;form-control&quot;
+                &gt;
+                  &lt;mat-option *ngFor&#x3D;&quot;let child of childEntity&quot; [value]&#x3D;&quot;child&quot;&gt;
+                    {{ child.name }}
+                  &lt;/mat-option&gt;
+                &lt;/mat-select&gt;
+              &lt;/mat-form-field&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-lg-6&quot;&gt;
+          &lt;div class&#x3D;&quot;dividerBlk&quot;&gt;
+            &lt;span&gt;or&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;createGroupTreeBlk&quot;&gt;
+            &lt;h4&gt;
+              View/Create Group&lt;i
+                class&#x3D;&quot;fa fa-users&quot;
+                (click)&#x3D;&quot;showAddUser &#x3D; !showAddUser&quot;
+              &gt;&lt;/i&gt;
+            &lt;/h4&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;expandLnk&quot;&gt;Expand All&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;form-group form-group-action&quot;&gt;
+            &lt;!--button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn&quot;&gt;Create Group&lt;/button--&gt;
+            &lt;button
+              type&#x3D;&quot;button&quot;
+              (click)&#x3D;&quot;step &#x3D; !step&quot;
+              class&#x3D;&quot;btn nextOnboardBtn&quot;
+              [disabled]&#x3D;&quot;
+                createGroupForm.controls[&#x27;groupName&#x27;].value &#x3D;&#x3D; &#x27;&#x27; ||
+                createGroupForm.controls[&#x27;businessUnit&#x27;].value &#x3D;&#x3D; &#x27;&#x27;
+              &quot;
+            &gt;
+              Next
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;overlayBlk&quot; *ngIf&#x3D;&quot;showAddUser&quot;&gt;
+          &lt;div class&#x3D;&quot;overlayContentBlk&quot;&gt;
+            &lt;h4&gt;
+              Create User Entity/Group&lt;span (click)&#x3D;&quot;showAddUser &#x3D; !showAddUser&quot;
+                &gt;x&lt;/span
+              &gt;
+            &lt;/h4&gt;
+            &lt;div class&#x3D;&quot;form-group form-group-search&quot;&gt;
+              &lt;label for&#x3D;&quot;CreateGroup&quot;&gt;Enter Group Name: &lt;/label&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                class&#x3D;&quot;form-control&quot;
+                formControlName&#x3D;&quot;groupName&quot;
+                id&#x3D;&quot;CreateGroup&quot;
+              /&gt;
+              &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;searchUserGroup()&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-search&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;div class&#x3D;&quot;form-error-msg&quot; *ngIf&#x3D;&quot;groupNameExists.errorMsg&quot;&gt;
+                Group Name Already Exist
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;createOBBtnBlk&quot;&gt;
+              &lt;button
+                type&#x3D;&quot;button&quot;
+                [disabled]&#x3D;&quot;groupNameExists.disableProperty&quot;
+                class&#x3D;&quot;createOBLnk&quot;
+                (click)&#x3D;&quot;showAddUser &#x3D; !showAddUser&quot;
+              &gt;
+                Create
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot; *ngIf&#x3D;&quot;!step&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-8&quot;&gt;
+          &lt;div class&#x3D;&quot;onBoardUserBlk&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group form-group-search&quot;&gt;
+              &lt;label for&#x3D;&quot;emailId&quot;&gt;Email Id: &lt;/label&gt;
+              &lt;input
+                type&#x3D;&quot;email&quot;
+                formControlName&#x3D;&quot;emailId&quot;
+                class&#x3D;&quot;form-control&quot;
+                name&#x3D;&quot;emailId&quot;
+                id&#x3D;&quot;emailId&quot;
+              /&gt;
+              &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;searchEmailId()&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-search&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;i class&#x3D;&quot;fa fa-user-plus&quot; (click)&#x3D;&quot;addUser()&quot;&gt;&lt;/i&gt;
+              &lt;div *ngIf&#x3D;&quot;BUHeadStatus&quot; class&#x3D;&quot;form-error-msg&quot;&gt;
+                Email not registered
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;emailExist&quot; class&#x3D;&quot;form-error-msg&quot;&gt;
+                Email already add to the group
+              &lt;/div&gt;
+              &lt;div
+                *ngIf&#x3D;&quot;
+                  createGroupForm.controls[&#x27;emailId&#x27;].errors &amp;&amp;
+                  !createGroupForm.controls[&#x27;emailId&#x27;].pristine
+                &quot;
+                class&#x3D;&quot;form-error-msg&quot;
+              &gt;
+                &lt;div
+                  [hidden]&#x3D;&quot;!createGroupForm.controls[&#x27;emailId&#x27;].errors.email&quot;
+                &gt;
+                  Email is invalid.
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+              &lt;label for&#x3D;&quot;userName&quot;&gt;User Name: &lt;/label&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                class&#x3D;&quot;form-control&quot;
+                name&#x3D;&quot;userName&quot;
+                id&#x3D;&quot;userName&quot;
+                [disabled]&#x3D;&quot;true&quot;
+                value&#x3D;&quot;{{
+                  emailData?.displayName ? emailData.displayName : &#x27;&#x27;
+                }}&quot;
+              /&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+              &lt;label for&#x3D;&quot;address&quot;&gt;Address: &lt;/label&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                class&#x3D;&quot;form-control&quot;
+                name&#x3D;&quot;address&quot;
+                id&#x3D;&quot;address&quot;
+                [disabled]&#x3D;&quot;true&quot;
+                value&#x3D;&quot;{{
+                  emailData?.streetAddress ? emailData.streetAddress : &#x27;&#x27;
+                }}&quot;
+              /&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+              &lt;label for&#x3D;&quot;location&quot;&gt;Location: &lt;/label&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                class&#x3D;&quot;form-control&quot;
+                name&#x3D;&quot;location&quot;
+                id&#x3D;&quot;location&quot;
+                [disabled]&#x3D;&quot;true&quot;
+                value&#x3D;&quot;{{
+                  emailData?.usageLocation ? emailData.usageLocation : &#x27;&#x27;
+                }}&quot;
+              /&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group form-group-action&quot;&gt;
+              &lt;button
+                type&#x3D;&quot;button&quot;
+                (click)&#x3D;&quot;step &#x3D; !step&quot;
+                class&#x3D;&quot;btn backOnboardBtn&quot;
+              &gt;
+                Back
+              &lt;/button&gt;
+              &lt;button
+                [disabled]&#x3D;&quot;userAdded &amp;&amp; userAdded.length &#x3D;&#x3D; 0&quot;
+                type&#x3D;&quot;submit&quot;
+                class&#x3D;&quot;btn submitOnboardBtn&quot;
+              &gt;
+                Submit
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+          &lt;div class&#x3D;&quot;application-owner&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt;
+              View Added User
+              &lt;span&gt;Invite User&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;content&quot; *ngFor&#x3D;&quot;let user of userAdded; let i &#x3D; index&quot;&gt;
+              &lt;div class&#x3D;&quot;user-icon&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-user-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span class&#x3D;&quot;notification&quot;&gt;2&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;user-details&quot;&gt;
+                &lt;div class&#x3D;&quot;user-details-name&quot;&gt;{{ user.givenName }}&lt;/div&gt;
+                &lt;div class&#x3D;&quot;user-details-text&quot;&gt;
+                  {{ user.department }}
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;user-action&quot; (click)&#x3D;&quot;removeAddedUser(i)&quot;&gt;
+                &lt;div class&#x3D;&quot;user-action-icon&quot;&gt;
+                  &lt;i class&#x3D;&quot;fa fa-trash&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;user-action-text&quot;&gt;&lt;a&gt;Remove&lt;/a&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./onboard.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.application-owner {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px grey;
+  padding: 10px;
+  min-height: 638px;
+  .title {
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    height: 40px;
+    position: relative;
+    padding-top: 10px;
+    span {
+      position: absolute;
+      padding: 5px 20px;
+      font-size: 14px;
+      border: 1px solid #d40511;
+      box-shadow: 0px 0px 2px#d40511;
+      padding: 5px 20px;
+      font-size: 14px;
+      border-radius: 8px;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+  .content {
+    margin: 15px 0;
+    min-height: 50px;
+    clear: both;
+    .user-icon {
+      position: relative;
+      margin-right: 20px;
+      margin-top: 3px;
+      float: left;
+      font-size: 45px;
+      color: #fecb07;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      span {
+        background-color: #d40511;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        border-radius: 8px;
+        color: #fff;
+        padding: 1px 0px 0px 4px;
+        font-size: 11px;
+        font-weight: bold;
+        right: -2px;
+      }
+    }
+    .user-details {
+      width: calc(100% - 150px);
+      padding-top: 10px;
+      float: left;
+      .user-details-name {
+        font-size: 16px;
+        color: #d40511;
+      }
+      .user-details-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .user-action {
+      float: right;
+      width: 70px;
+      padding-top: 10px;
+      .user-action-icon {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+.form-group-action {
+  height: auto;
+  display: block;
+  clear: both;
+  float: right;
+  margin: 1em 0 0;
+  .nextOnboardBtn,
+  .submitOnboardBtn {
+    background-color: #d40511;
+    color: #fff;
+    margin-right: 1rem;
+    padding: 0.5em 2em;
+  }
+  .nextOnboardBtn {
+    margin-right: 0;
+  }
+  .addOnboardBtn,
+  .backOnboardBtn {
+    background-color: #fff;
+    color: #d40511;
+    margin-right: 1rem;
+    padding: 0.5em 2em;
+    border: 2px solid #d40511;
+  }
+}
+.application-owner {
+  min-height: 420px;
+}
+.titleGroup {
+  width: 500px;
+  margin: auto;
+  padding: 1em 0;
+  position: relative;
+  hr {
+    position: absolute;
+    top: 5px;
+    width: 230px;
+    left: 135px;
+  }
+  label {
+    width: 50%;
+    text-align: center;
+    span {
+      display: block;
+      width: 25px;
+      height: 25px;
+      background: #eee;
+      line-height: 25px;
+      text-align: center;
+      border-radius: 100%;
+      margin: 0 auto 5px;
+    }
+  }
+}
+.createGroupTreeBlk {
+  border: 1px solid #ccc;
+  min-height: 400px;
+  padding: 2em;
+  h4 {
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 0.5em;
+    .fa-users {
+      background: #fecb07;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      font-size: 14px;
+      border-radius: 100%;
+      float: right;
+      position: relative;
+      top: -7px;
+    }
+  }
+  .expandLnk {
+    color: #d40511;
+    font-weight: bold;
+    margin: 1em 0;
+    font-size: 15px;
+    display: block;
+    text-decoration: none;
+  }
+}
+.dividerBlk {
+  position: absolute;
+  left: -9%;
+  height: 400px;
+  background: #e4e4e4;
+  width: 1px;
+  span {
+    width: 26px;
+    height: 26px;
+    background: #000;
+    color: #fff;
+    line-height: 26px;
+    display: block;
+    text-align: center;
+    border-radius: 100%;
+    font-weight: bold;
+    position: absolute;
+    top: 45%;
+    left: -13px;
+  }
+}
+.onBoardUserBlk {
+  width: 80%;
+  padding: 1em 0 0;
+  .breadcrumb {
+    background: transparent;
+    padding: 0;
+  }
+  .form-group {
+    .fa-user-plus {
+      background: #fecb07;
+      height: 34px;
+      position: absolute;
+      right: 1px;
+      top: 22px;
+      width: 36px;
+      text-align: center;
+      line-height: 34px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button {
+      right: 52px !important;
+    }
+  }
+}
+
+.overlayBlk {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0000008f;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .overlayContentBlk {
+    background: #fff;
+    width: 500px;
+    min-height: 100px;
+    margin: auto;
+    border-radius: 8px;
+    padding: 1em;
+    position: relative;
+    h4 {
+      font-weight: bold;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 0 0 0.5em;
+      margin-bottom: 1em;
+      position: relative;
+      span {
+        font-size: 18px;
+        position: absolute;
+        right: 0;
+        color: #999;
+        cursor: pointer;
+      }
+    }
+    .createOBBtnBlk {
+      background: #d40511;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      .createOBLnk {
+        color: #fff;
+        display: block;
+        padding: 0.75em 0;
+        text-decoration: none;
+        font-size: 15px;
+        background: transparent;
+        border: 0;
+        width: 100%;
+      }
+      &amp;:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+/*Responsive CSS*/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .application-owner {
+    min-height: auto;
+    .content {
+      .user-icon {
+        font-size: 32px;
+        margin-right: 0.75rem;
+      }
+      margin: 5px 0;
+      .user-details {
+        width: calc(100% - 105px);
+        padding-top: 10px;
+        .user-details-name {
+          font-size: 1em;
+        }
+      }
+      .user-action {
+        width: 60px;
+      }
+    }
+    .title {
+      padding-top: 5px;
+      span {
+        padding: 4px 10px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .application-owner {
+    min-height: auto;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1259px) {
+  .application-owner {
+    margin-top: 15px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid form-panel">  <form [formGroup]="createGroupForm" (ngSubmit)="onSubmit()">    <div class="titleGroup">      <hr />      <label for="Business"><span>1</span>Select Entity</label>      <label for="AddUser"><span>2</span>Add user</label>    </div>    <div class="container-fluid" *ngIf="step">      <div class="row">        <div class="col-lg-6">          <div class="onBoardUserBlk">            <ol class="breadcrumb">              <li><a class="breadcrumb" href="#">All BU</a></li>              <li class="visible ng-star-inserted">                <a href="#">Example_1</a>              </li>            </ol>            <div class="form-group">              <label for="ChildEntity">Select Child Entity: </label>              <mat-form-field>                <mat-select                  placeholder="Select Entity Name"                  formControlName="businessUnit"                  (selectionChange)="onParentSelect($event.value)"                  class="form-control"                >                  <mat-option *ngFor="let bu of buList" [value]="bu">                    {{ bu.name }}                  </mat-option>                </mat-select>              </mat-form-field>            </div>            <div class="form-group" *ngIf="childEntity && childEntity.length">              <label for="ChildEntity">Select Child Entity: </label>              <mat-form-field>                <mat-select                  placeholder="Select Entity Name"                  formControlName="application"                  (selectionChange)="onChildSelect($event.value)"                  class="form-control"                >                  <mat-option *ngFor="let child of childEntity" [value]="child">                    {{ child.name }}                  </mat-option>                </mat-select>              </mat-form-field>            </div>          </div>        </div>        <div class="col-lg-6">          <div class="dividerBlk">            <span>or</span>          </div>          <div class="createGroupTreeBlk">            <h4>              View/Create Group<i                class="fa fa-users"                (click)="showAddUser = !showAddUser"              ></i>            </h4>            <a href="#" class="expandLnk">Expand All</a>          </div>          <div class="form-group form-group-action">            <!--button type="button" class="btn">Create Group</button-->            <button              type="button"              (click)="step = !step"              class="btn nextOnboardBtn"              [disabled]="                createGroupForm.controls[\'groupName\'].value == \'\' ||                createGroupForm.controls[\'businessUnit\'].value == \'\'              "            >              Next            </button>          </div>        </div>        <div class="overlayBlk" *ngIf="showAddUser">          <div class="overlayContentBlk">            <h4>              Create User Entity/Group<span (click)="showAddUser = !showAddUser"                >x</span              >            </h4>            <div class="form-group form-group-search">              <label for="CreateGroup">Enter Group Name: </label>              <input                type="text"                class="form-control"                formControlName="groupName"                id="CreateGroup"              />              <button type="button" (click)="searchUserGroup()">                <i class="fa fa-search"></i>              </button>              <div class="form-error-msg" *ngIf="groupNameExists.errorMsg">                Group Name Already Exist              </div>            </div>            <div class="createOBBtnBlk">              <button                type="button"                [disabled]="groupNameExists.disableProperty"                class="createOBLnk"                (click)="showAddUser = !showAddUser"              >                Create              </button>            </div>          </div>        </div>      </div>    </div>    <div class="container-fluid" *ngIf="!step">      <div class="row">        <div class="col-md-8">          <div class="onBoardUserBlk">            <div class="form-group form-group-search">              <label for="emailId">Email Id: </label>              <input                type="email"                formControlName="emailId"                class="form-control"                name="emailId"                id="emailId"              />              <button type="button" (click)="searchEmailId()">                <i class="fa fa-search"></i>              </button>              <i class="fa fa-user-plus" (click)="addUser()"></i>              <div *ngIf="BUHeadStatus" class="form-error-msg">                Email not registered              </div>              <div *ngIf="emailExist" class="form-error-msg">                Email already add to the group              </div>              <div                *ngIf="                  createGroupForm.controls[\'emailId\'].errors &&                  !createGroupForm.controls[\'emailId\'].pristine                "                class="form-error-msg"              >                <div                  [hidden]="!createGroupForm.controls[\'emailId\'].errors.email"                >                  Email is invalid.                </div>              </div>            </div>            <div class="form-group">              <label for="userName">User Name: </label>              <input                type="text"                class="form-control"                name="userName"                id="userName"                [disabled]="true"                value="{{                  emailData?.displayName ? emailData.displayName : \'\'                }}"              />            </div>            <div class="form-group">              <label for="address">Address: </label>              <input                type="text"                class="form-control"                name="address"                id="address"                [disabled]="true"                value="{{                  emailData?.streetAddress ? emailData.streetAddress : \'\'                }}"              />            </div>            <div class="form-group">              <label for="location">Location: </label>              <input                type="text"                class="form-control"                name="location"                id="location"                [disabled]="true"                value="{{                  emailData?.usageLocation ? emailData.usageLocation : \'\'                }}"              />            </div>            <div class="form-group form-group-action">              <button                type="button"                (click)="step = !step"                class="btn backOnboardBtn"              >                Back              </button>              <button                [disabled]="userAdded && userAdded.length == 0"                type="submit"                class="btn submitOnboardBtn"              >                Submit              </button>            </div>          </div>        </div>        <div class="col-md-4">          <div class="application-owner">            <div class="title">              View Added User              <span>Invite User</span>            </div>            <div class="content" *ngFor="let user of userAdded; let i = index">              <div class="user-icon">                <i class="fa fa-user-circle" aria-hidden="true"></i>                <span class="notification">2</span>              </div>              <div class="user-details">                <div class="user-details-name">{{ user.givenName }}</div>                <div class="user-details-text">                  {{ user.department }}                </div>              </div>              <div class="user-action" (click)="removeAddedUser(i)">                <div class="user-action-icon">                  <i class="fa fa-trash"></i>                </div>                <div class="user-action-text"><a>Remove</a></div>              </div>            </div>          </div>        </div>      </div>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AlertsComponent', 'selector': 'dpdhl-alerts'},{'name': 'AllAppComponent', 'selector': 'dpdhl-all-app'},{'name': 'AppComponent', 'selector': 'dpdhl-root'},{'name': 'AppOwnerComponent', 'selector': 'dpdhl-app-owner'},{'name': 'AssetMonitoringComponent', 'selector': 'dpdhl-asset-monitoring'},{'name': 'AssociationsViewComponent', 'selector': 'dpdhl-associations-view'},{'name': 'BenefitsOfIotComponent', 'selector': 'dpdhl-benefits-of-iot'},{'name': 'BreadcrumbComponent', 'selector': 'dpdhl-breadcrumb'},{'name': 'BulkUploadComponent', 'selector': 'dpdhl-bulk-upload'},{'name': 'CustomerSatisfactionComponent', 'selector': 'dpdhl-customer-satisfaction'},{'name': 'DashboardComponent', 'selector': 'dpdhl-dashboard'},{'name': 'DataManagementComponent', 'selector': 'dpdhl-data-management'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DeviceManagementComponent', 'selector': 'dpdhl-device-management'},{'name': 'DpdhlAndIotComponent', 'selector': 'dpdhl-dpdhl-and-iot'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EventManagementComponent', 'selector': 'dpdhl-event-management'},{'name': 'FavoriteApplicationComponent', 'selector': 'dpdhl-favorite-application'},{'name': 'FooterComponent', 'selector': 'dpdhl-footer'},{'name': 'HeaderComponent', 'selector': 'dpdhl-header'},{'name': 'HomeComponent', 'selector': 'dpdhl-home'},{'name': 'HowItWorksComponent', 'selector': 'dpdhl-how-it-works'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'MatGridComponent', 'selector': 'dpdhl-mat-grid'},{'name': 'NavbarLeftComponent', 'selector': 'dpdhl-navbar-left'},{'name': 'NewApplicationComponent', 'selector': 'dpdhl-new-application'},{'name': 'NotificationComponent', 'selector': 'dpdhl-notification'},{'name': 'NotificationsComponent', 'selector': 'dpdhl-notifications'},{'name': 'OnboardComponent', 'selector': 'dpdhl-onboard'},{'name': 'PopUpComponent', 'selector': 'dpdhl-pop-up'},{'name': 'PredectiveMaintenanceComponent', 'selector': 'dpdhl-predective-maintenance'},{'name': 'QuickViewComponent', 'selector': 'dpdhl-quick-view'},{'name': 'SecurityComponent', 'selector': 'dpdhl-security'},{'name': 'SmartEnergyComponent', 'selector': 'dpdhl-smart-energy'},{'name': 'TrackTraceComponent', 'selector': 'dpdhl-track-trace'},{'name': 'UcComponent', 'selector': 'dpdhl-uc'},{'name': 'UserGraphComponent', 'selector': 'dpdhl-user-graph'},{'name': 'UserOnboardingComponent', 'selector': 'dpdhl-user-onboarding'},{'name': 'ViewComponent', 'selector': 'dpdhl-view'},{'name': 'WhatIsIotComponent', 'selector': 'dpdhl-what-is-iot'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[dpdhlClickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'OnboardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'OnboardComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

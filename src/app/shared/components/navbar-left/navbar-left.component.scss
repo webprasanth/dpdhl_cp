@@ -1,0 +1,418 @@
+.navbar-left {
+  .sidenav {
+    height: 100%;
+    width: 110px;
+    position: fixed;
+    color: black;
+    top: 60px;
+    left: 0;
+    background-color: white;
+    // overflow-x: auto;
+    padding-top: 0px;
+    box-shadow: 0px 3px 4px #c2cfd4;
+  }
+  .side-bar-container {
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    .ico {
+      height: 26px;
+      width: 26px;
+      display: block;
+    }
+    .ico-dashboard {
+      background: url(./../../../../assets/images/dashboardInActive.png)
+        no-repeat center;
+    }
+    .ico-core-entities {
+      background: url(./../../../../assets/images/coreEntitiesInAct.png)
+        no-repeat center;
+    }
+    .ico-association {
+      background: url(./../../../../assets/images/association-1.png) no-repeat
+        center;
+    }
+    .ico-business-unit {
+      background: url(./../../../../assets/images/business-unit-1.png) no-repeat
+        center 5px;
+    }
+    .ico-application {
+      background: url(./../../../../assets/images/application-1.png) no-repeat
+        center 5px;
+    }
+    .ico-device {
+      background: url(./../../../../assets/images/device-1.png) no-repeat center
+        5px;
+    }
+    .ico-user {
+      background: url(./../../../../assets/images/user-1.png) no-repeat center
+        5px;
+    }
+    .ico-administration {
+      background: url(./../../../../assets/images/administrationInAct.png)
+        no-repeat center;
+    }
+    .ico-entities {
+      background: url(./../../../../assets/images/entitiesInAct.png) no-repeat
+        center;
+    }
+    &:hover,
+    &.active {
+      background-color: #f5f5f5;
+      color: #d40511;
+      .ico-dashboard {
+        background: url(./../../../../assets/images/dashboardActive.png)
+          no-repeat center;
+      }
+      .ico-core-entities {
+        background: url(./../../../../assets/images/coreEntitiesAct.png)
+          no-repeat center;
+      }
+      .ico-association {
+        background: url(./../../../../assets/images/association-active.png)
+          no-repeat center;
+      }
+      .ico-business-unit {
+        background: url(./../../../../assets/images/business-unit-active.png)
+          no-repeat center 5px;
+      }
+      .ico-application {
+        background: url(./../../../../assets/images/application-active.png)
+          no-repeat center 5px;
+      }
+      .ico-device {
+        background: url(./../../../../assets/images/device-active.png) no-repeat
+          center 5px;
+      }
+      .ico-user {
+        background: url(./../../../../assets/images/user-active.png) no-repeat
+          center 5px;
+      }
+      .ico-administration {
+        background: url(./../../../../assets/images/administrationAct.png)
+          no-repeat center;
+      }
+      .ico-entities {
+        background: url(./../../../../assets/images/entitiesAct.png) no-repeat
+          center;
+      }
+    }
+  }
+
+  .sidenav a {
+    display: block;
+    text-decoration: none;
+  }
+  .sidenav a:hover {
+    color: #d40511;
+  }
+}
+
+.fa-angle-double-right {
+  background: #f9f9f9;
+  width: 21px;
+  height: 21px;
+  text-align: center;
+  line-height: 17px;
+  margin: 5px 0px;
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 18px;
+  border: 1px solid #eee;
+  padding: 1px;
+  padding-left: 2px;
+  vertical-align: 0;
+  right: -56%;
+  position: relative;
+  transition: all 0.325s;
+}
+.navbar-left {
+  .sidenav {
+    width: 65px;
+    z-index: 9999;
+    transition: all 0.325s;
+    .side-bar-container {
+      text-align: left;
+      padding: 15px 5px;
+      position: relative;
+      i {
+        font-size: 21px;
+        margin: 0 17px;
+        color: #6d7278;
+      }
+      a {
+        position: absolute;
+        transform: translate(-150px);
+        top: 21px;
+        font-weight: bold;
+        transition: all 0.5s ease;
+        font-size: 14px;
+        color: #6d7278;
+      }
+      .fa-chevron-down,
+      .fa-chevron-up {
+        color: #7c7a91;
+        position: absolute;
+        right: 15px;
+        font-size: 10px;
+        margin: 0 0px;
+        top: 24px;
+        display: none;
+      }
+      &:hover,
+      &.active {
+        i {
+          color: #d40511;
+        }
+        a {
+          color: #d40511;
+        }
+      }
+    }
+    .navbarSubmenu {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        .side-bar-container {
+          padding: 5px 5px;
+          padding-left: 35px;
+        }
+        i {
+          font-size: 16px;
+          margin: 0 5px;
+        }
+        a {
+          transform: translate(35px);
+          font-size: 12px;
+          top: 11px;
+        }
+      }
+    }
+  }
+}
+.navbar-left .sidenav.inactive .navbarSubmenu li .side-bar-container {
+  padding-left: 15px;
+}
+.navbar-left .sidenav.inactive .navbarSubmenu li .side-bar-container a {
+  transform: translate(-100px);
+}
+.navbar-left .sidenav::before {
+  border-top: 1px solid #efefef;
+  position: absolute;
+  content: '';
+  width: 100%;
+  top: 30px;
+}
+.navbar-left .sidenav.active .fa-angle-double-right {
+  right: -82%;
+  transform: rotate(180deg);
+}
+.navbar-left .sidenav.active {
+  width: 190px;
+}
+.navbar-left .sidenav.active .side-bar-container a {
+  transform: translate(60px);
+}
+.navbar-left .sidenav.active .side-bar-container .fa-chevron-down,
+.navbar-left .sidenav.active .side-bar-container .fa-chevron-up {
+  display: block;
+}
+.navbar-left .sidenav.active .navbarSubmenu {
+  display: block;
+}
+
+.navbar-left .sidenav .navbarSubmenu li i.fa.fa-cog {
+  margin: 3px 12px 0;
+  font-size: 16px;
+}
+.navbar-left .sidenav .navbarSubmenu li i.fa.fa-user {
+  font-size: 15px;
+  margin: 3px 12px 0;
+}
+.navbar-left .sidenav .navbarSubmenu li i.fa.fa-user .fa.fa-lock {
+  font-size: 11px;
+  position: relative;
+  top: -7px;
+  left: -1px;
+}
+.navbar-left .sidenav.active .side-bar-container a.appConfgLnk {
+  top: 11px;
+}
+.navbar-left .sidenav .navbarSubmenu li i.fa-mobile {
+  font-size: 22px;
+  width: 26px;
+  display: block;
+  text-align: center;
+}
+.iot-deviceIco {
+  background: url(./../../../../assets/images/iot-device.svg) no-repeat;
+}
+.navbar-left .sidenav .side-bar-container:hover .iot-deviceIco,
+.navbar-left .sidenav .side-bar-container.active .iot-deviceIco {
+  background: url(./../../../../assets/images/iot-device-act.svg) no-repeat;
+}
+
+.nav-icon{ 
+  position: absolute; 
+  top: -49px; 
+  left: 16px; 
+  border-radius: 4px; 
+  background: #d40511; 
+  color: #fff;  
+  border: none; 
+  width: 50px; 
+  height: 38px; 
+  line-height: 34px; 
+  font-size: 30px; 
+  padding: 0; 
+}
+
+ 
+
+ 
+
+/***NAV ICON***/ 
+.nav-icon { 
+  cursor: pointer; 
+  display: inline-block; 
+  vertical-align: middle; 
+  width:40px; 
+  padding: 7px 10px; 
+  transition: all .2s ease-in-out; 
+  -moz-transition: all .2s ease-in-out; 
+  -webkit-transition: all .2s ease-in-out; 
+}  
+.nav-icon:after, 
+.nav-icon:before, 
+.nav-icon span  { 
+    display: block; 
+    transition: all .2s ease-in-out; 
+    -moz-transition: all .2s ease-in-out; 
+    -webkit-transition: all .2s ease-in-out; 
+    content: ''; 
+    margin: 4px 0; 
+    height: 3px; 
+    border-radius: 3px; 
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    -ms-border-radius: 3px; 
+    -o-border-radius: 3px; 
+    background-color: #ffffff; 
+}
+
+.nav-icon.closed:before{ 
+    transform: translateY(7px) rotate(139deg); 
+    -webkit-transform: translateY(7px) rotate(139deg); 
+    -moz-transform: translateY(7px) rotate(139deg); 
+    width: 21px; 
+}
+
+.nav-icon.closed span{ 
+  width: 0; 
+}
+
+.nav-icon.closed:after{ 
+    transform: translateY(-7px) rotate(-139deg);  
+    -moz-transform: translateY(-7px) rotate(-139deg); 
+    -webkit-transform: translateY(-7px) rotate(-139deg); 
+    width: 21px; 
+} 
+
+/***NAV ICON***/ 
+.navbar-left .sidenav::before { 
+  opacity: 0; 
+}
+/*Responsive CSS*/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .nav-icon{    
+    left: 10px; 
+    top: 8px; 
+    position: fixed; 
+  }
+  .navbar-left {
+    .sidenav {
+      width: 55px;
+      top: 52px;
+      padding: 0;
+      z-index: 999;
+      height: auto;
+      padding-bottom: 15px;
+      left: -75px;
+      &:before {
+        border: none;
+      }
+      &.active {
+        width: 220px;
+        left: 10px;
+        border-radius: 8px;
+        top: 52px;
+        padding-bottom: 15px;
+      }
+      .fa-angle-double-right {
+        position: fixed;
+        top: 5px;
+        left: 10px;
+        z-index: 1000;
+        transition: none;
+        width: 40px;
+        height: 30px;
+        border-radius: 4px;
+        font-size: 28px;
+        line-height: 25px;
+        background: #d40511;
+        color: #fff;
+        border: none;
+      }
+      .side-bar-container {
+        padding: 10px 5px;
+        i {
+          margin: 0 10px;
+        }
+        .fa-chevron-down,
+        .fa-chevron-up {
+          top: 18px;
+        }
+      }
+      .navbarSubmenu {
+        li {
+          .side-bar-container {
+            padding: 5px 5px;
+            padding-left: 35px;
+            a {
+              top: 13px;
+            }
+          }
+        }
+      }
+      &.active {
+        .side-bar-container {
+          a {
+            transform: translate(45px);
+          }
+        }
+      }
+      &.inactive {
+        .navbarSubmenu {
+          li {
+            .side-bar-container {
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    .side-bar-container {
+      i {
+        font-size: 21px;
+      }
+      padding: 0.5rem 0.5rem;
+    }
+    .sidenav {
+      a {
+        font-size: 12px;
+        line-height: 1.35rem;
+      }
+    }
+  }
+}

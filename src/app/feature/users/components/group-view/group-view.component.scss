@@ -1,0 +1,122 @@
+.fade {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-dialog {
+      width: 75%;
+      .colDisplayBlk{
+        float: left;
+        width: 20%;
+      }
+      .close{
+        opacity:3.5!important;
+      }
+      .modal-title{
+      color:black;
+      font-weight:bold;
+      }
+      .modal-content{
+        padding: 0;
+      }
+      .margin-top{
+        margin-top: 30px;
+      }
+      .margin20{
+        margin: 20px;
+      }
+      .user-name{
+        font-weight: bold;
+        color:black;
+        margin: 5px 0 2px;
+      }
+      .modal-footer{
+        text-align: left;
+        p{
+          margin: 0;
+          color: #9b9b9b;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  .modal-header{
+    padding: 12px 20px 8px;
+    min-height: auto;
+    .close{
+      font-weight: bold;
+      font-size: 28px;
+      color: #000;
+      margin-top: 4px;
+      opacity: 1; 
+    }
+    .modal-title{
+      font-weight: bold;
+    }
+  }
+  .modal-body{
+    .container-fluid{
+      padding: 0;
+    }
+    h3{ 
+      font-weight: bold;
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+    .file-holder{
+      font-weight: normal;
+      font-size: 14px; 
+      margin: 10px 0 0;
+    }
+    .file-holder ~ p{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      color: #000;
+      font-size: 14px; 
+      margin-bottom: 10px;
+      font-weight: bold;
+      line-height: 1.35em;
+    }
+    .table>thead>tr>th{
+      background: #f3f7fb;
+    }
+  }
+  
+  
+  /***Responsive CSS***/
+  @media screen and (min-width: 320px) and (max-width: 767px){
+    .fade{
+      .modal-dialog{
+        width: 96%;
+        margin: 2%;
+        .col-md-1{
+          float: left;
+        }
+        .col-md-5{
+          .user-name{
+            font-size: 16px;
+            margin: 5px 0 0;
+          }
+        }
+        .margin-top{
+          margin-top: 0;
+        }
+        .colDisplayBlk{
+          width: 50%;
+          display: inline-block;
+          p{
+            margin-bottom: 0;
+          }
+        }
+      }
+    } 
+  }

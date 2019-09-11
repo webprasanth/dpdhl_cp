@@ -1,0 +1,356 @@
+.file-upload {
+  background: #f5f5f5;
+  height: 221px;
+  width: 215px;
+  padding-top: 70px;
+  padding-left: 30px;
+} 
+.file-upload{
+  height: auto; 
+  box-shadow: none;
+  border: 2px dashed #deeaf5; 
+  background: rgb(250, 252, 253);
+  margin: 0;
+  width: 350px;
+  padding: 15px 0; 
+  p{
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    text-align: center;
+  }
+}
+.maxUpload{
+  text-align: left;
+  display: flex;
+  padding: 10px 0 0;
+  clear: both;
+  width: 350px;
+  font-size: 13px;
+  font-weight: bold;
+  float: left;
+  span{
+    margin-left: auto;
+  }
+}
+.file-holder{
+  cursor: pointer;
+}
+.mt-50{
+  margin-top: 50px;
+}
+.extUsrRightBlk{
+  float: left;
+  padding:80px 0 88px 100px;
+  width: 450px;
+  position: relative;
+  margin: 45px 0 0; 
+}
+.inviteBtn{
+  border: 1px solid #d40511;
+  color: #fff;
+  background-color: #d40511;
+  padding: 8px 25px; 
+  margin-left: 10px;
+  font-size: 16px;
+} 
+.cancelBtn{
+  background: transparent;
+  font-weight: bold;
+  border: 1px solid #d40511; 
+  padding: 8px 25px;
+  font-size: 16px;
+  color: #d40511;
+}
+.dividerBlk {
+  position: absolute; 
+  width: 1px; 
+  top: 70px;
+  height: 310px;
+  left: 43.5%;
+  background: #d0d0d0;
+  span {
+    width: 26px;
+    height: 26px;
+    background: #000;
+    color: #fff;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    border-radius: 100%;
+    font-weight: bold;
+    position: absolute;
+    top: 45%;
+    left: -13px;
+  }
+}
+
+.fileUploadBox{
+  margin: 45px 0 0;
+}
+.fileUploadBox .file-holder{
+	margin: 0;
+	float: left;
+    cursor: pointer;
+    text-align: center;
+}
+.fileUploadBox .file-upload{
+	background: #f3f7fb;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	height: 225px;
+	width: 175px;
+	box-shadow: 2px 2px 8px #abc1d8;
+	box-shadow: 1px 12px 13px -11px #8bc1fb;
+    border:2px solid #e8f3ff;    
+    padding: 0;
+}
+.fileUploadBox .file-upload .fa{
+	font-size: 42px;
+	color: #797b7d;
+	transform: rotate(180deg);
+}
+.fileUploadBox .file-upload p{
+	font-size: 12px;
+	margin-top: 20px;
+}
+.fileUploadBox .file-upload p span{
+	display: block;
+	color: #d40511;
+}
+
+
+.bulkUploadBlk{
+	float: left;
+    text-align: left;
+    margin-left: 15px;
+}
+.bulkUploadBlk h3{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0 0 5px;
+}
+.progressBarBlk{
+    border: 2px solid #deecff;
+    border-radius: 8px;
+    width: 300px;
+    text-align: left;
+    padding: 10px 2em;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+.progressBarBlk .fa{
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    font-size: 21px;
+    border-top-right-radius: 18px;
+} 
+.closeProgress{
+    position: absolute;
+    right: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    top: 17px;
+    cursor: pointer;
+}
+.progressBarBlk p{
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0 0 15px;
+    font-size: 12px;
+    color: #b3b5d3;
+} 
+.progress{
+    height: 4px;
+    box-shadow: none;
+    background-color: #dcdcdc;
+    margin: 15px 0 5px 15px;
+}
+.progress-bar{
+    background-color: #89cb43;
+}
+.formatType{
+  font-size: 12px;
+  color: #b3b5d3;
+  text-align: right;
+}
+.button-group{
+  clear: both;
+  height: auto;
+  text-align: center;
+  display: block;
+}
+.extCompBlk{
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+.pl-75{
+  padding-left: 75px;
+}
+.form-group{
+  position: relative;
+  width: 332px;
+  .form-control{
+    height: 40px;
+    padding: 0px 14px;
+    line-height: 40px;
+  }
+  .searchBtn{
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+    top: 36px;
+  }
+  .fa-user-plus{
+    background: #fecb07;
+    height: 38px;
+    position: absolute;
+    right: 1px;
+    top: 26px;
+    width: 36px;
+    text-align: center;
+    line-height: 38px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  &.button-group{
+    margin-top: 50px;
+    clear: both;
+    display: block;
+    float: left;
+    width: 89%;
+    text-align: center;
+  }
+}
+.display-title{
+  line-height: 1.35em;
+  margin: 0 0 35px;
+  p{
+    font-size: 15px;
+  }
+}
+.btnDownloadTemp{
+  border: 2px solid #fecb07;
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  width: 170px; 
+  position: relative;
+  top: -2px;
+  float: right;
+  img{
+    margin-right: 10px;
+  }
+} 
+
+/***Responsive CSS***/
+@media screen and (min-width: 320px) and (max-width: 1023px){ 
+  .form-panel{
+    padding: 10px;
+  }
+  .extCompBlk{
+    width: 100%;
+    .mt-50{ 
+      padding: 0px;
+      margin-top: 0px;
+    }
+    .col-md-7{
+      margin-top: 30px;
+    } 
+  }
+  .display-title{
+    font-size: 21px; 
+    margin: 15px 0 10px;
+    float: left;
+    width: 100%;
+  }
+  .dividerBlk{
+    left: 0;
+    height: 1px;
+    width: 100%;
+    position: relative;
+    top: 5px;
+    span{ 
+      top: -10px;
+      left: 42%;
+    }
+  }
+  .pl-75{
+    padding: 0;
+    .display-title{
+      font-size: 21px;
+      margin: 0 0 10px;
+    }
+  }
+  .btnDownloadTemp{
+    display: block;  
+    float: none;
+    margin-top: 5px;
+  }
+  .form-group.button-group{
+    margin-top: 20px;
+  }
+  .form-group{
+    clear: both;
+    width: 100%;
+  }
+  .extCompBlk .col-md-7{
+    width: 190px;
+    margin: auto;
+  }
+  .form-group.button-group{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .extCompBlk{
+    width: 100%;
+    width: 480px;
+    margin: 10px auto 0;
+    display: block;
+    .col-md-7{
+      width: 480px;
+      margin: 50px auto 0;
+      display: block;
+    }
+  }
+  .btnDownloadTemp{
+    float: right;
+    display: inline-block;
+    margin-left: 20px;
+    top: -20px;
+    margin-bottom: 0;
+  }
+  .dividerBlk{
+    left: 0;
+  }
+  .fileUploadBox{ 
+    float: none;
+    width: 175px;
+    margin: auto; 
+  }
+  .form-group.button-group{
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1259px){
+  .extCompBlk{
+    width: 100%;
+  }
+  .dividerBlk{
+    left: 46%;
+  }
+}

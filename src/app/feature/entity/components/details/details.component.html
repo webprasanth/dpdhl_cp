@@ -1,0 +1,252 @@
+<div class="page-title">Entity</div>
+<div class="form-panel">
+  <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-lg-6 addEntityLeft">
+        <div class="form-group form-group-search">
+          <label for="entityName">
+            Entity Name:
+            <sup>*</sup>
+          </label>
+          <input type="text" class="form-control" formControlName="entityName" id="entityName"
+            placeholder="Entity Name" />
+          <button type="button">
+            <i class="fa fa-search" (click)="searchEntity()"></i>
+          </button>
+          <div class="form-error-msg" *ngIf="entityExist">
+            Entity name already exist
+          </div>
+        </div>
+        <div class="form-group" style="display: none;">
+          <label for="entityTypes">
+            Entity Types:
+            <sup>*</sup>
+          </label>
+          <input type="radio" name="types" (click)="getEntityTypes('application')" />
+          Application
+          <input type="radio" name="types" (click)="getEntityTypes('users')" />
+          Users
+          <input type="radio" name="types" (click)="getEntityTypes('devices')" />
+          Devices
+          <input type="radio" name="types" checked="editChecked" (click)="getEntityTypes('others')" />
+          Others
+        </div>
+        <div class="form-group" style="display: none;">
+          <label for="entityType">
+            Entity Type:
+            <sup>*</sup>
+          </label>
+          <input type="text" class="form-control" formControlName="entityType" id="entityType" placeholder="Entity Type"
+            value="entityForm.controls['entityName'].value" />
+        </div>
+        <div class="form-group">
+          <label for="parent">Associated To:</label>
+          <input type="text" class="form-control" formControlName="parentName" id="parentName"
+            placeholder="Parernt Name" />
+        </div>
+        <div class="form-group" style="display: none;">
+          <label for="sharable">
+            Sharable:
+            <sup>*</sup>
+          </label>
+          <input type="radio" formControlName="isShareable" [value]="true" />
+          Yes
+          <input type="radio" formControlName="isShareable" [value]="false" />
+          No
+        </div>
+        <div class="form-group form-group-file" *ngIf="exportedData && exportedData.length == 0">
+          <label class="file-holder" for="fileInput">
+            <input style="display:none" type="file" (change)="onFileChange($event)" id="fileInput" />
+            <div class="file-upload">
+              <div class="innerFileUpload">
+                <p>Drag & drop file here / Click to upload</p>
+              </div>
+            </div>
+          </label>
+
+          <button type="button" class="btn btn-default btnDownloadTemp">
+            <a target="_blank"
+              href="https://cpiconsfilesblobstorage.blob.core.windows.net/cpappdevfactemplates/Entity.xlsx"><img
+                src="./../../../../assets/images/downloadTemplateIco.png" alt="" />
+              Download Template</a>
+          </button>
+          <p class="maxProfileSize">Format <strong>XLSX</strong></p>
+          <p class="">Note: Keep <strong>Name</strong> as first column</p>
+        </div>
+
+        <div class="form-group heightAuto" style="display: none;">
+          <span (click)="association = !association">{{ association ? 'Collapse' : 'Expand' }} to add association
+            <i class="fa" [ngClass]="
+                association ? 'fa-angle-double-up' : 'fa-angle-double-down'
+              "></i>
+          </span>
+        </div>
+        <!-- <ng-container *ngIf="association" style="display: none;">
+          <div class="form-group" style="display: none;">
+            <label for="grandParentID">
+              Select Parent Entity:
+            </label>
+            <mat-select
+              (selectionChange)="selectGrantParentEntity($event)"
+              placeholder="Select Parent Entity"
+              class="form-control"
+              [value]="
+                selectedEntity.grandParentID
+                  ? selectedEntity.grandParentID
+                  : selectedEntity.parentID
+              "
+            >
+              <mat-option [value]="">
+                Select/Deselect Entity
+              </mat-option>
+              <mat-option *ngFor="let option of entityList" [value]="option.id">
+                {{ option.entity_name }}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div
+            class="form-group"
+            *ngIf="childEntityList && childEntityList.length > 0"
+            style="display: none;"
+          >
+            <label for="parentID">
+              Select Child Entity:
+            </label>
+            <mat-select
+              (selectionChange)="selectParentEntity($event)"
+              placeholder="Select Child Entity"
+              class="form-control"
+              [value]="selectedEntity.parentID"
+            >
+              <mat-option [value]="">
+                Select/Deselect Entity
+              </mat-option>
+              <mat-option
+                *ngFor="let option of childEntityList"
+                [value]="option.id"
+              >
+                {{ option.entity_object.Name }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </ng-container> -->
+      </div>
+      <div class="col-lg-6">
+        <div class="createGroupTreeBlk" *ngIf="treeViewRoot">
+          <h4>View Entity Association<i class="fa fa-users"></i></h4>
+          <!-- <span class="expandLnk">Collapse All</span> -->
+          <ul class="tree treeEntity">
+            <li class="treeview" *ngIf="treeViewRoot && treeViewRoot[0]">
+              <label class="treeviewLabel active">
+                <i class="fa fa-chevron-down"></i>{{ treeViewRoot[0].parent_name }}
+              </label>
+              <ul>
+                <li class="treeviewChild" *ngIf="treeViewRoot && treeViewRoot[1]">
+                  <label class="treeviewChildLabel active"><i
+                      class="fa fa-chevron-down"></i>{{ treeViewRoot[1].parent_name }}</label>
+                  <ul>
+                    <li class="treeviewGrandChild" *ngIf="treeViewRoot && treeViewRoot[2]">
+                      <label class="treeviewGrandChildLabel notActive"><i
+                          class="fa fa-chevron-right"></i>{{ treeViewRoot[2].parent_name }}</label>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group mat-grid">
+          <!-- <div class="bulkUploadBlk"> -->
+          <!-- <h3>File Uploading…</h3> -->
+          <!-- <div class="progressBarBlk">
+              <i class="fa fa-download"></i>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 100%;"
+                ></div>
+              </div> -->
+          <!-- <span class="closeProgress">x</span> -->
+          <!-- <p><span>80% Done</span><span>90 kb/s</span></p> -->
+          <!-- </div> -->
+          <!-- <p class="formatType">File uploaded successfully</p>
+          </div> -->
+          <div class=" infoBox" *ngIf="
+              entityFlow == 'add' && exportedData && exportedData.length > 0
+            ">
+            <i class="fa fa-info"></i>
+            <p>
+              {{
+                entityForm.controls['entityMetadata'].value &&
+                entityForm.controls['entityMetadata'].value.length > 0
+                  ? entityForm.controls['entityMetadata'].value.length
+                  : 'Selected'
+              }}
+              entries will be added to the group
+            </p>
+          </div>
+          <dpdhl-mat-grid *ngIf="
+              entityFlow == 'add' && exportedData && exportedData.length > 0
+            " [displayedColumns]="displayedColumns" [data]="exportedData" [configuration]="configuration"
+            (selectedDataEvent)="selectedDataGrid($event)">
+          </dpdhl-mat-grid>
+          <div class=" infoBox" *ngIf="
+              entityFlow == 'edit' &&
+              entityForm.controls['entityMetadata'].value != ''
+            ">
+            <i class="fa fa-info"></i>
+            <p>
+              {{
+                entityForm.controls['removedEntityMetadata'].value &&
+                entityForm.controls['removedEntityMetadata'].value.length > 0
+                  ? entityForm.controls['removedEntityMetadata'].value.length
+                  : 'Selected'
+              }}
+              entries will be removed from the group
+            </p>
+          </div>
+          <dpdhl-mat-grid *ngIf="
+              entityFlow == 'edit' &&
+              entityForm.controls['entityMetadata'].value != ''
+            " [displayedColumns]="displayedColumns" [data]="entityForm.controls['entityMetadata'].value"
+            [configuration]="configuration" (selectedDataEvent)="deSelectedDataGrid($event)">
+          </dpdhl-mat-grid>
+          <div class=" infoBox" *ngIf="
+              entityFlow == 'edit' && exportedData && exportedData.length > 0
+            ">
+            <i class="fa fa-info"></i>
+            <p>
+              {{
+                entityForm.controls['newEntityMetadata'].value &&
+                entityForm.controls['newEntityMetadata'].value.length > 0
+                  ? entityForm.controls['newEntityMetadata'].value.length
+                  : 'Selected'
+              }}
+              entries will be added to the group
+            </p>
+          </div>
+          <div class="matGridControlBlk">
+            <dpdhl-mat-grid *ngIf="
+                entityFlow == 'edit' && exportedData && exportedData.length > 0
+              " [displayedColumns]="displayedColumnsEdit" [data]="exportedData" [configuration]="configurationEdit"
+              (selectedDataEvent)="newSelectedDataGrid($event)">
+            </dpdhl-mat-grid>
+          </div>
+        </div>
+        <div class="form-group form-group-action">
+          <button type="submit" class="btn createBtn" [disabled]="entityForm.invalid || entityValidation">
+            Create Entity
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

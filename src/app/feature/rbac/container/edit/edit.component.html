@@ -1,0 +1,12 @@
+<div class="navigation-button-group navigationGroup">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/rbac'">
+      <i class="fa fa-list"></i>&nbsp;RBAC List
+    </button>
+    <button type="button" class="btn btn-default active" [routerLink]="'/rbac/add'">
+      <i class="fa fa-share-alt"></i>&nbsp; RBAC Config
+    </button>
+  </div>
+</div>
+<dpdhl-details [rbacObj]="rbacObj" [userGroup]="userGroup" [rbacData]="rbacData" (rbacFormData)="updateRbac($event)">
+</dpdhl-details>

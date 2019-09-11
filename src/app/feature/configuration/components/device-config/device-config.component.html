@@ -1,0 +1,255 @@
+<div class="container-fluid form-panel configurationBlk">
+  <div class="row configRow">
+    <div class="col-lg-12 mt-50">
+      <form [formGroup]="deviceSpecForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="serviceProvider">
+            Service Provider Name:
+            <sup>*</sup>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="serviceProvider"
+            id="serviceProvider"
+            placeholder="Service Provider Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="apiURL">
+            API URL:
+            <sup>*</sup>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="apiURL"
+            id="apiURL"
+            placeholder="API URL"
+          />
+        </div>
+        <div class="form-group">
+          <label for="protocol">
+            Protocol:
+            <sup>*</sup>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="protocol"
+            id="protocol"
+            placeholder="Protocol"
+          />
+        </div>
+        <ng-container
+          *ngIf="deviceSpecForm.controls['serviceProvider'].value == 'Sigfox'"
+        >
+          <div class="form-group">
+            <label for="username">
+              Username:
+              <sup>*</sup>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Username"
+              (keyup)="getObjectInfo($event.target.value, 'username')"
+              value="{{ deviceSpecForm.controls['object'].value['username'] }}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">
+              Password:
+              <sup>*</sup>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+              (keyup)="getObjectInfo($event.target.value, 'password')"
+              value="{{ deviceSpecForm.controls['object'].value['password'] }}"
+            />
+          </div>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            deviceSpecForm.controls['serviceProvider'].value ==
+            'RPP - Red Pointlabs Platform'
+          "
+        >
+          <div class="form-group">
+            <label for="email">
+              Email:
+              <sup>*</sup>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="email"
+              (keyup)="getObjectInfo($event.target.value, 'email')"
+              value="{{ deviceSpecForm.controls['object'].value['email'] }}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="project">
+              Project:
+              <sup>*</sup>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="project"
+              placeholder="project"
+              (keyup)="getObjectInfo($event.target.value, 'project')"
+              value="{{ deviceSpecForm.controls['object'].value['project'] }}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="token">
+              Token:
+              <sup>*</sup>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="token"
+              placeholder="token"
+              (keyup)="getObjectInfo($event.target.value, 'token')"
+              value="{{ deviceSpecForm.controls['object'].value['token'] }}"
+            />
+          </div>
+        </ng-container>
+        <div class="form-group">
+          <label for="interval">
+            Status Interval:
+            <sup>*</sup>
+          </label>
+          <div class="intervalBlk">
+            <div class="innerInterval">
+              <strong>HRS</strong>
+              <input
+                type="number"
+                class="form-control"
+                id="hInterval"
+                placeholder="Interval"
+                min="0"
+                max="24"
+                (keyup)="setTimeInterval($event.target.value, 'hours')"
+                (input)="setTimeInterval($event.target.value, 'hours')"
+                value="{{ hDisplay }}"
+              />
+            </div>
+            <div class="innerInterval">
+              <strong>MIN</strong>
+              <input
+                type="number"
+                class="form-control"
+                id="mInterval"
+                placeholder="Interval"
+                min="0"
+                max="60"
+                (keyup)="setTimeInterval($event.target.value, 'mins')"
+                (input)="setTimeInterval($event.target.value, 'mins')"
+                value="{{ mDisplay }}"
+              />
+            </div>
+            <div class="innerInterval">
+              <strong>SEC</strong>
+              <input
+                type="number"
+                class="form-control"
+                id="sInterval"
+                placeholder="Interval"
+                min="0"
+                max="60"
+                (keyup)="setTimeInterval($event.target.value, 'seconds')"
+                (input)="setTimeInterval($event.target.value, 'seconds')"
+                value="{{ sDisplay }}"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group wid33" style="display: none;">
+          <label for="isPowerEnabled">
+            Power Enabled:
+            <sup>*</sup>
+          </label>
+          <!-- <input
+            type="checkbox"
+            class="form-control"
+            formControlName="isPowerEnabled"
+            id="isPowerEnabled"
+          /> -->
+
+          <button
+            type="button"
+            class="btn btn-xs btn-toggle active"
+            data-toggle="button1"
+            aria-pressed="true"
+            autocomplete="on"
+            id="isPowerEnabled"
+          >
+            <div class="handle"></div>
+          </button>
+        </div>
+        <div class="form-group wid33" style="display: none;">
+          <label for="isBatteryEnabled">
+            Battery Enabled:
+            <sup>*</sup>
+          </label>
+          <!-- <input
+            type="checkbox"
+            class="form-control"
+            formControlName="isBatteryEnabled"
+            id="isBatteryEnabled"
+          /> -->
+          <button
+            type="button"
+            class="btn btn-xs btn-toggle active"
+            data-toggle="button1"
+            aria-pressed="true"
+            autocomplete="on"
+            id="isBatteryEnabled"
+          >
+            <div class="handle"></div>
+          </button>
+        </div>
+        <div class="form-group wid33" style="display: none;">
+          <label for="isIOTEnabled">
+            IOT Enabled:
+            <sup>*</sup>
+          </label>
+          <!-- <input
+            type="checkbox"
+            class="form-control"
+            formControlName="isIOTEnabled"
+            id="isIOTEnabled"
+          /> -->
+          <button
+            type="button"
+            class="btn btn-xs btn-toggle active"
+            data-toggle="button1"
+            aria-pressed="true"
+            autocomplete="on"
+            id="isIOTEnabled"
+          >
+            <div class="handle"></div>
+          </button>
+        </div>
+        <div class="form-group button-group">
+          <button
+            type="button"
+            class="btn cancelBtn"
+            [routerLink]="['/configuration']"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="btn confBtn">Update Device Spec</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

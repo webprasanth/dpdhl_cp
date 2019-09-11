@@ -1,0 +1,969 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>common-platform documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">common-platform documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>EditComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/feature/business-unit/container/edit/edit.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>dpdhl-edit</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./edit.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./edit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#alertConfig">alertConfig</a>
+                            </li>
+                            <li>
+                                <a href="#BUGroups">BUGroups</a>
+                            </li>
+                            <li>
+                                <a href="#BUHeadStatus">BUHeadStatus</a>
+                            </li>
+                            <li>
+                                <a href="#businessUnitData">businessUnitData</a>
+                            </li>
+                            <li>
+                                <a href="#editNavigation">editNavigation</a>
+                            </li>
+                            <li>
+                                <a href="#multipleEdit">multipleEdit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getBUGroup">getBUGroup</a>
+                            </li>
+                            <li>
+                                <a href="#getUTCDate">getUTCDate</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#searchBUHead">searchBUHead</a>
+                            </li>
+                            <li>
+                                <a href="#updateBusinessUnit">updateBusinessUnit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _businessUnitService: <a href="../injectables/BusinessUnitService.html">BusinessUnitService</a>, _adalService: AdalService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_businessUnitService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BusinessUnitService.html" target="_self" >BusinessUnitService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_adalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>AdalService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBUGroup"></a>
+                    <span class="name">
+                        <b>
+                            getBUGroup
+                        </b>
+                        <a href="#getBUGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBUGroup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUTCDate"></a>
+                    <span class="name">
+                        <b>
+                            getUTCDate
+                        </b>
+                        <a href="#getUTCDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUTCDate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchBUHead"></a>
+                    <span class="name">
+                        <b>
+                            searchBUHead
+                        </b>
+                        <a href="#searchBUHead"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchBUHead(buHead)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>buHead</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateBusinessUnit"></a>
+                    <span class="name">
+                        <b>
+                            updateBusinessUnit
+                        </b>
+                        <a href="#updateBusinessUnit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateBusinessUnit(formData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="alertConfig"></a>
+                        <span class="name">
+                            <b>
+                            alertConfig</b>
+                            <a href="#alertConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    message: &#x27;&#x27;,
+    visibility: false,
+    status: false
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BUGroups"></a>
+                        <span class="name">
+                            <b>
+                            BUGroups</b>
+                            <a href="#BUGroups"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BUHeadStatus"></a>
+                        <span class="name">
+                            <b>
+                            BUHeadStatus</b>
+                            <a href="#BUHeadStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="businessUnitData"></a>
+                        <span class="name">
+                            <b>
+                            businessUnitData</b>
+                            <a href="#businessUnitData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IBusinessUnitForm.html" target="_self" >IBusinessUnitForm</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editNavigation"></a>
+                        <span class="name">
+                            <b>
+                            editNavigation</b>
+                            <a href="#editNavigation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="multipleEdit"></a>
+                        <span class="name">
+                            <b>
+                            multipleEdit</b>
+                            <a href="#multipleEdit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/feature/business-unit/container/edit/edit.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { IBusinessUnitForm } from &#x27;../../models/business-unit.models&#x27;;
+import { BusinessUnitService } from &#x27;../../services/business-unit.service&#x27;;
+import { AdalService } from &#x27;adal-angular4&#x27;;
+
+@Component({
+  selector: &#x27;dpdhl-edit&#x27;,
+  templateUrl: &#x27;./edit.component.html&#x27;,
+  styleUrls: [&#x27;./edit.component.scss&#x27;]
+})
+export class EditComponent implements OnInit {
+  businessUnitData: IBusinessUnitForm;
+  BUHeadStatus: boolean &#x3D; false;
+  BUGroups: any;
+  multipleEdit: any;
+  editNavigation: boolean &#x3D; false;
+
+  alertConfig: any &#x3D; {
+    message: &#x27;&#x27;,
+    visibility: false,
+    status: false
+  };
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _businessUnitService: BusinessUnitService,
+    private _adalService: AdalService
+  ) {}
+
+  ngOnInit() {
+    this._route.data.subscribe(data &#x3D;&gt; {
+      if (data) {
+        this.businessUnitData &#x3D; {
+          id: data.resolveBUById.result[0].id,
+          name: data.resolveBUById.result[0].name,
+          shortName: data.resolveBUById.result[0].short_name,
+          description: data.resolveBUById.result[0].description,
+          owner: data.resolveBUById.result[0].owner,
+          modifiedDate: this.getUTCDate(),
+          createdDate: data.resolveBUById.result[0].created_date,
+          userGroup: data.resolveBUById.result[0].usergroup_name,
+          createdBy: data.resolveBUById.result[0].created_by,
+          modifiedBy: this._adalService.userInfo.profile.given_name,
+          imgData: data.resolveBUById.result[0].imgData
+        };
+        this.BUGroups &#x3D; data.resolveBUGroup.value;
+      }
+    });
+    this._businessUnitService.currentEditItems.subscribe(items &#x3D;&gt; {
+      this.multipleEdit &#x3D; items;
+    });
+  }
+
+  getUTCDate() {
+    var d &#x3D; new Date();
+    var m &#x3D; d.getUTCMonth() + 1;
+    return d.getUTCDate() + &#x27;-&#x27; + m + &#x27;-&#x27; + d.getUTCFullYear();
+  }
+
+  updateBusinessUnit(formData) {
+    let params &#x3D; {
+      id: formData.id,
+      name: formData.name,
+      shortName: formData.shortName,
+      description: formData.description,
+      owner: formData.owner,
+      userGroup: formData.userGroup,
+      createdBy: formData.createdBy,
+      modifiedBy: formData.modifiedBy,
+      filePath: formData.imgData
+    };
+    this._businessUnitService.updateBusinessUnit(formData).subscribe(res &#x3D;&gt; {
+      if (res) {
+        this.alertConfig &#x3D; {
+          message: &#x27;BU Updated Successfully&#x27;,
+          visibility: true,
+          status: true
+        };
+        if (this.multipleEdit.length &gt; 1) {
+          let index &#x3D; this.multipleEdit.indexOf(params.id);
+          this.multipleEdit.splice(index, 1);
+          this._router.navigate([&#x27;/business-unit/edit/&#x27;, this.multipleEdit[0]]);
+        } else {
+          this.multipleEdit &#x3D; [];
+          this._router.navigate([&#x27;/business-unit&#x27;]);
+        }
+      }
+    });
+  }
+
+  searchBUHead(buHead) {
+    this.editNavigation &#x3D; false;
+    this._businessUnitService.searchBUUser(buHead).subscribe(res &#x3D;&gt; {
+      if (res &amp;&amp; res.value &amp;&amp; res.value.length &#x3D;&#x3D; 1) {
+        // console.log(res.value[0].mail);
+        this.BUHeadStatus &#x3D; false;
+      } else {
+        // console.log(&#x27;No Email Added&#x27;);
+        this.BUHeadStatus &#x3D; true;
+      }
+    });
+  }
+
+  getBUGroup() {
+    this._businessUnitService.getBUGroups().subscribe(res &#x3D;&gt; {
+      console.log(res);
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-title&quot;&gt;Business Unit&lt;/div&gt;
+&lt;div class&#x3D;&quot;navigation-button-group&quot;&gt;
+  &lt;div class&#x3D;&quot;btn-group&quot; role&#x3D;&quot;group&quot; aria-label&#x3D;&quot;...&quot;&gt;
+    &lt;button
+      type&#x3D;&quot;button&quot;
+      class&#x3D;&quot;btn btn-default&quot;
+      [routerLink]&#x3D;&quot;&#x27;/business-unit&#x27;&quot;
+    &gt;
+      &lt;i class&#x3D;&quot;fa fa-list&quot;&gt;&lt;/i&gt;&amp;nbsp;BU List
+    &lt;/button&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-default active&quot;&gt;
+      &lt;i class&#x3D;&quot;fa fa-share-alt&quot;&gt;&lt;/i&gt;&amp;nbsp;Edit BU
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;dpdhl-details
+  [businessUnitData]&#x3D;&quot;businessUnitData&quot;
+  [BUHeadStatus]&#x3D;&quot;BUHeadStatus&quot;
+  [BUGroups]&#x3D;&quot;BUGroups&quot;
+  [multipleEdit]&#x3D;&quot;multipleEdit&quot;
+  [editNavigation]&#x3D;&quot;editNavigation&quot;
+  (checkBUHead)&#x3D;&quot;searchBUHead($event)&quot;
+  (businessUnitFormData)&#x3D;&quot;updateBusinessUnit($event)&quot;
+&gt;&lt;/dpdhl-details&gt;
+
+&lt;dpdhl-alerts [alertConfig]&#x3D;&quot;alertConfig&quot;&gt;&lt;/dpdhl-alerts&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./edit.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-title">Business Unit</div><div class="navigation-button-group">  <div class="btn-group" role="group" aria-label="...">    <button      type="button"      class="btn btn-default"      [routerLink]="\'/business-unit\'"    >      <i class="fa fa-list"></i>&nbsp;BU List    </button>    <button type="button" class="btn btn-default active">      <i class="fa fa-share-alt"></i>&nbsp;Edit BU    </button>  </div></div><dpdhl-details  [businessUnitData]="businessUnitData"  [BUHeadStatus]="BUHeadStatus"  [BUGroups]="BUGroups"  [multipleEdit]="multipleEdit"  [editNavigation]="editNavigation"  (checkBUHead)="searchBUHead($event)"  (businessUnitFormData)="updateBusinessUnit($event)"></dpdhl-details><dpdhl-alerts [alertConfig]="alertConfig"></dpdhl-alerts></div>'
+    var COMPONENTS = [{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AddComponent', 'selector': 'dpdhl-add'},{'name': 'AlertsComponent', 'selector': 'dpdhl-alerts'},{'name': 'AllAppComponent', 'selector': 'dpdhl-all-app'},{'name': 'AppComponent', 'selector': 'dpdhl-root'},{'name': 'AppOwnerComponent', 'selector': 'dpdhl-app-owner'},{'name': 'AssetMonitoringComponent', 'selector': 'dpdhl-asset-monitoring'},{'name': 'AssociationsViewComponent', 'selector': 'dpdhl-associations-view'},{'name': 'BenefitsOfIotComponent', 'selector': 'dpdhl-benefits-of-iot'},{'name': 'BreadcrumbComponent', 'selector': 'dpdhl-breadcrumb'},{'name': 'BulkUploadComponent', 'selector': 'dpdhl-bulk-upload'},{'name': 'CustomerSatisfactionComponent', 'selector': 'dpdhl-customer-satisfaction'},{'name': 'DashboardComponent', 'selector': 'dpdhl-dashboard'},{'name': 'DataManagementComponent', 'selector': 'dpdhl-data-management'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DetailsComponent', 'selector': 'dpdhl-details'},{'name': 'DeviceManagementComponent', 'selector': 'dpdhl-device-management'},{'name': 'DpdhlAndIotComponent', 'selector': 'dpdhl-dpdhl-and-iot'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EditComponent', 'selector': 'dpdhl-edit'},{'name': 'EventManagementComponent', 'selector': 'dpdhl-event-management'},{'name': 'FavoriteApplicationComponent', 'selector': 'dpdhl-favorite-application'},{'name': 'FooterComponent', 'selector': 'dpdhl-footer'},{'name': 'HeaderComponent', 'selector': 'dpdhl-header'},{'name': 'HomeComponent', 'selector': 'dpdhl-home'},{'name': 'HowItWorksComponent', 'selector': 'dpdhl-how-it-works'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'ListComponent', 'selector': 'dpdhl-list'},{'name': 'MatGridComponent', 'selector': 'dpdhl-mat-grid'},{'name': 'NavbarLeftComponent', 'selector': 'dpdhl-navbar-left'},{'name': 'NewApplicationComponent', 'selector': 'dpdhl-new-application'},{'name': 'NotificationComponent', 'selector': 'dpdhl-notification'},{'name': 'NotificationsComponent', 'selector': 'dpdhl-notifications'},{'name': 'OnboardComponent', 'selector': 'dpdhl-onboard'},{'name': 'PopUpComponent', 'selector': 'dpdhl-pop-up'},{'name': 'PredectiveMaintenanceComponent', 'selector': 'dpdhl-predective-maintenance'},{'name': 'QuickViewComponent', 'selector': 'dpdhl-quick-view'},{'name': 'SecurityComponent', 'selector': 'dpdhl-security'},{'name': 'SmartEnergyComponent', 'selector': 'dpdhl-smart-energy'},{'name': 'TrackTraceComponent', 'selector': 'dpdhl-track-trace'},{'name': 'UcComponent', 'selector': 'dpdhl-uc'},{'name': 'UserGraphComponent', 'selector': 'dpdhl-user-graph'},{'name': 'UserOnboardingComponent', 'selector': 'dpdhl-user-onboarding'},{'name': 'ViewComponent', 'selector': 'dpdhl-view'},{'name': 'WhatIsIotComponent', 'selector': 'dpdhl-what-is-iot'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[dpdhlClickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'EditComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,247 @@
+<div class="container-fluid form-panel">
+  <form [formGroup]="deviceOnboardingForm" (ngSubmit)="onSubmit()">
+    <div class="generalInfoBlk" *ngIf="!deviceUploadView && !deviceAPIListView">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="serviceProvider">Service Provider: </label>
+            <!-- <input
+              type="text"
+              class="form-control"
+              formControlName="serviceProvider"
+              id="serviceProvider"
+              placeholder="SigFox"
+            /> -->
+
+            <mat-select formControlName="serviceProviderID" placeholder="Select Service Provider" class="form-control"
+              [disabled]="onBoardType == 'edit' ? true : false" (selectionChange)="onServiceProviderSelect($event)">
+              <mat-option>Select Service Provider</mat-option>
+              <mat-option *ngFor="let service of serviceProvider" [value]="service.id">
+                {{ service.service_provider }}
+              </mat-option>
+            </mat-select>
+            <div *ngIf="formCtrl.serviceProvider.touched && formCtrl.serviceProvider.errors" class="invalid-feedback">
+              <div *ngIf="formCtrl.serviceProvider.errors.required" class="form-error-msg">Service Provider is required
+                .
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="deviceTypeName">Device Type: </label>
+            <input type="text" class="form-control" formControlName="deviceTypeName" id="deviceTypeName"
+              placeholder="Enter Device Type" />
+            <div *ngIf="formCtrl.deviceTypeName.touched && formCtrl.deviceTypeName.errors" class="invalid-feedback">
+              <div *ngIf="formCtrl.deviceTypeName.errors.required" class="form-error-msg">Device Type is required .
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-search">
+            <label for="deviceGroupName">Device Group Name: </label>
+            <input type="text" class="form-control" formControlName="deviceGroupName" id="deviceGroupName"
+              placeholder="Enter Device Group" />
+            <button type="button" (click)="searchGroupName()">
+              <i class="fa fa-search"></i>
+            </button>
+            <div *ngIf="deviceGroupExist  && !formCtrl.deviceGroupName.errors" class="form-error-msg">
+              Device Group Name already exists.
+            </div>
+            <div *ngIf="!deviceGroupExist && deviceGroupAvailable && !formCtrl.deviceGroupName.errors"
+              class="form-success-msg">
+              Device Group Name Available
+            </div>
+            <div *ngIf="formCtrl.deviceGroupName.touched && formCtrl.deviceGroupName.errors" class="invalid-feedback">
+              <div *ngIf="formCtrl.deviceGroupName.errors.required" class="form-error-msg">Device Group Name is required
+                .
+              </div>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="deviceOnboardingForm.controls['parentName'].value">
+            <label for="parentName">Associated To: </label>
+            <input type="text" class="form-control" formControlName="parentName" id="parentName" />
+          </div>
+        </div>
+        <div class="col-md-6 deviceStatusBlk">
+          <h3 class="display-title">
+            Device Status API Authentication Details:
+          </h3>
+          <ng-container *ngIf="deviceOnboardingForm.controls['serviceProvider'].value == ''">Please select service
+            provider for authentication</ng-container>
+          <ng-container *ngIf="deviceOnboardingForm.controls['serviceProvider'].value == 'Sigfox'">
+            <div class="form-group">
+              <label for="url">URL:</label>
+              <input type="text" class="form-control" id="url" placeholder="Enter url" formControlName="url" />
+            </div>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter username"
+                formControlName="username" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter password"
+                formControlName="password" />
+              <i class="fa fa-lock"></i>
+            </div>
+          </ng-container>
+          <ng-container
+            *ngIf="deviceOnboardingForm.controls['serviceProvider'].value == 'RPP - Red Pointlabs Platform'">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" class="form-control" id="email" placeholder="Enter email" formControlName="email" />
+            </div>
+            <div class="form-group">
+              <label for="project">Project:</label>
+              <input type="text" class="form-control" id="project" placeholder="Enter project"
+                formControlName="project" />
+            </div>
+            <div class="form-group">
+              <label for="token">Token:</label>
+              <input type="password" class="form-control" id="token" placeholder="Enter token"
+                formControlName="token" />
+            </div>
+          </ng-container>
+          <div class="button-group buttonGrpBlk btnAction">
+            <b>Onboarding Type:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="deviceRadioBtn">Manual
+              <input type="radio" checked="checked" (change)="changeMethod($event.target.value)" name="radio"
+                value="manual" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="deviceRadioBtn">Automatic
+              <input type="radio" (change)="changeMethod($event.target.value)" name="radio" value="automatic" />
+              <span class="checkmark"></span>
+            </label>
+            <button class="btn btn-success"
+              [disabled]="deviceOnboardingForm.controls['serviceProvider'].value == '' || deviceOnboardingForm.controls['deviceTypeName'].value == '' || deviceOnboardingForm.controls['deviceGroupName'].value == ''"
+              type="button" (click)="getAPIDevices()">
+              Next
+            </button>
+            <!-- <button
+              class="btn btn-success"
+              type="button"
+              (click)="getAPIDevices()"
+              (click)="deviceUploadView = !deviceUploadView"
+            >
+              Login
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="
+    (deviceUploadView || deviceAPIListView) && 
+    deviceFormData.deviceMetadata &&
+    deviceFormData.deviceMetadata.length > 0 &&
+    onBoardType == 'edit'">
+      <div class=" infoBox">
+        <i class="fa fa-info"></i>
+        <p>{{deviceOnboardingForm.controls['removedDeviceMetadata'].value && deviceOnboardingForm.controls['removedDeviceMetadata'].value.length
+          > 0 ? deviceOnboardingForm.controls['removedDeviceMetadata'].value.length : 'Selected'}} devices will be
+          removed
+          from the group</p>
+      </div>
+      <div class="infoBox" *ngIf="duplicateDeviceList && duplicateDeviceList.length > 0  &&
+          onBoardType != 'edit'">
+        <div>
+          <i class="fa fa-info"></i> Below duplicate devices are removed
+          <br />
+          <span *ngFor="let dup of duplicateDeviceList; let last = last;">
+            {{dup}}
+            <span *ngIf="!last"> ,</span>
+          </span>
+        </div>
+      </div>
+      <dpdhl-mat-grid [displayedColumns]=" displayedColumnsEdit" [data]="deviceFormData.deviceMetadata"
+        [configuration]="configurationEdit" (selectedDataEvent)="deSelectedDataGrid($event)">
+      </dpdhl-mat-grid>
+    </ng-container>
+    <div class="generalInfoBlk" *ngIf="deviceUploadView">
+      <div class="row">
+        <div class="device-onboard-container">
+          <div class="col-md-4 bulkServiceBlk">
+            <p>Would you like to add more than one device?</p>
+            <ul>
+              <li>1. Download device template file.</li>
+              <li>2. Fill in the device details offline.</li>
+              <li>3. Make sure first column should be unique value for each row.</li>
+              <li>4. Upload the updated device file.</li>
+              <li>5. Click on submit to onboard multiple devices.</li>
+            </ul>
+          </div>
+          <div class="col-md-7">
+            <div class="fileUploadBox bulkDeviceBlk onBoardBulkDeviceBlk">
+              <div class="pull-left">
+                <h3>Step 1</h3>
+                <button type="button" class="downloadFile">
+                  <a href="{{downloadTemplateUrl}}">
+                    <i class="fa fa-file-excel-o"></i>
+                    <i class="fa fa-download"></i>
+                    Download file
+                  </a>
+                </button>
+              </div>
+              <div class="pull-right">
+                <h3>Step 2</h3>
+                <label class="file-holder" for="upload">
+                  <input id="upload" style="display:none" (change)="onFileChange($event)" #fileInput type="file" />
+                  <div class="file-upload">
+                    <div class="innerFileUpload">
+                      <p>Drag & drop file here / Click to upload</p>
+                    </div>
+                  </div>
+                </label>
+                <p class="maxUpload">
+                  Max. Size 2MB
+                  <span>No file uploaded</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="button-group buttonGrpBlk">
+            <button class="btn btn-default" type="button" (click)="backTosServiceProvider()">
+              Back
+            </button>
+            <button class="btn btn-success" type="submit" [disabled]="deviceOnboardingForm.invalid">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="deviceList" *ngIf="deviceAPIListView">
+      <div class="infoBox">
+        <i class="fa fa-info"></i>
+        <p *ngIf="onBoardType == 'edit'">{{deviceOnboardingForm.controls['newDeviceMetadata'].value && deviceOnboardingForm.controls['newDeviceMetadata'].value.length
+          > 0 ? deviceOnboardingForm.controls['newDeviceMetadata'].value.length : 'Selected'}} devices will be added to
+          the
+          group, make sure there no duplicate devices added again from above list. </p>
+        <p *ngIf="onBoardType !== 'edit'">{{deviceOnboardingForm.controls['deviceMetadata'].value && deviceOnboardingForm.controls['deviceMetadata'].value.length
+          > 0 ? deviceOnboardingForm.controls['deviceMetadata'].value.length : 'Selected'}} devices will be added to
+          the
+          group.
+        </p>
+      </div>
+      <div class="infoBox" *ngIf="duplicateDeviceList && duplicateDeviceList.length > 0">
+        <div>
+          <i class="fa fa-info"></i> Below duplicate devices are removed
+          <br />
+          <span *ngFor="let dup of duplicateDeviceList; let last = last;">
+            {{dup}}
+            <span *ngIf="!last"> ,</span>
+          </span>
+        </div>
+      </div>
+      <dpdhl-mat-grid [displayedColumns]="displayedColumns" [data]="deviceAPIList" [configuration]="configuration"
+        (selectedDataEvent)="selectedDataGrid($event)">
+      </dpdhl-mat-grid>
+      <div class="button-group buttonGrpBlk pull-right">
+        <button class="btn btn-default" type="button" (click)="backTosServiceProviderAdd()">
+          Back
+        </button>
+        <button class="btn btn-success" type="submit" [disabled]="deviceOnboardingForm.invalid">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

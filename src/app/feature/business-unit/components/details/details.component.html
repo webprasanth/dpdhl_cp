@@ -1,0 +1,260 @@
+<form [formGroup]="businessUnitForm" (ngSubmit)="onSubmit()" class="form-panel">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-panel-header">
+          <div class="title">
+            {{ businessUnitData.id > 0 ? 'Edit' : 'Add' }} BU Details
+          </div>
+          <div
+            class="multiple-edit"
+            *ngIf="multipleEdit && multipleEdit.length > 1"
+          >
+            <button type="button" [disabled]="slidesIndex == 0">
+              <i (click)="decreaseEdit()" class="fa fa-chevron-left"></i>
+            </button>
+            <button
+              type="button"
+              [disabled]="multipleEdit.length - 1 == slidesIndex"
+            >
+              <i (click)="increaseEdit()" class="fa fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row margin-top">
+      <div class="col-md-3 text-center">
+        <label for="upload" class="file-holder">
+          <div class="file-upload" *ngIf="!profileImage">BU Icon</div>
+          <img [src]="profileImage" *ngIf="profileImage" alt="Profile Image" />
+          Upload/Change Icon
+          <span class="fa fa-upload" aria-hidden="true"></span>
+          <input
+            type="file"
+            id="upload"
+            accept="image/png, image/jpeg"
+            (change)="handleUpload($event)"
+            style="display:none"
+          />
+          <div *ngIf="fileUploadMessage" class="error">
+            File exceeded the maximum size
+          </div>
+        </label>
+        <div class="maxProfileSize">
+          Max size <strong>2MB</strong> | Format
+          <strong>JPEG, PNG</strong>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="name"
+            >BU Name:
+            <sup>*</sup>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            id="name"
+            placeholder="Name"
+          />
+          <div
+            *ngIf="
+              businessUnitForm.controls['name'].touched &&
+              businessUnitForm.controls['name'].errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="businessUnitForm.controls['name'].errors.required"
+              class="form-error-msg"
+            >
+              Name is required .
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="shortName">Short Name: <sup>*</sup></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="shortName"
+            id="shortName"
+            placeholder="Short Name"
+          />
+          <div
+            *ngIf="
+              businessUnitForm.controls['shortName'].touched &&
+              businessUnitForm.controls['shortName'].errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="businessUnitForm.controls['shortName'].errors.required"
+              class="form-error-msg"
+            >
+              Short Name is required .
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            class="form-control"
+            formControlName="description"
+            id="description"
+            placeholder="Description"
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-md-4 col-md-offset-1">
+        <div class="form-group form-group-search">
+          <label for="owner"
+            >BU Head:
+            <sup>*</sup>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="owner"
+            id="owner"
+            placeholder="BU Owner"
+            (change)="checkBUHeadOnSearch($event.target.value)"
+          />
+          <button
+            type="button"
+            [disabled]="
+              businessUnitForm.controls['owner'].value.length == 0 ||
+              (businessUnitForm.controls['owner'].errors &&
+                !businessUnitForm.controls['owner'].pristine &&
+                businessUnitForm.controls['owner'].errors.email)
+            "
+            (click)="searchBUOwner()"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+          <div *ngIf="BUHeadStatus" class="form-error-msg">
+            BU Head not registered
+          </div>
+          <!-- <div *ngIf="BUHeadAvailableMsg" class="form-success-msg">
+            BU Head email is available
+          </div> -->
+          <div
+            *ngIf="formCtrl.owner.touched && formCtrl.owner.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="formCtrl.owner.errors.required" class="form-error-msg">
+              Email is required.
+            </div>
+            <div
+              [hidden]="!businessUnitForm.controls['owner'].errors.email"
+              class="form-error-msg"
+            >
+              Email is invalid .
+            </div>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="businessUnitData.id > 0">
+          <label for="modifiedDate">Modified Date:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="modifiedDate"
+            id="modifiedDate"
+            placeholder="Modified Date"
+          />
+        </div>
+        <div class="form-group" *ngIf="businessUnitData.id == 0">
+          <label for="createdDate">Creation Date:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="createdDate"
+            id="createdDate"
+            placeholder="Created Date"
+          />
+        </div>
+        <div class="form-group" *ngIf="businessUnitData.id == 0">
+          <label for="createdBy">Created By:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="createdBy"
+            id="createdBy"
+            placeholder="Created By"
+          />
+        </div>
+        <div class="form-group" *ngIf="businessUnitData.id > 0">
+          <label for="modifiedBy">Modified By:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="modifiedBy"
+            id="modifiedBy"
+            placeholder="Modified By"
+          />
+        </div>
+        <!-- <div class="form-group">
+          <label for="UserGroup">BU User Group:</label>
+          <mat-form-field>
+            <mat-select
+              formControlName="userGroup"
+              placeholder="Select BU UserGroup"
+              class="form-control"
+            >
+              <mat-option
+                *ngFor="let option of BUGroups"
+                [value]="option.displayName"
+              >
+                {{ option.displayName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div
+            *ngIf="formCtrl.userGroup.touched && formCtrl.userGroup.errors"
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="formCtrl.userGroup.errors.required"
+              class="form-error-msg"
+            >
+              BU User Group is required .
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group form-button">
+        <div class="col-sm-offset-8 col-sm-4">
+          <button
+            type="button"
+            class="btn btn-default"
+            [routerLink]="'/business-unit'"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            [disabled]="
+              businessUnitForm.invalid ||
+              !businessUnitForm.dirty ||
+              BUHeadStatus
+            "
+            class="btn btn-primary"
+          >
+            {{ businessUnitData.id > 0 ? 'Update' : 'Create' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<dpdhl-pop-up
+  *ngIf="popUpVisibility"
+  [popUpConfig]="popUpConfig"
+  (popUpAction)="popUpEvent($event)"
+></dpdhl-pop-up>

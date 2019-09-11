@@ -1,0 +1,128 @@
+ <div class="col-md-12 home_inner_blk1">
+   <div class="row">
+     <div class="col-md-4 col-sm-4 col-xs-12 col-lg-10">
+       <div class="cont_align2">
+         <h1>Data Management</h1>
+         <h2 class="hammer_title">
+           <span>Data Integration</span> &nbsp;
+           <img src="./../../../../../assets/images/hammer_icon2.png" data-toggle="modal" data-target="#myModal" />
+         </h2>
+
+         <p class="wht_isIOT">
+           Data Integration with different service provider is done and tested
+           from DHL IoT Platform as below
+         </p>
+         <table class="data_mgt_tbl">
+           <tr>
+             <th>Service Provider</th>
+             <th>Methodology</th>
+           </tr>
+           <tr>
+             <td>Sigfox</td>
+             <td>Azure IoT Hub & Callback</td>
+           </tr>
+           <tr>
+             <td>Roambee</td>
+             <td>Webhook & Cloud Service</td>
+           </tr>
+           <tr>
+             <td>RPP (Red Point Positioning)</td>
+             <td>Websocket & Custom GW</td>
+           </tr>
+           <tr>
+             <td>Unknown</td>
+             <td>Custom GW & Custom Protocol</td>
+           </tr>
+         </table>
+
+         <h2 class="hammer_title">
+           <span>Data Storage</span> &nbsp;
+           <img src="./../../../../../assets/images/hammer_icon2.png" data-toggle="modal" data-target="#myModal" />
+         </h2>
+         <p class="wht_isIOT">
+           Data received in DHL IoT Platform is time series data and is required
+           to be stored where it can be used in visualization and reporting as
+           well as later accessed for additional processing. It is common to have
+           data split into “warm” and "cold" data stores.<br /><br />The warm
+           data store holds recent data that needs to be accessed with low
+           latency. Data stored in cold storage is typically historical data.
+           Hence keep a recent range (e.g. the last day, week, or month) of
+           telemetry data in warm storage and to store historical data in cold
+           storage.<br /><br />Warm storage solutions were evaluated based on the
+           following criteria.<br />
+         </p>
+         <ul class="data_mgt_ul2">
+           <li>Security</li>
+           <li>Performance</li>
+           <li>Scalability</li>
+           <li>Price</li>
+         </ul>
+
+
+
+
+         <p class="wht_isIOT">
+           A cold storage database holds data that is not needed as quickly
+           and/or frequently as warm storage, but still may be necessary to
+           access in the future for reporting, analysis, machine learning use,
+           etc. Evaluation Criteria
+         </p>
+         <ul class="data_mgt_ul2">
+           <li>Security</li>
+           <li>Scalability</li>
+           <li>Price</li>
+         </ul>
+         <table class="data_mgt_tbl">
+           <tr>
+             <th>Warm Storage</th>
+             <th>Cold Storage</th>
+           </tr>
+           <tr>
+             <td>Security, Performance, Scalability, Price</td>
+             <td>Security, Scalability, Price</td>
+           </tr>
+           <tr>
+             <td>Azure Cosmos DB, Azure SQL DB, Apache Cassandra</td>
+             <td>Azure Storage, Azure Data Lake, DHL Data Lake</td>
+           </tr>
+         </table>
+
+         <h2 class="hammer_title">
+           <span>Data Analytics</span> &nbsp;
+           <img src="./../../../../../assets/images/hammer_icon2.png" data-toggle="modal" data-target="#myModal" />
+         </h2>
+         <p class="wht_isIOT">
+           Anomaly detection and Predictive Analysis can be done using DHL IoT
+           Platform by feeding data, retrieve different patterns and learn over
+           time using machine learning algorithm.
+         </p>
+         <table class="data_mgt_tbl">
+           <tr>
+             <th>Anomaly & Predictive Analysis</th>
+             <th>Methodology</th>
+           </tr>
+           <tr>
+             <td>Pattern matching</td>
+             <td>R & Python Script</td>
+           </tr>
+           <tr>
+             <td>Learning Algorithm</td>
+             <td>Azure ML</td>
+           </tr>
+         </table>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div id="myModal" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-body"
+         style="margin: 0 auto;background: #fff;width:500px; font-size: 30px; font-weight: bold; padding: 100px 0 100px 0; text-align: center;">
+         <img src="./../../../../../assets/images/logo.png" title="DHL" /><br />
+         Illustration will come here....
+       </div>
+     </div>
+   </div>
+ </div>

@@ -1,0 +1,88 @@
+<section class="col-md-12 home_inner_blk1">
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12 col-lg-10">
+      <div class="cont_align2">
+        <h1>Device Management</h1>
+        <h2 class="hammer_title">
+          <span>On-boarding – Provisioning</span> &nbsp;
+          <img src="./../../../../../assets/images/hammer_icon2.png" data-toggle="modal" data-target="#myModal" />
+        </h2>
+        <p class="wht_isIOT">
+          Above on-boarding process has been followed in order provision a
+          device in DHL IoT Platform using Azure Device Provisioning Service
+          (DPS) and the IoT client present in Device.
+        </p>
+
+        <ul class="data_mgt_ul">
+          <li>
+            Device manufacturer adds the device registration information to the
+            enrolment list in the Azure portal.
+          </li>
+          <li>
+            Device contacts the provisioning service endpoint and passes the
+            identifying information to the provisioning service to prove its
+            identity.
+          </li>
+          <li>
+            The provisioning service validates the identity of the device by
+            validating the registration ID and key against the enrolment list
+          </li>
+          <li>The provisioning service registers the device with an IoT hub</li>
+          <li>
+            The IoT hub returns device ID information to the provisioning
+            service.
+          </li>
+          <li>
+            The provisioning service returns the IoT hub connection information
+            to the device.
+          </li>
+          <li>
+            The device connects to IoT hub and get required initial
+            configuration from IoT hub.
+          </li>
+        </ul>
+
+        <h1>Resource Device monitoring</h1>
+        <h2 class="hammer_title">
+          <span>Configuration Management</span> &nbsp;
+          <img src="./../../../../../assets/images/hammer_icon2.png" data-toggle="modal" data-target="#myModal" />
+        </h2>
+        <p class="wht_isIOT">
+          Remote Device Management for configuring a device remotely can be
+          performed from DHL IoT Platform using Azure Automatic Device
+          Management Service.   User can create its configuration to be pushed
+          to certain type of devices and get the confirmation from the device
+          components present in Edge.
+        </p>
+        <h2 class="hammer_title">
+          <span>Content Management – Firmware Update</span> &nbsp;
+          <img src="./../../../../../assets/images/hammer_icon2.png" data-toggle="modal" data-target="#myModal" />
+        </h2>
+
+        <p class="wht_isIOT">
+          Remote Device Management for deploying a s/w or firmware in a device
+          remotely can be performed from DHL IoT Platform using Azure Automatic
+          Device Management Service.<br /><br />
+          User can create its configuration to be pushed and upload the s/w or
+          firmware to Azure Storage to certain type of devices and get the
+          confirmation from the device components present in Edge. Device
+          downloads the s/w or firmware as soon as they receives the
+          configuration details and send the status back to DHL IoT Platform
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body"
+        style="margin: 0 auto;background: #fff;width:500px; font-size: 30px; font-weight: bold; padding: 100px 0 100px 0; text-align: center;">
+        <img src="./../../../../../assets/images/logo.png" title="DHL" /><br />
+        Illustration will come here....
+      </div>
+    </div>
+  </div>
+</div>

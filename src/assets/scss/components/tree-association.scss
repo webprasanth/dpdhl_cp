@@ -1,0 +1,283 @@
+tree-viewport {
+  overflow: inherit !important;
+  clear: both;
+  display: block;
+}
+.node-wrapper {
+  background: #ffffff;
+  font-weight: bold;
+  color: #333333;
+  font-size: 16px;
+  margin: 0 0 5px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  width: 245px;
+}
+.node-content-wrapper span {
+  padding-left: 25px;
+  width: 225px;
+  padding: 8px 0 8px 20px;
+  display: block;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 10px;
+}
+.toggle-children-wrapper-collapsed::before {
+  content: '+';
+  font-size: 21px;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  color: #000;
+  width: 20px;
+  height: 20px;
+}
+.toggle-children-wrapper-expanded::before {
+  content: '-';
+  font-size: 21px;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+.toggle-children-wrapper .toggle-children {
+  display: none;
+}
+.node-content-wrapper-active,
+.node-content-wrapper.node-content-wrapper-active:hover,
+.node-content-wrapper-active.node-content-wrapper-focused,
+.node-content-wrapper:hover,
+.node-content-wrapper-focused {
+  background: transparent;
+  box-shadow: none;
+}
+.node-wrapper::after {
+  content: '...';
+  position: absolute;
+  right: 0;
+  transform: rotate(90deg);
+  font-size: 26px;
+  top: 1px;
+  display: none;
+}
+.tree-node-expanded .node-wrapper {
+  padding-left: 0px;
+  background: #ffcc00;
+}
+.tree-node-expanded .node-content-wrapper span {
+  color: #d40511;
+}
+.tree-node-level-2 .node-wrapper,
+.tree-node-level-2 .node-wrapper {
+  background: #444444 !important;
+}
+.tree-node-level-2 .node-content-wrapper span,
+.tree-node-level-2 .node-content-wrapper span {
+  color: #fff;
+}
+.tree-node-level-2 .node-wrapper::after,
+.tree-node-level-2 .node-wrapper::after {
+  color: #fff;
+}
+.tree-node-level-2 .toggle-children-wrapper::before {
+  color: #fff;
+}
+.tree-node-level-3 .node-wrapper,
+.tree-node-level-3 .node-wrapper {
+  background: #cccccc !important;
+}
+.tree-node-level-3 .node-content-wrapper span,
+.tree-node-level-3 .node-content-wrapper span {
+  color: #000;
+}
+.tree-node-level-3 .node-wrapper::after,
+.tree-node-level-3 .node-wrapper::after {
+  color: #000;
+}
+.tree-node-level-3 .toggle-children-wrapper::before {
+  color: #000;
+}
+.tree-node-level-4 .node-wrapper,
+.tree-node-level-4 .node-wrapper {
+  background: #ffffff !important;
+}
+.tree-node-level-4 .node-content-wrapper span,
+.tree-node-level-4 .node-content-wrapper span {
+  color: #000;
+}
+.tree-node-level-4 .node-wrapper::after,
+.tree-node-level-4 .node-wrapper::after {
+  color: #000;
+}
+.tree-node-level-4 .toggle-children-wrapper::before {
+  color: #000;
+}
+.tree-node-leaf .node-wrapper::after {
+  display: none;
+}
+.tree-node-leaf .node-content-wrapper span {
+  padding-left: 0;
+}
+.tree-node::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: -20px;
+  border-left: 1px solid #b2b2b2;
+  border-bottom: 1px solid #b2b2b2;
+  border-radius: 0 0 0 0px;
+  width: 20px;
+  height: 15px;
+}
+.tree-node::after {
+  position: absolute;
+  content: '';
+  top: 16px;
+  left: -20px;
+  border-left: 1px solid #b2b2b2;
+  border-top: 1px solid #b2b2b2;
+  border-radius: 0px 0 0 0;
+  width: 1px;
+  height: 100%;
+}
+.tree-node {
+  position: relative;
+}
+.associationListBlk {
+  tree-node-wrapper {
+    position: relative;
+    &:after {
+      display: none;
+      content: '';
+      border-right: 1px solid red;
+      padding-right: 40px;
+      height: 100px;
+      position: absolute;
+    }
+  }
+  .node-wrapper {
+    float: left;
+    clear: left;
+    width: 245px;
+    .node-content-wrapper {
+      span {
+        padding-left: 20px;
+        font-size: 14px;
+      }
+    }
+  }
+  .tree-node::before {
+    display: none;
+  }
+  .tree-node::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 265px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-radius: 0px 0 0 0;
+    width: 1px;
+    height: 100%;
+  }
+  .tree-node-level-4 {
+    &.tree-node {
+      &::after {
+        //display: none;
+      }
+    }
+  }
+  .tree-children {
+    padding-left: 40px;
+  }
+  .tree-node-level-2 {
+    .tree-children {
+      left: 245px;
+    }
+  }
+}
+
+tree-viewport {
+  left: 50px;
+  position: relative;
+}
+.associationListBlk tree-viewport {
+  left: 0;
+}
+
+.associationListBlk .tree-node,
+.associationListBlk .tree-children {
+  display: flex;
+}
+.associationListBlk tree-viewport div {
+  height: auto !important;
+}
+
+
+.node-content-wrapper span{
+  width: 245px;
+  border-radius: 4px;
+  color: #000;
+  padding: 8px 0 8px 25px;
+}
+.node-content-wrapper span.buBg{
+  background: #d40511; 
+} 
+.node-content-wrapper span.appBg,
+.node-content-wrapper span.appBg span{
+  background: #fc0;
+  color: #000!important;
+}
+.node-content-wrapper span.usrGrpBg{
+  background: #d0deff;
+} 
+.node-content-wrapper span.deviceGrpBg,
+.node-content-wrapper span.deviceGrpBg span{
+  background: #000000;
+  color: #ffffff!important;
+}
+.node-content-wrapper span.entityInsBg{
+  background: #ffffff;
+}
+.node-content-wrapper span.entityBg{
+  background: #dadada;
+} 
+.node-content-wrapper,.toggle-children-wrapper{ 
+  padding: 0!important;
+}
+.tree-node-leaf .node-content-wrapper span{
+  padding: 8px 0 8px 25px;
+}
+.tree-node-expanded .node-content-wrapper span{
+  color: #000;
+}
+.tree-node-level-1 .tree-node-expanded .node-content-wrapper span,
+.tree-node-level-2 .node-wrapper::after,.tree-node-level-2 .tree-node::before,
+.tree-node-expanded .node-content-wrapper span.deviceGrpBg{
+  color: #000;
+}
+.toggle-children-placeholder{
+  width: 0;
+  height: 0;
+  padding: 0;
+}
+.node-content-wrapper span.buBg,
+.node-content-wrapper span.buBg span{
+  color: #fff;
+}
+.node-content-wrapper span span{
+  padding: 0!important;
+  color: #fff;
+}
+.tree-node-leaf .node-content-wrapper span span{
+  padding: 0!important;
+}
+.node-wrapper::after,.tree-node-level-2 .node-wrapper::after, .tree-node-level-2 .node-wrapper::after,.tree-node-level-2 .toggle-children-wrapper::before{
+  color: #000;
+}
+.associationListBlk .node-wrapper .node-content-wrapper span {
+  padding-left: 30px;
+}

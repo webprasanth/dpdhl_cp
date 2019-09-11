@@ -1,0 +1,153 @@
+<form class="form-panel" [formGroup]="roleMapForm">
+  <div class="container-fluid rbacBlk">
+    <div class="row">
+      <div>
+        <div class="form-group">
+          <label for="name">
+            Roles:
+            <sup>*</sup>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="roleName"
+            id="name"
+            placeholder="role"
+            (focusout)="roleNameCheck()"
+          />
+          <div
+            *ngIf="
+              roleMapForm.controls['roleName'].touched &&
+              roleMapForm.controls['roleName'].errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="roleMapForm.controls['roleName'].errors.required"
+              class="form-error-msg"
+            >
+              Role name is required
+            </div>
+          </div>
+          <div
+            *ngIf="nameExist && !roleMapForm.controls['roleName'].errors"
+            class="form-error-msg"
+          >
+            Role name already Exists
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="function">User Group: </label>
+          <mat-form-field class="mat-multi-select">
+            <mat-select formControlName="userGroupIDs" multiple>
+              <mat-option
+                *ngFor="let user of userGroup"
+                [value]="user.id"
+                [disabled]="
+                  user.user_group_name == 'Platform Admin' ||
+                  user.user_group_name == 'Application Admin' ||
+                  user.user_group_name == 'Default App User'
+                "
+              >
+                {{ user.user_group_name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div formArrayName="privileges">
+          <div
+            class="dropDownFld"
+            *ngFor="
+              let child of roleMapForm.controls.privileges['controls'];
+              let i = index
+            "
+          >
+            <div
+              class="panel-heading row"
+              role="tab"
+              [id]="'heading' + child.value.role"
+            >
+              <h4 class="panel-title">
+                <!-- <i class="fa fa-share-alt"></i> -->
+                <button class="btn btn-primary btn-collapse">
+                  <a
+                    style="text-decoration:none"
+                    role="button"
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    [href]="'#collapse' + child.value.role"
+                    aria-expanded="true"
+                    [attr.aria-controls]="'collapse' + child.value.role"
+                    class="collapsed"
+                  >
+                    <i class="fa fa-caret-down"></i>
+                    {{ child.value.role | titlecase }}
+                    <span class="expand-span-class"> </span>
+                  </a>
+                </button>
+              </h4>
+            </div>
+
+            <div
+              class="toggle-class"
+              [id]="'collapse' + child.value.role"
+              class="panel-collapse collapse "
+              role="tabpanel"
+              [attr.aria-labelledby]="'heading' + child.value.role"
+            >
+              <div class="panel-body width100">
+                <div *ngFor="let obj of child.value.rights">
+                  <div>
+                    <div class="form-group">
+                      <div class="checkBoxGroup form-control">
+                        <label
+                          class="checkBoxLabel"
+                          *ngFor="let item of obj | keyvalue"
+                        >
+                          <input
+                            type="checkbox"
+                            [disabled]="
+                              rbacData.roleName == 'Platform Admin' ||
+                              rbacData.roleName == 'Application Admin' ||
+                              rbacData.roleName == 'Default App User Role'
+                                ? true
+                                : false
+                            "
+                            name="item.value"
+                            [checked]="item.value"
+                            value="{{ item.value }}"
+                            (change)="
+                              updateCheckedOptions(item, child.value.role)
+                            "
+                          />
+                          <p>{{ getCamelCase(item.key) }}</p>
+                          <span class=" checkmark "></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button
+            class="btn btn-save margin-right20"
+            type="submit"
+            [disabled]="roleMapForm.invalid || nameExist"
+            (click)="saveConfig()"
+          >
+            {{ rbacData.roleID > 0 ? 'Update' : 'Create' }}
+          </button>
+          <button type="button" class="btn btn-cancel" (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

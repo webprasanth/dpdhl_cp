@@ -1,0 +1,141 @@
+<form [formGroup]="applicationForm" class="form-panel">
+  <div class="container-fluid rbacBlk">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="roles">App Name:</label>
+          <mat-form-field>
+            <mat-select placeholder="Select Application" class="form-control" formControlName="app" (selectionChange)="onAppSelect($event.value)">
+              <mat-option *ngFor="let app of appList" [value]="app">
+                {{app.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngIf="formCtrl.app.touched && formCtrl.app.errors">
+            <div *ngIf="formCtrl.app.errors.required" class="form-error-msg">App Name is required .</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="roles">Roles:</label>
+          <mat-form-field>
+            <mat-select placeholder="Select Roles" class="form-control" formControlName="roles" (selectionChange)="onRoleSelect($event.value)">
+              <mat-option *ngFor="let roles of Roles" [value]="roles">
+                {{roles.role_name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <i class="fa fa-plus addIco" (click)="addfunction('Role')"></i>
+          <div *ngIf="formCtrl.roles.touched && formCtrl.roles.errors">
+            <div *ngIf="formCtrl.roles.errors.required" class="form-error-msg">Roles is required .</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="function">Responsibilities/Functionality:
+          </label>
+          <mat-form-field>
+            <mat-select placeholder="Select functionality" class="form-control" formControlName="activity" (selectionChange)="onActivitySelect($event.value)">
+              <mat-option *ngFor="let function of fuctionList" [value]="function">
+                {{function.activity_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <i class="fa fa-plus addIco" [ngClass]="{'addIcoButton-diabled': !appId}" (click)="addfunction('Functionality')"></i>
+          <!-- <button class="fa fa-plus addIcoButton" (click)="addfunction('Functionality')"> </button> -->
+          <div *ngIf="formCtrl.activity.touched && formCtrl.activity.errors">
+            <div *ngIf="formCtrl.activity.errors.required" class="form-error-msg">Responsibilities/Functionality is required .</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="function">Sub Functionalities:</label>
+          <mat-form-field>
+            <mat-select placeholder="Select sub functionalities" formControlName="subActivity" class="form-control">
+              <mat-option *ngFor="let function of fuctionList" [value]="function">
+                <span *ngIf="function.sub_activity!=null"> {{function.sub_activity}}</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <i class="fa fa-plus addIco" [ngClass]="{'addIcoButton-diabled': !activityId}" (click)="addfunction('Sub Functionality')"></i>
+          <!-- <button class="fa fa-plus addIcoButton" (click)="addfunction('Sub Functionality')"> </button> -->
+          <div *ngIf="formCtrl.subActivity.touched && formCtrl.subActivity.errors">
+            <div *ngIf="formCtrl.subActivity.errors.required" class="form-error-msg">Sub Functionalities is required .</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="operations">Operations:</label>
+          <div class="checkBoxGroup form-control">
+            <label class="checkBoxLabel" *ngFor="let option of options">
+              <input type="checkbox" name="options" value="{{option}}" [checked]="options.indexOf(option) >= 0" (change)="updateCheckedOptions(option, $event)"
+              /> {{option}}
+              <span class="checkmark"></span>
+            </label>
+
+          </div>
+        </div>
+
+        <!--  -->
+        <!-- <div class="form-group">
+          <label for="options">Options :</label>
+          <div *ngFor="let option of options">
+            <label>
+              <input type="checkbox" name="options" value="{{option}}" [checked]="options.indexOf(option) >= 0" (change)="updateCheckedOptions(option, $event)"
+              /> {{option}}
+            </label>
+          </div>
+        </div> -->
+        <!--  -->
+      </div>
+      <div class="col-md-7 listingBlk">
+        <div class="listingBox">
+          <h3>List of Roles</h3>
+          <ol *ngFor="let roles of Roles ;let i = index;">
+            <li> {{i+1}}. {{roles.role_name }}</li>
+
+          </ol>
+        </div>
+
+        <div class="listingBox">
+          <h3>List of Functionalities</h3>
+          <ol *ngFor="let function of functionalities ;let i = index;">
+            <li>{{i+1}}. {{function.activity_name}}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="button-group">
+      <button type="button" class="btn btn-cancel">Cancel</button>
+      <button class="btn btn-save" type="button" [disabled]="applicationForm.invalid || !applicationForm.dirty" (click)="saveConfig()">Save</button>
+    </div>
+  </div>
+
+</form>
+<div class="overlayBlk" *ngIf="showNewRole">
+  <div class="overlayContentBlk addDeviceOverlay">
+    <h4>Add New {{ this.addParam}}
+      <span (click)="showNewRole = !showNewRole">x</span>
+    </h4>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter new {{this.addParam}}" [(ngModel)]="popupInput" />
+    </div>
+    <div class="button-group">
+      <button type="button" class="btn btn-primary" (click)="add()" class="btn btn-success">Add</button>
+    </div>
+  </div>
+</div>
+<div class="overlayBlk" *ngIf="roleConfirmSuccess">
+  <div class="overlayContentBlk deviceConfirmSuccess">
+    <h4>Confirmation
+      <span (click)="roleConfirmSuccess = !roleConfirmSuccess">x</span>
+    </h4>
+    <div class="row">
+      <div class="col-lg-12 confirmSuccess">
+        <i class="fa fa-check"></i>
+        <h3>Role Congured Successfully</h3>
+      </div>
+    </div>
+    <div class="button-group">
+      <button type="button" class="btn btn-primary" class="btn btn-success">Confirm</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+.download-dropdown {
+  display: inline;
+  margin-left: 15px;
+  .btn-default {
+    margin-top: -26px;
+    height: 40px;
+    border: 2px solid #fecb07;
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+    }
+  }
+  ul {
+    &.dropdown-menu {
+      li {
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+          background-color: #e6e6e6;
+        }
+        button {
+          border: 0;
+          background: transparent;
+          padding: 0;
+          width: 100%;
+          text-align: left;
+          cursor: pointer;
+          &:disabled {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}
+.table-responsive {
+  clear: both;
+}
+.yes {
+  width: 30px;
+  height: 30px;
+  background-image: url(src/assets/images/checked.svg);
+  margin-left: 20px;
+}
+.no {
+  width: 30px;
+  height: 30px;
+  background-image: url(src/assets/images/cancel.svg);
+  margin-left: 20px;
+}
+.sev0 {
+  width: 20px;
+  height: 20px;
+  background: #e81123;
+  border-radius: 10px;
+}
+.sev1 {
+  width: 20px;
+  height: 20px;
+  background: #dd5900;
+  border-radius: 10px;
+}
+.sev2 {
+  width: 20px;
+  height: 20px;
+  background: #fcd116;
+  border-radius: 10px;
+}
+.sev3 {
+  width: 20px;
+  height: 20px;
+  background: #0072c6;
+  border-radius: 10px;
+}
+.sev4 {
+  width: 20px;
+  height: 20px;
+  background: #00188f;
+  border-radius: 10px;
+}
+.mat-table .mat-grid-header-paginator {
+ // float: right;
+ position: relative;
+}
+.refresh-button {
+  padding: 4px 12px;
+  margin-top: 12px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  right: 310px;
+  position: absolute;
+  background: #fecb07;
+  margin: 0;
+  padding: 8px 15px 3px;
+  top: 13px;
+  border: none;
+  .fa {
+    font-size: 18px;
+  } 
+}
+.fa-circle.red {
+  color: red;
+}
+.fa-circle.green {
+  color: green;
+}
+.app-owned{ 
+  background:#EEEBEB;
+  margin-right:10px;
+  border-radius: 10px;
+  text-decoration: none;
+  
+} 
+
+/***Reponsive CSS***/
+@media screen and (min-width: 320px) and (max-width: 767px){
+  .download-dropdown{
+    margin-left: 10px;
+  }
+  .refresh-button {
+    width: 40px;
+    overflow: hidden;
+    position: absolute;
+    left: -42px;
+    top: 13px;
+  }
+  .refresh-button .fa{
+    padding-right: 10px;
+  }
+}

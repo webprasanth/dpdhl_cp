@@ -1,0 +1,9 @@
+<ol class="breadcrumb">
+  <li><a [routerLink]="['/dashboard']" class="breadcrumb">Dashboard</a></li>
+  <li
+    *ngFor="let breadcrumb of breadcrumbs"
+    [ngClass]="breadcrumb.url != '/dashboard' ? 'visible' : 'hidden'"
+  >
+    <a [routerLink]="[breadcrumb.url]">{{ breadcrumb.label }}</a>
+  </li>
+</ol>

@@ -1,0 +1,308 @@
+<!-- <div class="col-md-12">
+  <div class="new-application">
+    <div class="title">
+      All Application
+      <div class="scroll-button" *ngIf="APPData?.length > 3">
+        <button [disabled]="leftArrow" (click)="scrollLeft()">
+          <i class="fa fa-angle-left"></i>
+        </button>
+        <button [disabled]="rightArrow" (click)="scrollRight()">
+          <i class="fa fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngIf="APPData?.length < 0">
+          <p class="error-text"> No Applications Avilable</p>
+        </div>
+        <div #widgetsContent class="middle">
+          <div class="info-widget" *ngFor="let app of APPData | slice: 0:3; let i = app">
+            <div class="new-application-content" id="Dsc_WMS_App" (mouseover)="description($event)">
+              <div class="new-application-content-left">
+                <div class="new-application-content-left-title" title="{{ app.appName }}">
+                  {{ app.appName }}
+                </div>
+                <div class="new-application-content-left-name">
+                  Owner: {{ app.appOwnerName }}
+                </div>
+                <div class="new-application-content-left-user">
+                  User &nbsp;
+                </div>
+                <div class="new-application-content-left-date">
+                  Launched on {{ app.onBoardedDate | date: 'MM/dd/yy' }}
+                </div>
+                <div class="new-application-content-left-view">
+                  <a class="go-to-app" href="{{ app.appURL }}">Goto App &nbsp;
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="new-application-content-right">
+                <div class="new-application-content-right-top">
+                  <i class="fa fa-share-alt new-application-content-right-icon" aria-hidden="true"></i>
+
+                  <i id="Dsc_WMS" (click)="onFavorit(app)" [ngClass]="{ 'show-class': app.isFavorite }" class="fa fa-heart new-application-content-right-icon"
+                    aria-hidden="true"></i>
+                </div>
+</div>
+<div class="new-application-content-right">
+  <div class="new-application-content-right-top">
+    <i class="fa fa-share-alt new-application-content-right-icon" aria-hidden="true"></i> 
+
+                <div class="new-application-content-right-bottom">
+                  <i class="fa fa-cloud cloud" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-widget" *ngIf="APPData?.length > 3">
+            <div id="Pnp_CM_Sat_App" class="new-application-content" (mouseover)="description($event)" (mouseout)="description($event == null)">
+              <div class="new-application-content-left">
+                <div class="new-application-content-left-title">
+                  PnP Customer Satisfaction
+                </div>
+                <div class="new-application-content-left-name">
+                  Owner: Sven Frankemoelle
+                </div>
+                <div class="new-application-content-left-user">
+                  Users - 105
+                </div>
+                <div class="new-application-content-left-date">
+                  Launch on 12/05/2019
+                </div>
+                <div class="new-application-content-left-view">
+                  <a class="go-to-app">Goto App</a>
+                </div>
+              </div>
+              <div class="new-application-content-right">
+                <div class="new-application-content-right-top">
+                  <i class="fa fa-share-alt new-application-content-right-icon" aria-hidden="true"></i>
+                  <i id="Pnp_CM_Sat" [ngClass]="{
+                      'show-class': myFavoriteApp.PNP,
+                      'hide-class': !myFavoriteApp.PNP
+                    }" (click)="toggle($event)" class="fa fa-heart  new-application-content-right-icon" aria-hidden="true"></i>
+                </div>
+                <div *ngIf="appDescription.PNP" class="description-container">
+                  <p>
+                    Description: This application allows you to track and trace various shipments that have sensors associated with them.
+                    <br /> BU: CSI
+                  </p>
+                </div>
+                <div class="new-application-content-right-bottom">
+                  <i class="fa fa-cloud cloud" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+            <div class="last-view-all">
+              <div class="view-all">
+                <a [routerLink]="['/application/all']">View All</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="appDescription.PNP" class="description-container">
+        <p>
+          Description: This application allows you to track and trace various shipments that have sensors
+          associated with them.
+          <br /> BU: CSI
+        </p>
+      </div>
+      <div class="new-application-content-right-bottom">
+                  <img alt="" src="./../../../../assets/images/allApp1.png" />
+                </div> 
+    </div>
+  </div>
+  <div class="last-view-all">
+    <div class="view-all">
+      <a [routerLink]="['/application/all']">View All</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> -->
+<div class="col-md-12">
+  <div class="new-application">
+    <div class="title">
+      {{ appOwnerList ? 'All Application' : 'My Applications' }}
+
+      <div class="scroll-button" *ngIf="APPData?.length > 3">
+        <button
+          [disabled]="leftArrow"
+          class="btn btnPrev"
+          (click)="scrollLeft()"
+        >
+          <i class="fa fa-angle-left"></i>
+        </button>
+        <button
+          [disabled]="rightArrow"
+          class="btn btnNext"
+          (click)="scrollRight()"
+        >
+          <i class="fa fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngIf="APPData?.length < 0">
+          <p class="error-text">No Applications Available</p>
+        </div>
+        <div #widgetsContent class="middle">
+          <!-- <button class="btn btnPrev" disabled>
+            <i class="fa fa fa-angle-left"></i>
+          </button>
+          <button class="btn btnNext">
+            <i class="fa fa fa-angle-right"></i>
+          </button> -->
+          <div
+            class="info-widget"
+            *ngFor="let app of APPData | slice: 0:6; let i = app"
+          >
+            <a class="go-to-app" href="{{ app.url }}"
+              >Go To Application &nbsp;
+              <i class="fa fa-angle-right"></i>
+            </a>
+            <div
+              class="new-application-content"
+              id="Dsc_WMS_App"
+              (mouseover)="description($event)"
+            >
+              <div class="allAppIco">
+                <img
+                  *ngIf="!app.imgData"
+                  alt=""
+                  src="./../../../../assets/images/allApp1.png"
+                />
+                <img
+                  width="100%"
+                  [src]="app.imgData"
+                  *ngIf="app.imgData"
+                  alt="app Image"
+                />
+              </div>
+              <div class="new-application-content-left">
+                <div
+                  class="new-application-content-left-title"
+                  title="{{ app.appName }}"
+                >
+                  {{ app.appName }}
+                </div>
+                <div class="new-application-content-left-name">
+                  Owner: {{ app.appOwnerName }}
+                </div>
+                <div class="new-application-content-left-user">
+                  &nbsp;
+                </div>
+                <!-- <div class="new-application-content-left-date">
+                  Launched on {{ app.onBoardedDate | date: 'MM/dd/yy' }}
+                </div> -->
+                <!-- <div class="new-application-content-left-view">
+                    <a class="go-to-app" href="{{ app.appURL }}">Goto App &nbsp;
+                      <i class="fa fa-angle-right"></i>
+                    </a>
+                  </div> -->
+              </div>
+              <div class="new-application-content-right">
+                <div class="new-application-content-right-top">
+                  <!-- <i class="fa fa-share-alt new-application-content-right-icon" aria-hidden="true"></i> -->
+
+                  <i
+                    id="Dsc_WMS"
+                    (click)="onFavorit(app)"
+                    [ngClass]="{
+                      'show-class': app.isFavorite,
+                      'hide-class': !app.isFavorite
+                    }"
+                    class="fa fa-heart new-application-content-right-icon"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="{{
+                      app.isFavorite
+                        ? 'Favorite Application'
+                        : 'Add to favorite application'
+                    }}"
+                  ></i>
+                </div>
+
+                <!-- <div class="new-application-content-right-bottom">
+                    <img alt="" src="./../../../../assets/images/allApp1.png" />
+                  </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="info-widget" *ngIf="APPData?.length > 3">
+            <div
+              id="Pnp_CM_Sat_App"
+              class="new-application-content"
+              (mouseover)="description($event)"
+              (mouseout)="description($event == null)"
+            >
+              <!-- <a class="go-to-app" href=""
+                >Go To Application &nbsp;
+                <i class="fa fa-angle-right"></i>
+              </a> -->
+              <div class="allAppIco">
+                <img alt="" src="./../../../../assets/images/allApp1.png" />
+              </div>
+              <div class="new-application-content-left">
+                <div class="new-application-content-left-title">
+                  PnP Customer Satisfaction
+                </div>
+                <div class="new-application-content-left-name">
+                  Owner: Sven Frankemoelle
+                </div>
+                <div class="new-application-content-left-user">
+                  Users - 105
+                </div>
+                <div class="new-application-content-left-date">
+                  Launch on 12/05/2019
+                </div>
+              </div>
+              <div class="new-application-content-right">
+                <div class="new-application-content-right-top">
+                  <!-- <i class="fa fa-share-alt new-application-content-right-icon" aria-hidden="true"></i> -->
+                  <i
+                    id="Pnp_CM_Sat"
+                    [ngClass]="{
+                      'show-class': myFavoriteApp.PNP,
+                      'hide-class': !myFavoriteApp.PNP
+                    }"
+                    (click)="toggle($event)"
+                    class="fa fa-heart  new-application-content-right-icon"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+                <div *ngIf="appDescription.PNP" class="description-container">
+                  <p>
+                    Description: This application allows you to track and trace
+                    various shipments that have sensors associated with them.
+                    <br />
+                    BU: CSI
+                  </p>
+                </div>
+                <!-- <div class="new-application-content-right-bottom">
+                    <img alt="" src="./../../../../assets/images/allApp1.png" />
+                  </div> -->
+              </div>
+            </div>
+            <div class="last-view-all">
+              <div class="view-all show-more">
+                <a [routerLink]="['/application/all']">View All</a>
+                <br />
+                <br />
+                <a [routerLink]="['/application/favorite']">View Favorite</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

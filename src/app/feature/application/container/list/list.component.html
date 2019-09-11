@@ -1,0 +1,20 @@
+<div class="page-title">
+  Application
+</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-list"></i>&nbsp;Application List
+    </button>
+    <button *ngIf="role.onboard_application" type="button" class="btn btn-default" [routerLink]="'/application/add'">
+      <i class="fa fa-share-alt"></i>&nbsp;Onboard Application
+    </button>
+  </div>
+</div>
+<div class="matGridControlBlk">
+  <dpdhl-mat-grid *ngIf="role.application_list_view" [displayedColumns]="displayedColumns" [data]="manipulateArray"
+    [configuration]="configuration" [popUpConfig]="popUpConfig" (viewEvent)="viewApplication($event)"
+    (editEvent)="editApplication($event)" (deleteEvent)="deleteApplication($event)"></dpdhl-mat-grid>
+</div>
+<dpdhl-view *ngIf="viewApplicationPopup" [viewApplication]="viewAppdata" [resourceList]="resourceList"
+  (closeView)="closePopup($event)"></dpdhl-view>

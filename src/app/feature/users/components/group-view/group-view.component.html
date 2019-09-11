@@ -1,0 +1,76 @@
+<!-- Modal -->
+<div
+  id="myModal"
+  class=" fade"
+  [ngClass]="viewUserDetails ? 'in' : ''"
+  role="dialog"
+>
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="closePopup()"
+        >
+          &times;
+        </button>
+        <h4 class="modal-title">User Group View</h4>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="row">
+          <div class="col-md-1" align="left">
+          </div>
+          <div class="col-md-5" align="left">
+            <h4 class="user-name">{{ viewUserDetails?.firstname }}</h4>
+            <p>{{ viewUserDetails?.email }}</p>
+          </div>
+          <div class="col-md-6" align="right">
+            <p>Last Login at: {{ viewUserDetails?.lastlogin | date }}</p>
+          </div>
+        </div> -->
+        <div class="container-fluid">
+          <div class="row margin20">
+            <div class="colDisplayBlk">
+              <label for="upload" class="file-holder">Group Name:</label>
+              <p>{{ viewUserDetails?.user_group_name }}</p>
+            </div>
+            <div class="colDisplayBlk">
+              <label for="upload" class="file-holder">Associated To:</label>
+              <p>{{ viewUserDetails?.parent_name }}</p>
+            </div>
+            <div class="colDisplayBlk">
+              <label for="upload" class="file-holder">Created By:</label>
+              <p>{{ viewUserDetails?.created_by }}</p>
+            </div>
+            <div class="colDisplayBlk">
+              <label for="upload" class="file-holder">Created On:</label>
+              <p>{{ viewUserDetails?.created_date | date }}</p>
+            </div>
+            <div class="colDisplayBlk">
+              <label for="upload" class="file-holder">Status:</label>
+              <p>{{ viewUserDetails?.is_exists ? 'Active' : 'InActive' }}</p>
+            </div>
+          </div>
+          <div class="row margin20">
+            <dpdhl-mat-grid
+              *ngIf="
+                viewUserDetails &&
+                viewUserDetails.users &&
+                viewUserDetails.users.length > 0
+              "
+              [displayedColumns]="displayedColumns"
+              [data]="viewUserDetails?.users"
+              [configuration]="configuration"
+            ></dpdhl-mat-grid>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+          <p>*It is updated User Group Details</p>
+        </div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<ng-container *ngIf="!invitedUser">
+  <div class="grayBgBlk"></div>
+  <div class="">
+    <div class="row">
+      <dpdhl-quick-view [quickLinksCount]="quickLinksCount"></dpdhl-quick-view>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="user-graph-chart-container">
+          <dpdhl-user-graph [userDestributionGraphDataList]="userDestributionGraphDataList" (getDateEvent)="getUserDestributionChart($event)"></dpdhl-user-graph>
+        </div>
+        <!-- <div class="devive-status-chart user-graph-chart-container">
+          <dpdhl-device-status></dpdhl-device-status>
+        </div> -->
+        <div class="devive-destribution-chart user-graph-chart-container">
+          <dpdhl-device-distribution-graph [deviceDestributionGraphDataList]="deviceDestributionGraphDataList" (getDateEventDevice)="getDeviceDestributionChart($event)"
+            [totalDevice]="totalDevice">
+          </dpdhl-device-distribution-graph>
+        </div>
+      </div>
+
+      <div class="col-md-4" *ngIf="appOwnerList">
+        <dpdhl-app-owner [APPOwnerList]="APPOwnerList" (postEmail)="postEmail($event)"></dpdhl-app-owner>
+      </div>
+    </div>
+    <div class="row">
+      <dpdhl-new-application [APPData]="APPData" [UserName]="UserName" [userToken]="userToken" (onFavoritSelect)="onFavoritSelect($event)">
+      </dpdhl-new-application>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="invitedUser">
+  <div class="pop-up-bg">
+    <div class="pop-up">
+      <div class="pop-up-content">
+        <div class="pop-up-content-title">
+          Persmission Denied!
+        </div>
+        <div class="pop-up-content-info">
+          <div class="pop-up-content-info-one">
+            You dont have persmission to access DHL IoT Platform application, please contact your inviter. You will be logged out in
+            {{ timer }} seconds.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

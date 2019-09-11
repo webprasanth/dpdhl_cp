@@ -1,0 +1,17 @@
+<div class="page-title">Business Unit</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-list"></i>&nbsp;BU List
+    </button>
+    <button type="button" *ngIf="role.onboard_business_unit" class="btn btn-default" [routerLink]="'/business-unit/add'">
+      <i class="fa fa-share-alt"></i>&nbsp;Add New BU
+    </button>
+  </div>
+</div>
+<div class="matGridControlBlk">
+  <dpdhl-mat-grid *ngIf="role.business_unit_list_view" [displayedColumns]="displayedColumns" [data]="buList" [configuration]="configuration"
+    [popUpConfig]="popUpConfig" (editEvent)="editBusinessUnit($event)" (deleteEvent)="deleteBusinessUnit($event)">
+  </dpdhl-mat-grid>
+</div>
+<dpdhl-alerts [alertConfig]="alertConfig"></dpdhl-alerts>

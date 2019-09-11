@@ -1,0 +1,153 @@
+
+.btn-toggle { 
+    padding: 0; 
+    border: none;  
+    color: #6b7381;   
+    background: #fff;
+    height: 24px;
+    width: 50px;
+    border-radius: 20px;
+    position: relative;
+    clear: both;
+    display: block;
+    right: inherit;
+    margin: 5px 0 0;
+    border: 1px solid #cccccc;
+  }
+  .btn-toggle:focus,
+  .btn-toggle.focus,
+  .btn-toggle:focus.active,
+  .btn-toggle.focus.active {
+    outline: none;
+  } 
+  .btn-toggle.btn-xs:focus,
+  .btn-toggle.btn-xs.focus,
+  .btn-toggle.btn-xs:focus.active,
+  .btn-toggle.btn-xs.focus.active {
+    outline: none;
+  }
+  .btn-toggle.btn-xs:before,
+  .btn-toggle.btn-xs:after {
+    line-height: 1rem;
+    width: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.25s;
+  }
+  .btn-toggle.btn-xs:before {
+    content: '';
+    left: 0;
+  }
+  .btn-toggle.btn-xs:after {
+    content: '';
+    right: 0;
+    opacity: 0.5;
+  }
+  .btn-toggle.btn-xs > .handle {
+    position: absolute;    
+    background: #fff;
+    transition: left 0.25s; 
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    left: 4px;
+    top: 2px; 
+    box-shadow:0px 0px 4px #000000a3;
+  }
+  .btn-toggle.btn-xs.active {
+    transition: background-color 0.25s;
+    background: #86c04d;
+  }
+  .btn-toggle.btn-xs.active > .handle {
+    left: 27px;
+    transition: left 0.25s;
+    top: 2px;
+  }
+  .btn-toggle.btn-xs.active:before {
+    opacity: 0.5;
+  }
+  .btn-toggle.btn-xs.active:after {
+    opacity: 1;
+  }
+  .mt-50{
+      margin-top: 50px;
+  }
+  .configurationBlk{ 
+    .form-group{
+        height: auto;
+        margin-bottom: 20px; 
+    } 
+    .button-group{ 
+        float: left;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+  }
+  .confBtn{
+    border: 1px solid #d40511;
+    color: #fff;
+    background-color: #d40511;
+    padding: 8px 25px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: 'Delivery_Regular';
+  }
+  .cancelBtn{ 
+    border: 1px solid #d40511;
+    color: #d40511;
+    background: #fff;
+    box-shadow: none;
+    padding: 8px 25px;
+    font-size: 16px;
+    font-family: 'Delivery_Regular';
+  }
+  .wid33{
+    width: 33.33%;
+    display: inline-block;
+  }
+  .configRow{
+      width: 480px;
+      margin: auto;
+      .col-lg-12{
+        padding: 0;
+      }
+  }
+  .intervalBlk{
+    display: block;
+    .innerInterval{ 
+      display: inline-block;
+      margin-right: 5px;
+      strong{
+          display: block;
+          font-size: 11px;
+      }
+      .form-control{
+        width: 98%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
+
+
+  /***Responsive CSS***/
+  @media screen and (min-width: 320px) and (max-width: 767px){
+    .form-panel{
+      padding: 10px;
+    }
+    .configRow{
+      width: 100%; 
+      .mt-50{
+        margin: 0;
+      }
+    }
+    .confBtn,.cancelBtn{
+      padding: 8px 20px;
+    }
+  }

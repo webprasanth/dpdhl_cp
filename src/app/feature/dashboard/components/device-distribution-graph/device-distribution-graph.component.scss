@@ -1,0 +1,86 @@
+.graph-area-sub-container {
+  background-color: white;
+  border: 0 solid #d7e0f1;
+  border-radius: 8px;
+  padding: 0;
+  min-height: 200px;
+  box-shadow: 0px 3px 4px #c4d9e2;
+}
+.graph-title {
+  font-size: 16px;
+  position: relative;
+  font-weight: bold;
+  margin: 0 0 10px;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  padding: 15px 20px 10px;
+  color: #000;
+}
+.deviceDistGraphBlk {
+  margin-top: 25px;
+  width:100%;
+  float: right;
+  position: relative;
+}
+.totalDevice {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  strong {
+    font-size: 15px;
+  }
+}
+.nvd3.nv-wrap.nv-pie {
+  transform: translate(0, -20px) !important;
+}
+.nvd3.nv-pie path {
+  fill-opacity: 1 !important;
+}
+
+.nvd3.nv-pie .nv-slice text {
+  fill: white !important;
+}
+svg text {
+  fill: #000000 !important;
+  font-size: 11px !important;
+  font-family: 'Delivery' !important;
+  font-weight: bold !important;
+}
+.noDataMsg {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  p {
+    margin: 25px 0;
+    font-family: 'Delivery_Regular';
+    font-size: 12px;
+    width: 60%;
+    text-align: center;
+  }
+  i {
+    color: #a5a5a5;
+    font-size: 16px;
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+  }
+}
+
+/***Responsive CSS***/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .deviceDistGraphBlk {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .deviceDistGraphBlk {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

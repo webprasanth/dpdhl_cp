@@ -1,0 +1,16 @@
+<div class="page-title">Business Unit</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/business-unit'">
+      <i class="fa fa-list"></i>&nbsp;BU List
+    </button>
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-share-alt"></i>&nbsp;Add New BU
+    </button>
+  </div>
+</div>
+<div class="onboardingBlock">
+  <dpdhl-details [businessUnitData]="businessUnitData" [BUHeadStatus]="BUHeadStatus" [BUGroups]="BUGroups"
+    (checkBUHead)="searchBUHead($event)" (businessUnitFormData)="createBusinessUnit($event)"></dpdhl-details>
+</div>
+<dpdhl-alerts [alertConfig]="alertConfig"></dpdhl-alerts>

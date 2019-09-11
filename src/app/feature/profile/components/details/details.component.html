@@ -1,0 +1,183 @@
+<div *ngIf="profileUpdated" class="alert alert-success profile-success" role="alert">
+  <p>
+    <i class="fa fa-check"></i>Profile details updated successfully</p>
+</div>
+<form class="form-panel" [formGroup]="profileFormData" (ngSubmit)="onSubmit()">
+  <div class="container-fluid profile-container">
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <label for="upload" class="file-holder">
+          <div class="file-upload" *ngIf="!appImage">User Icon</div>
+          <img [src]="appImage" *ngIf="appImage" alt="Profile Image" /> Upload/Change Icon
+          <span class="fa fa-upload" aria-hidden="true"></span>
+          <input type="file" id="upload" accept="image/png, image/jpeg"  formControlName="imgData" *ngIf="imgUpload"
+            (change)="handleUpload($event)" style="display:none" />
+
+          <div *ngIf="fileUploadMessage" class="error">
+            File exceeded the maximum size
+          </div>
+        </label>
+        <div *ngIf="imgUpload" class="maxProfileSize">Max size
+          <strong>2mb</strong> | Format
+          <strong>JPEG, PNG</strong>
+        </div>
+
+      </div>
+      <div class="button-group">
+        <button *ngIf="!profileModified" type="button" value="" class="btn edit-profile-btn"
+          (click)="enableEditing()">Edit profile
+        </button>
+        <button *ngIf="profileModified" type="submit" class="btn btn-primary" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-outline-secondary" [routerLink]="'/dashboard'">Cancel</button>
+
+      </div>
+      <div class="col-md-9 profile-form-group">
+        <h3 class="display-title">Personal details</h3>
+        <div class="form-group">
+          <label for="name">First Name
+            <sup>*</sup>
+          </label>
+          <input type="text" class="form-control" formControlName="firstname" id="firstname"
+            placeholder="Enter first name" />
+          <div class="form-error-msg">
+            <div [hidden]="!profileFormData.controls['firstname'].errors">
+              First Name is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastname" id="lastname"
+            placeholder="Enter last name" />
+          <div *ngIf="profileFormData.controls['lastname'].pristine
+              " class="form-error-msg">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Gender:</label>
+          <label class="groupRadioBox">
+            <input type="radio" formControlName="gender" checked="checked" name="gender" value="male">
+            <span class="checkmark">
+              <i class="fa fa-male"></i>
+              Male
+            </span>
+          </label>
+          <label class="groupRadioBox">
+            <input type="radio" formControlName="gender" name="gender" value="female">
+            <span class="checkmark">
+              <i class="fa fa-female"></i>
+              Female
+            </span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="displayName">Display Name
+            <button type="button" class="btn btn-xs btn-toggle active" data-toggle="button" aria-pressed="true"
+              autocomplete="on">
+              <div class="handle"></div>
+            </button>
+          </label>
+          <input type="text" class="form-control" formControlName="displayname" id="displayName"
+            placeholder="Enter display name" />
+        </div>
+        <div class="form-group">
+          <label for="designation">Designation</label>
+          <input type="text" class="form-control" formControlName="designation" id="designation" placeholder="Enter designation
+          " />
+        </div>
+        <div class="form-group">
+          <label for="landLine">Land line number</label>
+          <input type="text" class="form-control landlineArea-control" formControlName="areaCode" id="areaCode" placeholder="Area code"
+            minlength="2" maxlength="4" dpdhlNumberOnly />
+          <input type="text" class="form-control landline-control" formControlName="landline" id="landLine"
+            minlength="4" maxlength="10" placeholder="Enter land line number" dpdhlNumberOnly />
+        </div>
+        <div class="form-group">
+          <label for="mobileNumber">Mobile Number</label>
+          <!-- <img _ngcontent-asg-c1="" src="./../../../../assets/images/hammer_icon2.png" alt="" class="countryCode" /> -->
+          <input type="text" class="form-control mobileCode-control"  formControlName="countryCode" id="mobileNumber" placeholder="" minlength="4"
+            maxlength="3" dpdhlNumberOnly />
+          <input type="text" class="form-control mobile-control" formControlName="mobile" id="mobile" dpdhlNumberOnly
+            placeholder="Enter mobile number" minlength="10" maxlength="12" />
+          <div *ngIf="
+            profileFormData.controls['mobile'].errors &&
+                !profileFormData.controls['mobile'].pristine
+              " class="form-error-msg">
+            Mobile number should be minimum 10 digits
+          </div>
+          <span
+            *ngIf="(profileFormData.controls['mobile'].dirty || profileFormData.controls['mobile'].touched) && profileFormData.controls['mobile'].invalid && profileFormData.controls['mobile'].errors.dpdhlNumberOnly">
+            Value has to be a number.
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email
+            <sup>*</sup>
+          </label>
+          <input type="text" class="form-control" formControlName="email" id="email_id" placeholder="Enter email id" />
+
+          <div *ngIf="
+          profileFormData.controls['email'].errors &&
+              !profileFormData.controls['email'].pristine
+            " class="form-error-msg">
+            <div [hidden]="!profileFormData.controls['email'].errors.required">
+              Email is required.
+            </div>
+            <div [hidden]="!profileFormData.controls['email'].errors.email">
+              Email is invalid.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of birth</label>
+          <input matInput [matDatepicker]="dp3" class="form-control dob-fld" formControlName="dateofbirth"
+            [max]="maxDate" placeholder="Select date from input" disabled>
+          <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+          <mat-datepicker #dp3></mat-datepicker>
+          <div *ngIf="
+          profileFormData.controls['dateofbirth'].errors &&
+              !profileFormData.controls['dateofbirth'].pristine
+            " class="form-error-msg">
+            Age should be more than 18 years
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-9 profile-form-group">
+        <h3 class="display-title address-title">Address details</h3>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" formControlName="country" id="country" placeholder="Enter Country name
+          " />
+          <div *ngIf="profileFormData.controls['country'].errors && !profileFormData.controls['country'].pristine"
+            class="error-msg">
+            <div [hidden]="profileFormData.controls['country'].errors.required">country is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" class="form-control" formControlName="state" id="state" placeholder="Enter State
+          " />
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" formControlName="city" id="city" placeholder="Enter City
+          " />
+        </div>
+        <div class="form-group">
+          <label for="street">Street / Area</label>
+          <input type="text" class="form-control" formControlName="street" id="street" placeholder="Enter Street
+          " />
+        </div>
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input type="text" class="form-control" formControlName="pincode" id="pincode" placeholder="Enter Pincode"
+            dpdhlNumberOnly />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</form>
+<!-- <dpdhl-pop-up *ngIf="popUpVisibility" [popUpConfig]="popUpConfig" (popUpAction)="popUpEvent($event)"></dpdhl-pop-up> -->

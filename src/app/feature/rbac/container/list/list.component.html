@@ -1,0 +1,19 @@
+<div class="page-title">
+  RBAC Configuration
+</div>
+<div class="navigation-button-group navigationGroup">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active" [routerLink]="'/rbac'">
+      <i class="fa fa-list"></i>&nbsp;RBAC List
+    </button>
+    <button type="button" class="btn btn-default " [routerLink]="'/rbac/add'">
+      <i class="fa fa-share-alt"></i>&nbsp; RBAC Config
+    </button>
+  </div>
+</div>
+
+<dpdhl-mat-grid *ngIf="showTab" [displayedColumns]="displayedColumns" [data]="applicationPlatformList"
+  [configuration]="configuration" [popUpConfig]="popUpConfig" (editEvent)="editRbac($event)"
+  (viewEvent)="ViewRbac($event)" (deleteEvent)="deleteRbac($event)"></dpdhl-mat-grid>
+<dpdhl-view *ngIf="rbacView" [viewData]="viewData" [userGroup]="userGroup" (closeView)="closePopup($event)">
+</dpdhl-view>

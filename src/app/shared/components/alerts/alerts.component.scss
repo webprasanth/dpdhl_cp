@@ -1,0 +1,59 @@
+#Slider {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  background: #fff;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  &.slideup,
+  &.slidedown {
+    padding: 0;
+    border: 0;
+    height: 0;
+    overflow-y: hidden;
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+  }
+  &.slidedown {
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    height: 45px;
+    // -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    // /* Firefox */
+    // -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    // /* Safari and Chrome */
+    // -o-animation: cssAnimation 0s ease-in 5s forwards;
+    // /* Opera */
+    // animation: cssAnimation 0s ease-in 5s forwards;
+    // -webkit-animation-fill-mode: forwards;
+    // animation-fill-mode: forwards;
+  }
+
+  //   @keyframes cssAnimation {
+  //     to {
+  //       width: 0;
+  //       height: 0;
+  //       overflow: hidden;
+  //       border: 0;
+  //       padding: 0;
+  //     }
+  //   }
+  //   @-webkit-keyframes cssAnimation {
+  //     to {
+  //       width: 0;
+  //       height: 0;
+  //       visibility: hidden;
+  //       border: 0;
+  //       padding: 0;
+  //     }
+  //   }
+
+  .fa-check-circle {
+    color: green;
+  }
+  .fa-times-circle {
+    color: red;
+  }
+}

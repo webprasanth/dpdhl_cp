@@ -1,0 +1,295 @@
+<div class="associationMainBlk" [ngClass]="!toggleView ? 'associationGridBlk' : 'associationListBlk'">
+  <div class="associationTop">
+    <div class="form-group searchGroup">
+      <input type="text" class="form-control" placeholder="Search for Application name"
+        (keyup)="searchList($event.target.value)" />
+      <!-- <i class="fa fa-search"></i> -->
+    </div>
+    <button [disabled]="leftArrow" (click)="scrollLeft()" class="btn btnPrev">
+      <i class="fa fa-angle-left"></i>
+    </button>
+    <button [disabled]="rightArrow" (click)="scrollRight()" class="btn btnNext">
+      <i class="fa fa-angle-right"></i>
+    </button>
+    <div #widgetsContent class="middle">
+      <div class="info-widget" *ngFor="let app of items | filter: filterText:['entity_name']"
+        (click)="getAssociationAPI(app)">
+        <div class="col-lg-3 box associationBox" [ngClass]="
+          selectedParent && selectedParent.entity_name == app.entity_name
+            ? 'active'
+            : ''
+        ">
+          <h2>{{ app.entity_name }}</h2>
+          <h4>{{ app.entity_type }}</h4>
+          <div class="boxGroup" *ngIf="app.entity_type == 'Business Unit'">
+            <div class="icon">
+                <img *ngIf="app.imgData" width="100%" class="app-image" [src]="app.imgData" alt="app Image" />
+                <img *ngIf="!app.imgData" src="./../../../../assets/images/allApp1.png" alt="app Image" />
+              <!-- <img src="./../../../../assets/images/association-2.png" alt="" /> -->
+            </div>
+            <!-- <span>Associated</span> -->
+            <div class="associateCount">
+              <div class="assoLeftBox">
+                Applications:
+                <strong>{{ app.app_count ? app.app_count : '0' }}</strong>
+              </div>
+            </div>
+          </div>
+          <div class="boxGroup application" *ngIf="app.entity_type !== 'Business Unit'">
+            <div class="icon" [ngClass]="!app.imgData ? 'default-icon' : ''">
+                <img *ngIf="app.imgData" width="100%" class="app-image" [src]="app.imgData" alt="app Image" />
+                <img *ngIf="!app.imgData" src="./../../../../assets/images/allApp1.png" alt="app Image" />
+              <!-- <img src="./../../../../assets/images/association-2.png" alt="" /> -->
+            </div>
+            <!-- <span>Associated</span> -->
+            <div class="associateCount">
+              <div class="assoLeftBox">
+                User Group :
+                <strong>{{
+                app.user_group_count ? app.user_group_count : '0'
+              }}</strong>
+              </div>
+              <div class="assoRightBox">
+                Device Group :
+                <strong>{{
+                app.device_group_count ? app.device_group_count : '0'
+              }}</strong>
+              </div>
+            </div>
+          </div>
+          <!-- <img
+          alt=""
+          class="botImg"
+          src="./../../../../assets/images/hammer_icon2.png"
+        /> -->
+        </div>
+      </div>
+      <div class="no-results" *ngIf="(items | filter: filterText:['entity_name']).length == 0">
+        "No matches"
+      </div>
+    </div>
+    <div class="listGridSwitch" *ngIf="associationList && associationList.length > 0">
+      <!-- <i class="ico listIco" (click)="toggleView = !toggleView"></i>
+    <i class="ico gridIco" (click)="toggleView = !toggleView"></i> -->
+      <span *ngIf="toggleView"><i class="fa fa-bars" (click)="toggleView = !toggleView"></i> Tree View</span>
+      <span *ngIf="!toggleView"><i class="fa fa-th-large" (click)="toggleView = !toggleView"></i> Horizontal View</span>
+      <!-- <i class="fa fa-expand-arrows-alt"></i> -->
+      <span *ngIf="!expandView"><i class="fa fa-expand" (click)="expandAllTree()"></i> Expand All</span>
+      <span *ngIf="expandView"><i class="fa fa-compress" (click)="collapseAllTree()"></i> Collapse All</span>
+    </div>
+  </div>
+  <!-- [style.width.px]="treeWidth" -->
+  <ul class="associateLegendBlk" *ngIf="associationList && associationList.length > 0">
+    <label>Legends</label>
+    <li class="buBg"><span></span>Business Unit</li>
+    <li class="appBg"><span></span>Application</li>
+    <li class="usrGrpBg"><span></span>User Group</li>
+    <li class="deviceGrpBg"><span></span>Device Group</li>
+    <li class="entityInsBg"><span></span>Entity</li>
+    <li class="entityBg"><span></span>Entity Instance</li>
+  </ul>
+  <div class="treeViewBlk">
+    <div class="innerTreeView" (click)="onTreeview($event)" [style.width.px]="treeWidth"
+      *ngIf="associationList && associationList.length > 0">
+      <tree-root #tree [nodes]="associationList"  [focused]="true" [options]="options" (toggleExpanded)="onEvent($event)"
+        (activate)="onEvent($event)" (focus)="onEvent($event)" (blur)="onEvent($event)" (click)="getPosition($event)"
+        dpdhlClickOutside (dpdhlClickOutside)="clickOutside($event)" [style.width.px]="treeWidth">
+        <ng-template #treeNodeTemplate let-node let-index="index">
+          <span
+            [ngClass]="node.data.type == 'Business Unit' ? 'buBg' : node.data.type == 'Application' ? 'appBg' : node.data.type == 'User Group' ? 'usrGrpBg' : node.data.type == 'Device Group' ? 'deviceGrpBg' : node.data.is_entity_instance == false ? 'entityInsBg' : node.data.is_entity_instance == true ? 'entityBg' : ''">{{ node.data.name }}
+            <br />
+            <span
+              style="font-size: 11px;">{{node.data.type == 'Business Unit' ? 'Business Unit' : node.data.type == 'Application' ? 'Application' : node.data.type == 'User Group' ? 'User Group' : node.data.type == 'Device Group' ? 'Device Group' : node.data.is_entity_instance == false ? 'Entity' : node.data.is_entity_instance == true ? 'Entity Instance' : ''}}</span></span>
+        </ng-template>
+      </tree-root>
+    </div>
+  </div>
+  <!-- <div class="entityDetails"></div> -->
+  <div class="dataDetails innerPopUpTreeBlk"
+    *ngIf="showEventPopup && userRole == 'Default App User Role' && selectedNode && (selectedNode.type == 'User Group' || selectedNode.type == 'Device Group')"
+    [style.top.px]="treeTop" [style.left.px]="treeLeft">
+    <div *ngIf="selectedNode && selectedNode.type == 'User Group'">
+      <span (click)="getUsersByGroup(selectedNode)" class="popUpLabel">View User List<i class="fa fa-eye"></i></span>
+    </div>
+    <div *ngIf="selectedNode && selectedNode.type == 'Device Group'">
+      <span (click)="getDevicesByGroup(selectedNode)" class="popUpLabel">View Device List<i
+          class="fa fa-eye"></i></span>
+    </div>
+  </div>
+  <div class="dataDetails innerPopUpTreeBlk" *ngIf="showEventPopup && userRole !== 'Default App User Role'"
+    [style.top.px]="treeTop" [style.left.px]="treeLeft">
+    <div *ngIf="selectedNode && selectedNode.type == 'Business Unit'">
+      <span (click)="newEntity(selectedNode)" class="popUpLabel">New Entity<i class="fa fa-plus"></i></span>
+      <span (click)="newApplication(selectedNode)" class="popUpLabel">Associate Application<i
+          class="fa fa-user-plus"></i></span>
+      <span (click)="createUserGroup(selectedNode)" class="popUpLabel">Create/Add User Group<i
+          class="fa fa-user-plus"></i></span>
+      <span (click)="createDeviceGroup(selectedNode)" class="popUpLabel">Create/Add Device Group<i
+          class="fa fa-inbox"></i></span>
+    </div>
+    <div *ngIf="selectedNode && selectedNode.type == 'Application'">
+      <span (click)="newEntity(selectedNode)" class="popUpLabel">New Entity<i class="fa fa-plus"></i></span>
+      <span (click)="createUserGroup(selectedNode)" class="popUpLabel">Create/Add User Group<i
+          class="fa fa-user-plus"></i></span>
+      <span (click)="createDeviceGroup(selectedNode)" class="popUpLabel">Create/Add Device Group<i
+          class="fa fa-inbox"></i></span>
+      <span *ngIf="selectedNode.parent_id > 0" (click)="deAssociateEntity(selectedNode)"
+        class="popUpLabel">De-Associate<i class="fa fa-trash"></i></span>
+    </div>
+    <div *ngIf="selectedNode && selectedNode.type == 'User Group'">
+      <span (click)="getUsersByGroup(selectedNode)" class="popUpLabel">View User List<i class="fa fa-eye"></i></span>
+      <span (click)="deAssociateEntity(selectedNode)" class="popUpLabel">De-Associate<i class="fa fa-trash"></i></span>
+    </div>
+    <div *ngIf="selectedNode && selectedNode.type == 'Device Group'">
+      <span (click)="getDevicesByGroup(selectedNode)" class="popUpLabel">View Device List<i
+          class="fa fa-eye"></i></span>
+      <span (click)="deAssociateEntity(selectedNode)" class="popUpLabel">De-Associate<i class="fa fa-trash"></i></span>
+    </div>
+    <div *ngIf="
+        selectedNode &&
+        selectedNode.type !== 'Business Unit' &&
+        selectedNode.type !== 'Application' &&
+        selectedNode.type !== 'User Group' &&
+        selectedNode.type !== 'Device Group'
+      ">
+      <ng-container *ngIf="selectedNode && !selectedNode.is_entity_instance">
+        <span (click)="newEntity(selectedNode)" class="popUpLabel">New Entity<i class="fa fa-plus"></i></span>
+        <span (click)="editEntity(selectedNode)" class="popUpLabel">Add Entity Instance<i
+            class="fa fa-pencil"></i></span>
+        <!-- <span (click)="newApplication(selectedNode)" class="popUpLabel">Associate Application<i
+          class="fa fa-user-plus"></i></span> -->
+        <span (click)="deAssociateEntity(selectedNode)" class="popUpLabel">De-Associate<i
+            class="fa fa-trash"></i></span>
+      </ng-container>
+      <ng-container *ngIf="selectedNode && selectedNode.is_entity_instance">
+        <span (click)="newEntity(selectedNode)" class="popUpLabel">New Entity<i class="fa fa-plus"></i></span>
+        <span (click)="createUserGroup(selectedNode)" class="popUpLabel">Create/Add User Group<i
+            class="fa fa-user-plus"></i></span>
+        <span (click)="createDeviceGroup(selectedNode)" class="popUpLabel">Create/Add Device Group<i
+            class="fa fa-inbox"></i></span>
+        <span (click)="deAssociateEntity(selectedNode)" class="popUpLabel">De-Associate<i
+            class="fa fa-trash"></i></span>
+      </ng-container>
+    </div>
+  </div>
+  <div class="overlayBlk userDevicePop" *ngIf="userGroupListPopup">
+    <div class="overlayContentBlk userDeviceAssocView">
+      <h4>
+        Create/Associate User Group<span (click)="userGroupListPopup = !userGroupListPopup">x</span>
+      </h4>
+      <div class="form-group formAssociateFld">
+        <label>Select Existing User Group: </label>
+        <mat-select (selectionChange)="selectedUserGroup($event)" placeholder="Select User Group" class="form-control"
+          [value]="userGroupID">
+          <mat-option [value]="">
+            Select User Group
+          </mat-option>
+          <mat-option *ngFor="let option of userGroupList" [value]="option">
+            {{ option.user_group_name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="form-group button-group associateBtnGroup">
+        <button type="button" (click)="associateUserGroup()" class="btn">
+          Associate Existing User Group
+        </button>
+        <div class="dividerBlk">
+          <span>Or</span>
+        </div>
+        <button type="button" [routerLink]="['/users/onboard/0']" class="btn">
+          Add New User Group
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="overlayBlk userDevicePop" *ngIf="deviceGroupListPopup">
+    <div class="overlayContentBlk userDeviceAssocView">
+      <h4>
+        Create/Associate Device Group<span (click)="deviceGroupListPopup = !deviceGroupListPopup">x</span>
+      </h4>
+      <div class="form-group formAssociateFld">
+        <label>Select Device Group: </label>
+        <mat-select (selectionChange)="selectedDeviceGroup($event)" placeholder="Select Device Group"
+          class="form-control">
+          <mat-option [value]="">
+            Select Device Group
+          </mat-option>
+          <mat-option *ngFor="let option of devicesNotAssociated" [value]="option">
+            {{ option.device_group_name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="form-group button-group associateBtnGroup">
+        <button type="button" (click)="associateDeviceGroup()" class="btn">
+          Associate Existing Device Group
+        </button>
+        <div class="dividerBlk">
+          <span>Or</span>
+        </div>
+        <button type="button" [routerLink]="['/devices/onboard/0']" class="btn">
+          Add New Device Group
+        </button>
+      </div>
+      <!-- <div class="form-group button-group">
+        <button type="button" (click)="associateDeviceGroup()" class="btn">
+          Associate Group
+        </button>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="overlayBlk userDevicePop" *ngIf="applicationListPopup">
+    <div class="overlayContentBlk userDeviceAssocView">
+      <h4>
+        Create/Associate Application<span (click)="applicationListPopup = !applicationListPopup">x</span>
+      </h4>
+      <div class="form-group formAssociateFld">
+        <label>Select Existing Application: </label>
+        <mat-select (selectionChange)="selectedApplication($event)" placeholder="Select Application"
+          class="form-control">
+          <mat-option [value]="">
+            Select Application
+          </mat-option>
+          <mat-option *ngFor="let option of applicationList" [value]="option">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <!-- <div class="form-group button-group associateBtnGroup">
+        <button type="button" (click)="associateApplication()" class="btn">
+          Associate Existing Application
+        </button>
+        <div class="dividerBlk">
+          <span>Or</span>
+        </div>
+        <button type="button" [routerLink]="['/application/add']" class="btn">
+          Add New Application
+        </button>
+      </div> -->
+
+      <div class="form-group button-group">
+        <button type="button" (click)="associateApplication()" class="btn">
+          Associate Application
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="overlayBlk userDevicePop" *ngIf="usersListPopup">
+    <div class="overlayContentBlk userUserListView">
+      <h4>
+        {{userListGroupName}}<span (click)="usersListPopup = !usersListPopup">x</span>
+      </h4>
+      <dpdhl-mat-grid [displayedColumns]="displayedColumnsUserList" [data]="userListData"
+        [configuration]="configurationUserList"></dpdhl-mat-grid>
+    </div>
+  </div>
+  <div class="overlayBlk userDevicePop" *ngIf="deviceListPopup">
+    <div class="overlayContentBlk userUserListView">
+      <h4>
+        {{deviceListGroupName}}<span (click)="deviceListPopupClose();deviceListPopup = !deviceListPopup">x</span>
+      </h4>
+      <dpdhl-mat-grid [displayedColumns]="displayedColumnsDeviceGroup" [data]="deviceList"
+        [configuration]="configurationDeviceGroup"></dpdhl-mat-grid>
+    </div>
+  </div>
+</div>

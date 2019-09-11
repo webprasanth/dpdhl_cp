@@ -1,0 +1,24 @@
+<div class="page-title">
+  Edit User
+</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/users'">
+      <i class="fa fa-list"></i>&nbsp;User List
+    </button>
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-share-alt"></i>&nbsp;Edit User Details
+    </button>
+  </div>
+</div>
+<dpdhl-details
+  [userDetails]="userDetails"
+  [editNavigation]="editNavigation"
+  [applicationList]="applicationList"
+  [BUList]="BUList"
+  (editUserProfileFormData)="updateUser($event)"
+  [multipleEdit]="multipleEdit"
+  [slidesIndex]="slidesIndex"
+>
+</dpdhl-details>
+<!-- <dpdhl-alerts [alertConfig]="alertConfig"></dpdhl-alerts> -->

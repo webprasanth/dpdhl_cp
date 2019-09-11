@@ -1,0 +1,144 @@
+.quick-view {
+  width: 100%;
+  min-height: 152px;
+  background-color: white;
+  border: 0 solid #e0e6f3;
+  border-radius: 8px;
+  box-shadow: 0px 1px 6px #d7e0f1;
+  box-shadow: 0px 3px 4px #c4d9e2;
+  padding: 14px;
+  margin: 25px 0;
+  margin: 0 0 25px;
+  padding: 0;
+  min-height: 155px;
+  .title-count {
+    border-bottom: 1px solid rgb(250, 243, 243);
+    height: 45px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ebf0f8;
+    .title {
+      font-size: 24px;
+      float: left;
+      color: #636363;
+      font-family: 'Delivery_Regular';
+    }
+    .count {
+      float: right;
+      font-size: 30px;
+      color: #333;
+      position: relative;
+      top: -10px;
+    }
+  }
+  .icon-percent {
+    height: 50px;
+    margin: 15px 0;
+    padding: 5px 15px;
+    .icon {
+      float: left;
+      color: lightgrey;
+      i {
+        font-size: 45px;
+        margin-left: 10px;
+        color: #b2b2b2;
+      }
+    }
+    .quickCountBlk {
+      float: right;
+      span {
+        font-size: 16px;
+        color: #000;
+      }
+      .count {
+        font-size: 18px;
+        color: #333;
+        position: relative;
+        font-weight: bold;
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+    .percent {
+      float: right;
+      text-align: right;
+      padding-top: 5px;
+      padding-top: 0;
+      clear: right;
+      span {
+        font-size: 24px;
+        padding-right: 5px;
+      }
+      a {
+        color: #d40511;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.dashboardCard {
+  width: 235px;
+  min-width: 235px;
+  margin-right: 15px;
+}
+.dashboardCard .quick-view .title-count .title {
+  font-size: 21px;
+  color: #000;
+}
+.dashboardCard .quick-view .icon img.usrIco {
+  margin: 5px 12px;
+  height: 35px;
+}
+
+.dashboardCard .quick-view .icon img.devIco {
+  margin: 1px 12px;
+  height: 36px;
+}
+.dashboardCard .quick-view {
+  min-height: 130px;
+  min-width: 235px;
+}
+
+.dashboardCard .quick-view .icon-percent {
+  height: 40px;
+  margin: 10px 0;
+}
+
+/*Resposive CSS*/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .quick-view {
+    margin: 5px 0;
+    .title-count {
+      height: 40px;
+      .title {
+        font-size: 18px;
+      }
+    }
+  }
+  .dashboardCard {
+    width: 100%;
+    margin-right: 0;
+  }
+  .dashboardCard .quick-view {
+    min-height: 130px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .quick-view {
+    margin: 5px 0;
+    .title-count {
+      height: 40px;
+      .title {
+        font-size: 18px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1259px) {
+  .quick-view {
+    margin: 0 0 15px;
+  }
+}

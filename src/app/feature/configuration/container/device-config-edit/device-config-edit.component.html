@@ -1,0 +1,25 @@
+<div class="page-title">
+  Configuration
+</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button
+      type="button"
+      class="btn btn-default active"
+      [routerLink]="'/configuration'"
+    >
+      <i class="fa fa-list"></i>&nbsp;Device Spec List
+    </button>
+    <!-- <button
+      type="button"
+      class="btn btn-default active"
+      [routerLink]="'/configuration/add'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Configuration
+    </button> -->
+  </div>
+</div>
+<dpdhl-device-config
+  [deviceSpecData]="deviceSpecData"
+  (deviceFormEvent)="updateDeviceConfig($event)"
+></dpdhl-device-config>

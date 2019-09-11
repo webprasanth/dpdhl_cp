@@ -1,0 +1,21 @@
+/***Responsive CSS***/
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .navigation-button-group{
+        height: 80px;
+        .btn-group{
+            .btn{
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .navigation-button-group .btn-group{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width:1259px){
+    .navigation-button-group .btn-group{
+        width: 470px;
+    }
+}

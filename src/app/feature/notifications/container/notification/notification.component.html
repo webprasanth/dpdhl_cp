@@ -1,0 +1,25 @@
+<div class="page-title">Alerts</div>
+<!-- <div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-list"></i>&nbsp;Alerts
+    </button>
+
+  </div>
+</div> -->
+<ul class="severityBlk">
+  <label>SEVERITY</label>
+  <li><span></span>Sev 0</li>
+  <li><span></span>Sev 1</li>
+  <li><span></span>Sev 2</li>
+  <li><span></span>Sev 3</li>
+  <li><span></span>Sev 4</li>
+</ul>
+<dpdhl-mat-grid
+  [displayedColumns]="displayedColumns"
+  [data]="alertList"
+  [configuration]="configuration"
+  [popUpConfig]="popUpConfig"
+  (deleteEvent)="deleteNotification($event)"
+></dpdhl-mat-grid>
+<dpdhl-alerts [alertConfig]="alertConfig"></dpdhl-alerts>

@@ -1,0 +1,354 @@
+<div class="row margin-top50">
+  <button type="submit" class="btn btn-default btnDownloadTemp">
+      <a href="https://cpiconsfilesblobstorage.blob.core.windows.net/cpappdevfactemplates/User-upload.xlsx">
+    <img src="./../../../../assets/images/downloadTemplateIco.png" alt="" />
+    Download Template
+    </a>
+  </button>
+  <div class="row margin-top">
+    <div class="col-lg-12">
+      <div class="onBoardBulkUploadBlk">
+        <!-- <div
+          [fileUploadInputFor]="fileUploadQueue"
+          class="upload-drop-zone file-upload"
+        > -->
+        <!-- <div class="upload-drop-zone file-upload">
+          Drag files to Upload
+          <label for="singleFile" style="color:red">/Click to browse</label>
+          <input type="file" (change)="onFileChange($event)" #fileInput/>
+        </div> -->
+
+        <div class="fileUploadBox">
+          <label class="file-holder" for="upload">
+            <input
+              id="upload"
+              style="display:none"
+              type="file"
+              (change)="onFileChange($event)"
+              #fileInput
+            />
+            <div class="file-upload">
+              <div class="innerFileUpload">
+                <i class="fa fa-arrow-circle-o-down"></i>
+                <p>Drag Files to Upload <span>Browse Files</span></p>
+              </div>
+            </div>
+          </label>
+          <!-- <div class="bulkUploadBlk">
+            <h3>File Uploading…</h3>
+            <div class="progressBarBlk">
+              <i class="fa fa-download"></i>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 67%;">
+                </div>
+              </div>
+              <span class="closeProgress">x</span>
+              <p><span>80% Done</span><span>90 kb/s</span></p>
+            </div>
+            <p class="formatType">Upload files in CSV, Xls, Json format</p>
+          </div> -->
+        </div>
+        <div *ngIf="errorMessage" style="color:red">
+          <p>Please uplaod valid XLSX file</p>
+        </div>
+        <div class="form-group form-button">
+          <!-- <button type="button" class="btn btn-default">
+            Cancel
+          </button> -->
+          <button type="button" class="btn btn-primary" (click)="review()">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div *ngIf="showReview">
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-panel-header">
+            <div class="title">
+              Review Onboard Application
+            </div>
+
+            <button
+              class="prev"
+              (click)="previous()"
+              [disabled]="selectedIndex == 0"
+            >
+              <i class="fa fa-chevron-left"></i>
+            </button>
+
+            <button
+              class="next"
+              (click)="next()"
+              [disabled]="multipleReview.length - 1 == selectedIndex"
+            >
+              <i class="fa fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row margin-top"> -->
+  <!-- col 1 -->
+
+  <!-- <div class="col-md-3 text-center">
+          <label for="upload" class="file-holder">
+            <div class="file-upload" *ngIf="!appImage">App Icon</div>
+
+            <img [src]="appImage" *ngIf="appImage" alt="app Image" />
+            Upload/Change Icon
+
+            <span class="fa fa-upload" aria-hidden="true"></span>
+
+            <input
+              type="file"
+              id="upload"
+              (change)="handleUpload($event)"
+              style="display:none"
+            />
+
+            <div class="error">File size should not be greater than 2MB</div>
+
+            <div *ngIf="fileUploadMessage" class="error">
+              File exceeded the maximum size
+            </div>
+          </label>
+        </div> -->
+
+  <!-- col 2 -->
+
+  <!-- <div class="col-md-4">
+          <div class="form-group">
+            <label for="name">
+              Application Name:
+
+              <sup>*</sup>
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="appName"
+              id="name"
+              placeholder="Application Name"
+            />
+          </div>
+
+          <div class="form-group form-group-textarea">
+            <label class="control-label" for="description">Description:</label>
+
+            <textarea
+              class="form-control"
+              formControlName="appDescription"
+              rows="3"
+              id="description"
+              placeholder="Write Discription"
+            ></textarea>
+          </div> -->
+
+  <!-- <div class="form-group">
+
+            <label class="control-label col-md-5" for="sel1">Resource Group</label>
+
+            <select class="form-control col-md-8" id="sel1" (change)="onResourceSelect($event.target.value)" formControlName="resourceGroupName">
+
+              <option *ngFor="let resource of ResourceGroup" [ngValue]="resource.name">
+
+                {{resource.name}}
+
+              </option>
+
+            </select>
+
+          </div> -->
+
+  <!-- <div class="form-group">
+            <label for="Business">Resource Group:</label>
+
+            <mat-form-field>
+              <mat-select
+                formControlName="resourceGroupName"
+                placeholder="Select Resource group"
+                (selectionChange)="onResourceSelect($event.value)"
+                class="form-control"
+              >
+                <mat-option
+                  *ngFor="let resource of ResourceGroup"
+                  [value]="resource.name"
+                >
+                  {{ resource.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div> -->
+
+  <!-- col 3 -->
+
+  <!-- <div class="col-md-4 ">
+          <div class="form-group">
+            <label for="buID">BU Name:</label>
+
+            <mat-form-field>
+              <mat-select
+                placeholder="Select Business unit"
+                class="form-control"
+                formControlName="buID"
+              >
+                <mat-option *ngFor="let buName of BUList" [value]="buName.id">
+                  {{ buName.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group form-group-search">
+            <label for="appOwner"
+              >App Owner Name
+
+              <sup>*</sup>
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="appOwner"
+              id="appOwner"
+              placeholder="Application Owner"
+            />
+
+            <button type="button" (click)="searchBUOwner()">
+              <i class="fa fa-search"></i>
+            </button>
+
+            <div *ngIf="BUHeadStatus" class="form-error-msg">
+              Application Owner not registered
+            </div>
+
+            <div
+              *ngIf="
+                applicationForm.controls['appOwner'].errors &&
+                !applicationForm.controls['appOwner'].pristine
+              "
+              class="form-error-msg"
+            >
+              <div
+                [hidden]="!applicationForm.controls['appOwner'].errors.required"
+              >
+                Email is required.
+              </div>
+
+              <div
+                [hidden]="!applicationForm.controls['appOwner'].errors.email"
+              >
+                Email is invalid.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="group" class="control-label">App Group Name:</label>
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="appGroupName"
+              id="group"
+              placeholder="Appication Group"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="name"> App Creator name :</label>
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="appCreatedBy"
+              id="name"
+              placeholder="Application creator"
+            />
+          </div>
+        </div>
+      </div>
+
+      <label for="name" *ngIf="showTable"> Azure Component: </label>
+
+      <div class="row" class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table
+          *ngIf="showTable"
+          class="table table-bordered table-striped mb-0"
+        >
+          <thead>
+            <tr>
+              <th>Resource Name</th>
+
+              <th>Resource Type</th>
+
+              <th>Tier</th>
+
+              <th>Creation date</th>
+
+              <th>Region</th>
+
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let resource of resourceList; let i = index">
+              <td>
+                {{ resource.name }}
+              </td>
+
+              <td>
+                {{ resource.type }}
+              </td>
+
+              <td>
+                {{ resource?.sku?.tier }}
+              </td>
+
+              <td>
+                {{ resource.createdTime | date: 'MM/dd/yy' }}
+              </td>
+
+              <td>
+                {{ resource.location }}
+              </td>
+
+              <td>Active</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row margin-top20">
+        <div class="form-group form-button">
+          <div class="col-sm-offset-8 col-sm-4">
+            <button
+              type="button"
+              class="btn btn-default"
+              [routerLink]="'/application'"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              [disabled]="applicationForm.invalid || !applicationForm.dirty"
+              class="btn btn-primary"
+            >
+              {{ applicationData.id > 0 ? 'Update' : 'Create' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div> -->
+</div>

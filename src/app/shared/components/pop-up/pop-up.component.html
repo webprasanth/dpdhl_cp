@@ -1,0 +1,24 @@
+<div class="pop-up-bg">
+  <div class="pop-up">
+    <div class="pop-up-content">
+      <div class="pop-up-content-title">
+        {{ popUpConfig.title }}
+        <span class="fa fa-close" (click)="submit(false)"></span>
+      </div>
+      <div class="pop-up-content-info">
+        <div class="pop-up-content-info-one" title="{{ popUpConfig.rowOne }}">
+          {{ popUpConfig.rowOne }}
+        </div>
+        <div class="pop-up-content-info-two">
+          {{ popUpConfig.rowTwo }}
+        </div>
+        <div class="pop-up-content-info-three">
+          <sup>*</sup>{{ popUpConfig.rowThree }}
+        </div>
+      </div>
+    </div>
+    <div class="pop-up-button">
+      <button type="button" (click)="submit(true)">Confirm</button>
+    </div>
+  </div>
+</div>

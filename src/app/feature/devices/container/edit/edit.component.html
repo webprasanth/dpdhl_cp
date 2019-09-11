@@ -1,0 +1,14 @@
+<div class="page-title">
+  Device
+</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/devices'">
+      <i class="fa fa-list"></i>&nbsp;Device List
+    </button>
+    <button type="button" class="btn btn-default active">
+      <i class="fa fa-share-alt"></i>&nbsp;Edit Device
+    </button>
+  </div>
+</div>
+<dpdhl-details [deviceData]="deviceData" (deviceFormData)="updateDevice($event)"></dpdhl-details>

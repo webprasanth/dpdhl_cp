@@ -1,0 +1,49 @@
+<div class="loading" *ngIf="isLoading | async">
+  <div id="loading-bar-spinner" class="spinner">
+    <div class="spinner-icon"></div>
+  </div>
+</div>
+<simple-notifications [options]="notificationOptions"></simple-notifications>
+<dpdhl-header
+  [isLoggedIn]="isLoggedIn()"
+  [userName]="userName"
+  [hamburgerMenu]="hamburgerMenu"
+  [alertObservable]="alertObservable"
+  [appuserRole]="appuserRole"
+  (loginEvent)="login($event)"
+></dpdhl-header>
+<dpdhl-navbar-left
+  *ngIf="isLoggedIn() && routerUrl != '/' && routerUrl != '/home'"
+  [privilages]="privileges"
+  [appuserRole]="appuserRole"
+  (drop)="drop($event)"
+  (dragover)="allowDrop($event)"
+></dpdhl-navbar-left>
+<div
+  class="routerOutlet"
+  [ngClass]="
+    isLoggedIn() && routerUrl != '/' && routerUrl != '/home'
+      ? 'menu-width'
+      : 'full-width inner-page'
+  "
+>
+  <!-- <div
+    *ngIf="isLoggedIn() && routerUrl != '/' && routerUrl != '/home'"
+    id="div1"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)"
+  >
+    <span draggable="true" (dragstart)="drag($event)" id="drag1">C</span>
+  </div> -->
+
+  <!-- <div id="div2"></div> -->
+  <div class="router-content">
+    <!-- <dpdhl-breadcrumb
+      *ngIf="isLoggedIn() && routerUrl != '/dashboard'"
+    ></dpdhl-breadcrumb> -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<dpdhl-footer></dpdhl-footer>
+
+<!-- <dpdhl-notifications *ngIf="isLoggedIn()" [notification]="notification" [NotificationList]="NotificationList" [Applist]="Applist"></dpdhl-notifications> -->

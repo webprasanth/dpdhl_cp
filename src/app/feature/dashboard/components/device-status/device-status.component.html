@@ -1,0 +1,13 @@
+<div class="deviceDistGraphBlk  ">
+  <div class="graph-area-sub-container device-status-graph">
+    <h3 class="graph-title">
+      Device Status
+    </h3>
+    <div class="datepicker-container" [formGroup]="graphUserData">
+      <i class="fa fa-chevron-left"></i>
+      <input matInput [matDatepicker]="picker" formControlName="fromDate" placeholder="mm/dd/yy" />
+      <i class="fa fa-chevron-right"></i>
+    </div>
+    <nvd3 [options]="options" [data]="data"></nvd3>
+  </div>
+</div>

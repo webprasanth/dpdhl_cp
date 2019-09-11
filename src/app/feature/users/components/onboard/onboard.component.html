@@ -1,0 +1,171 @@
+<div class="container-fluid form-panel">
+  <ul class="nav nav-tabs"
+    style="background: #ccc;margin-left: -31px;border: none;margin-right: -30px;margin-top: -10px;border-radius: 5px;">
+    <li class="active">
+      <a href="#1" data-toggle="tab">Onboard User</a>
+    </li>
+    <li>
+      <a href="#2" data-toggle="tab">Onboard Bulk Users</a>
+    </li>
+  </ul>
+
+
+  <div class="tab-content ">
+    <div class="tab-pane active" id="1">
+      <form [formGroup]="createGroupForm" (ngSubmit)="onSubmit()">
+
+        <div class="container-fluid">
+          <div class="row onboardBlk">
+            <div class="col-md-7 mt-50">
+              <div class="onBoardUserBlk" *ngIf="!successWindow">
+                <div class="form-group form-group-search">
+                  <label for="userGroupName">User Group Name: </label>
+                  <input type="text" class="form-control" name="userGroupName" id="userGroupName"
+                    formControlName="userGroupName" (focusout)="searchGroupName()" />
+                  <button type="button" [disabled]="userOnBoardData.userGroupName == 'Platform Admin' || userOnBoardData.userGroupName == 'Application Admin' ? true : false" (click)="searchGroupName()" class="icon-class">
+                    <i class="fa fa-search"></i>
+                  </button>
+                  <div *ngIf="formCtrl.userGroupName.touched && formCtrl.userGroupName.errors">
+                    <div *ngIf="formCtrl.userGroupName.errors.required" class="form-error-msg">User Group Name is
+                      required .</div>
+                  </div>
+                  <div *ngIf="userGroupExist && !formCtrl.userGroupName.errors" class="form-error-msg">
+                    User Group already Exists
+                  </div>
+                  <div *ngIf="!userGroupExist && userGroupAvailable && !formCtrl.userGroupName.errors"
+                    class="form-success-msg">
+                    User Group Name Available
+                  </div>
+                </div>
+                <div class="form-group form-group-search">
+                  <label for="emailId">Email Id: </label>
+                  <input type="email" formControlName="emailId" class="form-control" name="emailId" id="emailId"
+                    (focusout)="searchEmailId()" />
+                  <button type="button" (click)="searchEmailId()">
+                    <i class="fa fa-search"></i>
+                  </button>
+                  <!-- <i class="fa fa-user-plus" (click)="inviteUserPopup = !inviteUserPopup"></i> -->
+                  <div *ngIf="BUHeadStatus" class="form-error-msg">
+                    Email not registered, please send invite from external user invite.
+                  </div>
+                  <div *ngIf="invitationNotAccepted" class="form-error-msg">
+                    User haven't accepted the invitation
+                  </div>
+                  <div *ngIf="emailExist" class="form-error-msg">
+                    Email already add to the group
+                  </div>
+                  <div
+                    *ngIf="formCtrl.emailId.touched && formCtrl.emailId.errors && formCtrl.newUsers.value && formCtrl.newUsers.value.length == 0">
+                    <div *ngIf="formCtrl.emailId.errors.required" class="form-error-msg">Email is required .</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="userName">User Name: </label>
+                  <input type="text" class="form-control" name="userName" id="userName" [disabled]="true" value="{{ emailData?.displayName ? emailData.displayName : '' }}" />
+                </div>
+
+                <div class="form-group"
+                  *ngIf="createGroupForm.controls['parentName'].value && createGroupForm.controls['parentName'].value != ''">
+                  <label for="parentName">Associated To: </label>
+                  <input type="text" class="form-control" name="parentName" id="parentName"
+                    formControlName="parentName" />
+                </div>
+                <div class="form-group form-group-action">
+                  <!-- <button type="button" [routerLink]="['/users']" (click)="step = !step" class="btn backOnboardBtn">
+                    Back </button> -->
+                  <button type="button" [disabled]="emailData?.displayName == '' || emailData?.displayName == null"
+                    (click)="addUser()" class="btn backOnboardBtn">
+                    Add User
+                  </button>
+                  <button [disabled]="createGroupForm.invalid || !createGroupForm.dirty || userGroupExist" type="submit"
+                    class="btn submitOnboardBtn">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="successWindow" class="success-user-onboard">
+                You have successfully On boarded the users
+                <div class="navigate-button">
+                  <button type="button" (click)="userListNavigate()">
+                    Go to User List
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mt-50">
+              <div class="application-owner">
+                <div class="title">
+                  View Added User
+                  <!-- <span (click)="inviteUserPopup = !inviteUserPopup">Invite Ext User</span> -->
+                </div>
+                <div class="content" *ngFor="let user of userAdded; let i = index">
+                  <div class="user-icon">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    <!-- <span class="notification">2</span> -->
+                  </div>
+                  <div class="user-details">
+                    <div class="user-details-name">{{ user.firstname ? user.firstname : user.first_name }}</div>
+                    <div class="user-details-text">
+                      {{ user.department }}
+                    </div>
+                  </div>
+                  <div class="user-action"
+                    *ngIf="!(userAdded.length == 1 && formCtrl.userGroupName.value == 'Platform Admin')"
+                    (click)="removeAddedUser(i)">
+                    <div class="user-action-icon">
+                      <i class="fa fa-trash"></i>
+                    </div>
+                    <div class="user-action-text">
+                      <a>Remove</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="tab-pane " id="2">
+      <!-- tab 2 -->
+      <dpdhl-bulk-upload (uplaodUserData)="bulkUploadData($event)"></dpdhl-bulk-upload>
+
+    </div>
+  </div>
+</div>
+<form [formGroup]="inviteUserForm" (ngSubmit)="sendInvite()" *ngIf="inviteUserPopup" novalidate>
+  <div class="overlayBlk">
+    <div class="overlayContentBlk overlayInviteContentBlk">
+      <h4>Invite Ext User
+        <span (click)="inviteUserPopup = !inviteUserPopup">x</span>
+      </h4>
+      <div class="form-group">
+        <label for="emailId">Enter Email: </label>
+        <input type="email" formControlName="emailId" class="form-control" name="emailId" id="emailId" />
+        <div *ngIf="
+            inviteUserForm.controls['emailId'].errors &&
+            !inviteUserForm.controls['emailId'].pristine
+          " class="form-error-msg">
+          <div [hidden]="!inviteUserForm.controls['emailId'].errors.email">
+            Email is invalid.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="displayName">Enter Full Name: </label>
+        <input type="text" formControlName="displayName" class="form-control" name="displayName" id="displayName" />
+        <div *ngIf="
+            inviteUserForm.controls['displayName'].errors &&
+            !inviteUserForm.controls['displayName'].pristine
+          " class="form-error-msg">
+          <div [hidden]="!inviteUserForm.controls['displayName'].errors.required">
+            Enter full name
+          </div>
+        </div>
+      </div>
+      <div class="form-group createOBBtnBlk">
+        <button type="submit" [disabled]="inviteUserForm.invalid" class="createOBLnk">Invite</button>
+      </div>
+    </div>
+  </div>
+</form>

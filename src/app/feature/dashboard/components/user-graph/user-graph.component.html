@@ -1,0 +1,60 @@
+<div class="graph-area-container">
+  <h3 class="graph-title">
+    User Distribution
+  </h3>
+  <div class="datepicker-container" [formGroup]="graphUserData">
+    <input
+      matInput
+      [matDatepicker]="fromDatepicker"
+      formControlName="fromDate"
+      [max]="maxDate"
+      (dateChange)="fromDateEvent('change', $event)"
+      placeholder="mm/dd/yy"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="fromDatepicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #fromDatepicker></mat-datepicker>
+    <input
+      matInput
+      [matDatepicker]="toDatepicker"
+      [min]="minDate"
+      [max]="maxDate"
+      (dateChange)="toDateEvent('change', $event)"
+      formControlName="toDate"
+      placeholder="mm/dd/yy"
+    />
+    <!-- [disabled]="enableToDate" -->
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="toDatepicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #toDatepicker></mat-datepicker>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div
+      class=""
+      *ngIf="
+        tempGraphData &&
+        tempGraphData.length > 0 &&
+        userDestributionGraphDataList &&
+        userDestributionGraphDataList.length > 0
+      "
+    >
+      <nvd3 [options]="options" [data]="data"></nvd3>
+    </div>
+    <div
+      class="noDataMsg"
+      *ngIf="
+        userDestributionGraphDataList &&
+        userDestributionGraphDataList.length == 0
+      "
+    >
+      <p>
+        <i class="fa fa-info-circle"></i>No Users has been Onboarded during the
+        selected date range
+      </p>
+    </div>
+  </div>
+</div>

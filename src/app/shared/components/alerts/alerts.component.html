@@ -1,0 +1,7 @@
+<div id="Slider" [ngClass]="alertConfig.visibility ? 'slidedown' : 'slideup'">
+  <i
+    class="fa"
+    [ngClass]="alertConfig.status ? 'fa-check-circle' : 'fa-times-circle'"
+  ></i>
+  {{ alertConfig.message }}
+</div>

@@ -1,0 +1,27 @@
+<div class="page-title">Device Onboarding</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/devices'">
+      <i class="fa fa-list"></i>&nbsp;Device Group List
+    </button>
+    <!-- <button
+      type="button"
+      class="btn btn-default"
+      [routerLink]="'/devices/group'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Group List
+    </button> -->
+    <button type="button" class="btn btn-default active" [routerLink]="'/devices/onboard'">
+      <i class="fa fa-share-alt"></i>&nbsp;Device Onboarding
+    </button>
+  </div>
+</div>
+<div class="onboardingBlock">
+  <dpdhl-on-board [deviceFormData]="deviceFormData" [serviceProvider]="serviceProvider"
+    [deviceGroupExist]="deviceGroupExist" [deviceAPIList]="deviceAPIList" [displayedColumns]="displayedColumns"
+    [configuration]="configuration" [deviceAPIListView]="deviceAPIListView"
+    [deviceGroupAvailable]="deviceGroupAvailable" [onBoardType]="onBoardType" [serviceProviderURL]="serviceProviderURL"
+    (deviceOnboardEvent)="deviceOnboardsubmit($event)" (deviceByAPIEvent)="deviceByAPI($event)"
+    (searchGroupEvent)="findDeviceGroup($event)" (serviceProviderEvent)="getServiceProviderURL($event)">
+  </dpdhl-on-board>
+</div>

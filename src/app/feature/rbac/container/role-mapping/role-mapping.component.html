@@ -1,0 +1,148 @@
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/rbac'">
+      <i class="fa fa-list"></i>&nbsp;RBAC List
+    </button>
+    <button type="button" class="btn btn-default " [routerLink]="'/rbac/config'">
+      <i class="fa fa-share-alt"></i>&nbsp; RBAC Config
+    </button>
+    <button type="button" class="btn btn-default active" [routerLink]="'/rbac/roleMapping'">
+      <i class="fa fa-share-alt"></i>&nbsp;Role Mapping
+    </button>
+  </div>
+</div>
+<form class="form-panel" [formGroup]="roleMappingForm">
+  <div class="container-fluid">
+    <div class="container-fluid rbacBlk rbacRoleMapping">
+      <div class="row margin-top">
+        <div class="col-md-7">
+          <!-- <div class="form-group">
+          <label for="parentEntity">Parent Entity:</label>
+          <input type="text" class="form-control" formControlName="parentEntity" id="parentEntity" placeholder="Shop1" />
+        </div> -->
+          <div class="form-group">
+            <label for="roles">Parent Entity:</label>
+            <mat-form-field>
+              <mat-select placeholder="Select Parant entity" class="form-control" formControlName="parentEntity" (selectionChange)="onParentEntitySelect($event.value)">
+                <mat-option *ngFor="let entity of parentEntities" [value]="entity.entity_id">
+                  {{entity.entity_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- <div *ngIf="roleMappingForm.controls['parentEntity'].touched && formCtrl.parentEntity.errors">
+              <div *ngIf="formCtrl.parentEntity.errors.required" class="form-error-msg">Parent Entity is required .</div>
+            </div> -->
+          </div>
+          <!-- <div class="form-group">
+            <label for="userGroupName">User Group Name:</label>
+            <input type="text" class="form-control" formControlName="userGroupName" id="userGroupName" placeholder="Smiley Button DG"
+            />
+          </div> -->
+          <div class="form-group">
+            <label for="roles">User Group Name:</label>
+            <mat-form-field>
+              <mat-select placeholder="Select Parant entity" class="form-control" formControlName="userGroupName" (selectionChange)="onUserGroupSelect($event.value)">
+                <mat-option *ngFor="let user of userGroups" [value]="user.entity_id">
+                  {{user.entity_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+          </div>
+          <div class="form-group" [ngClass]="{'diable-roles':disableRoles}">
+            <label class="deviceRadioBtn">Platform Roles {{disableRoles}}
+              <input [ngClass]="{'diable-roles':disableRoles}" type="radio" checked="checked" name="radio">
+              <span class="checkmark"></span>
+            </label>
+            <label [ngClass]="{'diable-roles':disableRoles}" class="deviceRadioBtn">Application Roles
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- <div class="form-group">
+            <label for="platformRoles">Platform Roles:</label>
+            <input type="text" class="form-control" formControlName="platformRoles" id="platformRoles" placeholder="Select Platform Roles"
+            />
+          </div> -->
+          <div class="form-group">
+            <label for="roles">Platform Roles:</label>
+            <mat-form-field>
+              <mat-select placeholder="Select Platform Roles" class="form-control" formControlName="platformRoles" (selectionChange)="onRoleSelect($event.value)">
+                <mat-option *ngFor="let platform of configuredRoles" [value]="platform.id">
+                  {{platform.role_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- <div *ngIf="formCtrl.platformRoles.touched && formCtrl.platformRoles.errors">
+              <div *ngIf="formCtrl.platformRoles.errors.required" class="form-error-msg">Platform Roles is required .</div>
+            </div>-->
+          </div>
+        </div>
+        <div class="col-md-5 pl-0">
+          <div class="createGroupTreeBlk">
+            <h4>
+              View Entity Association
+              <i class="fa fa-users"></i>
+            </h4>
+            <span href="#" class="expandLnk">Collapse All</span>
+            <ul class="tree treeEntity">
+              <li class="treeview">
+                <label class="treeviewLabel active">
+                  <i class="fa fa-chevron-down"></i>All BU
+                </label>
+                <ul>
+                  <li class="treeviewChild">
+                    <label class="treeviewChildLabel active">
+                      <i class="fa fa-chevron-down"></i>BU1</label>
+                    <ul>
+                      <li class="treeviewGrandChild">
+                        <label class="treeviewGrandChildLabel notActive">WMS User Group</label>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="treeviewChild">
+                    <label class="treeviewChildLabel active">
+                      <i class="fa fa-chevron-down"></i>BU2</label>
+                    <ul>
+                      <li class="treeviewGrandChild">
+                        <label class="treeviewGrandChildLabel notActive">group1</label>
+                      </li>
+                      <li class="treeviewGrandChild">
+                        <label class="treeviewGrandChildLabel notActive">group2</label>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="treeviewChild">
+                    <label class="treeviewChildLabel active">
+                      <i class="fa fa-chevron-up"></i>BU4</label>
+                    <ul>
+                    </ul>
+                  </li>
+                  <li class="treeviewChild">
+                    <label class="treeviewChildLabel active">
+                      <i class="fa fa-chevron-up"></i>BU5</label>
+                    <ul>
+                    </ul>
+                  </li>
+                  <li class="treeviewChild">
+                    <label class="treeviewChildLabel active">
+                      <i class="fa fa-chevron-up"></i>BU6</label>
+                    <ul>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="button" class="btn btn-cancel">Cancel</button>
+          <button type="button" class="btn btn-save" (click)="onSave()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

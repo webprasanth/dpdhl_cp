@@ -1,0 +1,24 @@
+<div class="page-title">User Onboarding</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" [routerLink]="'/users'">
+      <i class="fa fa-list"></i>&nbsp;User List
+    </button>
+    <button type="button" class="btn btn-" [routerLink]="'/users/group-list'">
+      <i class="fa fa-share-alt"></i>&nbsp;User Group List
+    </button>
+    <button type="button" class="btn btn-default active" [routerLink]="'/users/onboard/0'">
+      <i class="fa fa-share-alt"></i>&nbsp;User Onboarding
+    </button>
+    <button type="button" class="btn btn-default" [routerLink]="'/users/ext-invite'">
+      <i class="fa fa-share-alt"></i>&nbsp;Invite Ext User
+    </button>
+  </div>
+</div>
+<dpdhl-onboard [userOnBoardData]="userOnboardData" [BUHeadStatus]="BUHeadStatus" [emailData]="emailData"
+  [groupNameExists]="groupNameExists" [successWindow]="successWindow" [invitationNotAccepted]="invitationNotAccepted"
+  [inviteUserPopup]="inviteUserPopup" [userGroupExist]="userGroupExist" [userGroupAvailable]="userGroupAvailable"
+  (selectedBU)="selectedBUValue($event)" (selectedChild)="selectedChildValue($event)"
+  (registeredEmail)="verifyRegisterEmail($event)" (verifyUserGroup)="searchUserGroupName($event)"
+  (addUserGroup)="createUserGroup($event)" (inviteExternalUser)="inviteExternalUser($event)"
+  (uploadBulkUserData)="uploadBulkUser($event)" (searchGroupEvent)="findUserGroup($event)"></dpdhl-onboard>

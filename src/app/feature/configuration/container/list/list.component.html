@@ -1,0 +1,21 @@
+<div class="page-title">
+  Configuration
+</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active" [routerLink]="'/configuration'">
+      <i class="fa fa-list"></i>&nbsp;Device Spec List
+    </button>
+    <!-- <button
+      type="button"
+      class="btn btn-default "
+      [routerLink]="'/configuration/add'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Configuration
+    </button> -->
+  </div>
+</div>
+<div class="matGridControlBlk">
+  <dpdhl-mat-grid *ngIf="role.deviceConfig_list_view" [displayedColumns]="displayedColumns" [data]="deviceSpecList"
+    [configuration]="configuration" [popUpConfig]="popUpConfig" (editEvent)="editDeviceSpec($event)"></dpdhl-mat-grid>
+</div>

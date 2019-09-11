@@ -1,0 +1,530 @@
+.addIco{
+  
+    width: 28px;
+    height: 28px;
+    line-height: 31px;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    right: 45px;
+    top: 35px;
+    cursor: pointer;
+  }
+  .nav>li>a{
+    padding: 15px 0;
+    width: 200px;
+    text-align: center;
+  }
+  .nav-tabs li a{
+      font-size: 15px;
+      font-weight: bold;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+  }
+  .nav-tabs>li.active>a{
+      background: #fff;
+  }
+  .nav-tabs>li>a{ 
+      background: #eee;
+  }
+  .tab-content{
+      background: #fff;   
+      position: relative;
+  }
+  .tab-content>.tab-pane{
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      padding-bottom: 2em;
+  }
+  
+  
+  /***START CHECKBOX***/
+  
+  .checkBoxGroup{
+    height: auto;
+  } 
+  .checkBoxLabel {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px; 
+    width:50%; 
+    width: 33.33%;
+    margin: 10px 0;
+    color: #000;
+  } 
+  .checkBoxLabel p{
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 10px;
+    font-family: 'Delivery_Regular';
+}
+  .checkBoxLabel input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  } 
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1px solid #b7b7b7;
+  }  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  } 
+  .checkBoxLabel input:checked ~ .checkmark:after {
+    display: block;
+  } 
+  .checkBoxLabel .checkmark:after {
+    left: 7px;
+    top: -6px;
+    width: 8px;
+    height: 18px;
+    border: solid #8BC34A;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  /***END CHECKBOX***/
+  
+  .listingBox{
+    border: 1px solid #e3e3e3;
+    float: left;
+    padding: 20px;
+    margin: 40px 30px 0 0;
+    width: 46%;
+    min-height: 260px;
+    height: 100px;
+    overflow: auto;
+    h3{
+      color: #d2040e;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 0 20px;
+    }
+    ol{
+      padding: 0;
+      margin: 0;
+      color: #000;
+      li{
+        display: block;
+        margin: 10px 0;
+        color: #000;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  
+  .rbacBlk{
+    margin: auto;
+    width: 85%;
+    padding-top: 50px;
+    .form-group{
+      position: relative;
+      .form-control{ 
+        width: 90%;
+        height: 40px;
+        &.checkBoxGroup{
+          height: auto;
+        }
+      }
+    }
+    .listingBlk{
+      padding-left: 8%;
+    }
+    .button-group{
+      float: none;
+      width: auto;
+      clear: both;
+      display: flex;
+      justify-content: center;
+      padding: 1.5em 0;
+      margin: 0;
+      .btn{ 
+        font-size: 16px;
+        font-family: 'Delivery_Regular';
+        padding: 8px 25px;
+      }
+      .btn-cancel{
+        background: transparent;
+        font-weight: bold;
+        border: 1px solid #d40511;
+        color: #d40511;
+      }
+      .btn-save{
+        background: #d40511;
+        border-color: #d40511;
+        margin-left: 10px;
+        color: #fff;
+      }
+    }
+  }
+  
+  /***OVERLAY***/
+  .overlayBlk{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0000008f;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .overlayContentBlk{
+      background: #fff; 
+      min-height: 100px;
+      margin: auto;
+      border-radius: 8px;
+      padding: 1em;
+      position: relative;
+      width: 80%;
+      h4{    
+        font-weight: bold;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 0 0 0.5em;
+        margin: 0; 
+        position: relative;
+        span{ 
+          position: absolute;
+          right: 0; 
+          cursor: pointer;
+          color: #000;
+          font-size: 21px;
+        }
+      }
+      &.addDeviceOverlay{
+        width: 550px;
+        padding: 20px;
+        .form-group{
+          margin: 35px 0;
+          .form-control{
+            margin: auto;
+            width: 100%;
+          }
+        }
+      }
+      &.deviceConfirmSuccess{
+        width: 42%;
+        padding: 2em;
+      }
+      
+      .confirmSuccess{
+        text-align: center;
+        margin: 30px 0;
+        .fa{
+          background: #59ba3b;
+          color: #fff;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 100%;
+          font-size: 24px;
+        }
+        h3{
+          font-weight: bold;
+          font-size: 21px;
+        }
+      }
+    }
+    .button-group{
+      background: #d40511;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      padding: 1em 0;
+      .btn{
+        color: #fff;
+        display: block;
+        padding: 0;
+        text-decoration: none;
+        font-size: 21px;
+        background: transparent;
+        border: 0;
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+  /***OVERLAY***/
+  
+  
+  
+  .dropDownMenuBlk{
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0px 0px 2px #adadad;
+    width: 200px;
+    background: #fff; 
+    right: -86px;
+    top: 62px;
+    &:before{
+      content: "";    
+      position: absolute; 
+      width: 0;
+      height: 0;
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid white;
+      left: 24px;
+      top: -10px;
+      z-index: 1;
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid #dcdcdc;
+      border-left: 10px solid #dcdcdc00;
+      border-right: 10px solid #dcdcdc00;
+      left: 24px;
+      z-index: 0;
+      top: -22px;
+    }
+    .searchBlk{
+      display:block;
+      position: relative;
+      border-bottom: 1px solid #d6d6d6;
+      .fa-search{
+        color: #ccc;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+      .searchFld{
+        background: #fff;
+        width: 100%;
+        border: none;
+        padding: 8px 10px 5px 30px;
+        outline: none;
+        line-height: 1.75em;
+      }
+      .fa-close{
+        color: #ccc;
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        cursor: pointer;
+      }
+    }
+    .dropDownLst{
+      display:block;
+      padding: 0;
+      float: left;
+      clear: both;
+      width: 100%;
+      .cearAllBLk{ 
+        color: #d40511;
+        float: right;
+        font-size: 12px;
+        font-weight: bold;
+        clear: both;
+        width: 100%;
+        text-align: right;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      ul{
+        display:block;
+        padding: 0;
+        margin: 0;
+        float: left;
+        clear: both;
+        width: 100%;
+        height: 124px;
+        overflow: auto;
+        li{
+          display:block; 
+          padding: 5px 10px;
+          label{
+            width: 100%;
+            margin: 4px 0 0;
+            color: #666;
+            font-size: 12px;
+            .checkmark{
+              height: 14px;
+              width: 14px; 
+              top: -1px;
+              &:after{    
+                left: 2px;
+                top: 2px;
+                width: 8px;
+                height: 8px;
+                background: #d40511;
+                border:none;
+                transform: inherit;
+              }
+            }
+          }
+          &:hover{
+            background: #f3f7fb;
+          }
+        }
+      }
+    }
+  }
+  .detailsContainer{
+    margin: 25px auto;
+  }
+  .btn-collapse{
+    width: 90%;
+    text-align: left;
+    background: none;
+    border: 1px solid #cccc;
+    margin-bottom: 0;
+    // margin-left: 16px;
+    box-shadow: none;
+    height: auto; 
+    background:#f7f7f7;
+    display: block;
+    padding: 0;
+    margin: 0;
+    a{
+      text-decoration: none;
+      color: #000; 
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 14px;
+      &.collapsed{
+        .fa{
+          transform: rotate(0deg);
+          position: relative;
+          left: 0;
+          padding-right: 5px;
+          padding-left: 0;
+        }
+      }
+    }
+    .fa{
+      padding-left: 5px;
+      font-size: 16px;
+      color: #d40511;
+      transform: rotate(180deg);
+    }
+  }
+  .toggle-class{
+    width: 93%;
+    margin-left: -15px;
+  }
+  .mat-multi-select{
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 36px;
+    border-radius: 4px;
+    padding: 5px;
+    padding-left: 12px;
+  }
+  .width100{
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .margin-right20{
+    margin-right: 20px;
+  }
+  .form-panel .form-group .mat-form-field .mat-form-field-wrapper .mat-form-field-infix{
+    line-height: 16px;
+  }
+  .panel-heading{
+    padding: 0px 15px 0;
+  }
+  .panel-body{
+    margin-top: -2px;
+  }
+  .dropDownFld{
+    margin-bottom: 20px; 
+  }
+  .form-panel .form-group .mat-form-field{
+    height: 40px;
+    line-height: 18px;
+  }
+
+.rbacBlk .panel-body .form-group{ 
+  margin-bottom: 0;
+}
+
+
+/***Responsive CSS***/
+@media screen and (min-width: 320px) and (max-width: 767px){
+  .rbacBlk{
+    width: 100%;
+    padding-top: 0;
+    .form-group{
+      .form-control,.mat-multi-select{
+        width: 100%;
+      }
+    }
+  }
+  .btn-collapse,.checkBoxLabel{
+    width: 100%;
+  }
+  .form-panel{
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .rbacBlk{
+    width: 100%;
+    padding-top: 0;
+    .form-group{
+      .form-control,.mat-multi-select{
+        width: 100%;
+      }
+    }
+  }
+  .btn-collapse{
+    width: 100%;
+  }
+  .checkBoxLabel{
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1259px){
+  .rbacBlk{
+    width: 100%;
+    padding-top: 0;
+    .form-group{
+      .form-control,.mat-multi-select{
+        width: 100%;
+      }
+    }
+  }
+  .btn-collapse{
+    width: 100%;
+  }
+  .checkBoxLabel{
+    width: 50%;
+  }
+}

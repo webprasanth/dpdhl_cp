@@ -1,0 +1,504 @@
+<header [ngClass]="isLoggedIn ? 'header_logged_in' : ''" *ngIf="!isLoggedIn">
+  <nav class="navbar navbar-default navbar-fixed-top header_cus">
+    <div class="container">
+      <div class="navbar-header logo_cus">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> -->
+        <a class="navbar-brand" href="#">
+          <img src="./../../../../assets/images/logo_for_landing_page.png" />
+        </a>
+      </div>
+      <div id="navbar2" class="navbar-collapse main_nav_cus">
+        <div class="blk_mas">
+          <div class="flt_right">
+            <div class="searchMas">
+              <input type="text" value="Search" class="searchBox dis_none" id="searchBox" />
+              <img src="./../../../../assets/images/search.png" id="searchIcon" />
+            </div>
+            <ul class="nav blk_strip navbar-nav ">
+              <li>
+                <div class="cp_name">IoT Platform</div>
+              </li>
+            </ul>
+            <ul class="nav blk_strip navbar-nav  ">
+              <li class="dropdown signin">
+                <a href="#" (click)="login(true)">Sign in
+                  <span class="caret" style="display: none;"></span>
+                </a>
+                <div class="dropdown-menu initial">
+                  <a href="#" class="setting_lnk">DHLTheme</a>
+                  <a href="#" class="setting_lnk">Contact DHL</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse main_nav_cus">
+          <ul class="nav navbar-nav main_nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu inner_menu">
+                <li>
+                  <a [routerLink]="['/home/what-is-iot']">What is IoT?</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/dpdhl-and-iot']">DPDHL and IoT</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/how-it-works']">How it works</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/benefits']">Benefits of IoT Platform</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu inner_menu">
+                <li>
+                  <a [routerLink]="['/home/track-trace']">Track and Trace</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/smart-energy']">Smart Energy</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/asset-monitoring']">Asset Monitoring</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/predictive-maintenance']">Predictive Maintenance</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/customer-satisfaction']">Customer Satisfaction</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu inner_menu">
+                <li>
+                  <a [routerLink]="['/home/data-management']">Data Management</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/device-management']">Device Management</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/security']">Security</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/home/event-management']">Event Management</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu inner_menu">
+                <li>
+                  <a href="#">FAQs</a>
+                </li>
+                <li>
+                  <a href="#">Documentation</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu inner_menu">
+                <li>
+                  <a href="#">About Us</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <div id="navbar" class="navbar-collapse collapse main_nav_cus" style="display: none !important;">
+        <ul class="nav navbar-nav main_nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu inner_menu">
+              <li>
+                <a [routerLink]="['/home/what-is-iot']">What is IoT?</a>
+              </li>
+              <li>
+                <a [routerLink]="['/home/dpdhl-and-iot']">DPDHL and IoT</a>
+              </li>
+              <li>
+                <a [routerLink]="['/home/how-it-works']">How it works</a>
+              </li>
+              <li>
+                <a [routerLink]="['/home/benefits']">Benefits of IoT Platform</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu inner_menu">
+              <li>
+                <a href="#">Track and Trace</a>
+              </li>
+              <li>
+                <a href="#">Smart Energy</a>
+              </li>
+              <li>
+                <a href="#">Asset Monitoring</a>
+              </li>
+              <li>
+                <a href="#">Predictive Maintenance</a>
+              </li>
+              <li>
+                <a href="#">Customer Satisfaction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu inner_menu">
+              <li>
+                <a href="#">Data Management</a>
+              </li>
+              <li>
+                <a href="#">Device Management</a>
+              </li>
+              <li>
+                <a href="#">Security</a>
+              </li>
+              <li>
+                <a href="#">Event Management</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu inner_menu">
+              <li>
+                <a href="#">FAQs</a>
+              </li>
+              <li>
+                <a href="#">Documentation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu inner_menu">
+              <li>
+                <a href="#">About Us</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+</header>
+<header *ngIf="isLoggedIn" class="header_logged_in">
+  <nav class="navbar navbar-default navbar-fixed-top nav-logged-in">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" style="display: none">
+          <ul class="nav navbar-nav main-menu" dpdhlClickOutside (dpdhlClickOutside)="clickOutside()">
+            <li class="dropdown open">
+              <span class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" (click)="toggleMainNav()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </span>
+              <div class="dropdown-menu" *ngIf="mainDropDown">
+                <div class="dropdown-menu-container">
+                  {{hamburgerMenu|json}}
+                  <!-- <ul class="multi-level" role="menu" aria-labelledby="dropdownMenu"  *ngFor=" let hamburgerMenuData of hamburgerMenu">
+                      <li class="dropdown-submenu">
+                          <a tabindex="-1" class="dropdown-toggle" data-toggle="collapse" href="#collapseExample">
+                            <i class="fa fa-television  sublink" aria-hidden="true"></i>
+                            <a href="#" class="main-drop-down-menu">{{hamburgerMenuData}}</a>
+                            <i class="fa drop-down-icon" aria-hidden="true"></i>
+                          </a>
+                          <ul id="collapseExample" class="collapse in"  *ngFor=" let hamburgerMenuElem of hamburgerMenuData">
+                              <li><a routerLinkActive="active">
+                                  {{hamburgerMenuElem}}</a>
+                                <label class="checkbox">
+                                  <input type="checkbox" checked="checked" />
+                                  <span class="checkmark"></span>
+                                </label></li>
+                              
+                              </ul>
+                              <li> -->
+
+                  <!-- <li class="dropdown-submenu">
+                        <a tabindex="-1" class="dropdown-toggle" data-toggle="collapse" href="#collapseExample">
+                            <i class="fa fa-television  sublink" aria-hidden="true"></i>
+                            <a href="#" class="main-drop-down-menu">{{hamburgerMenuData}}</a>
+                            <i class="fa drop-down-icon" aria-hidden="true"></i>
+                          </a>
+                    </li> -->
+                  <!-- <li class="dropdown-submenu">
+                      <a tabindex="-1" class="dropdown-toggle" data-toggle="collapse" href="#collapseExample">
+                        <i class="fa fa-television  sublink" aria-hidden="true"></i>
+                        <a href="#" class="main-drop-down-menu">Onboarding</a>
+                        <i class="fa drop-down-icon" aria-hidden="true"></i>
+                      </a>
+                      <ul id="collapseExample" class="collapse in">
+                        <li><a routerLinkActive="active">
+                            {{OnboardingData}}</a>
+                          <label class="checkbox">
+                            <input type="checkbox" checked="checked" />
+                            <span class="checkmark"></span>
+                          </label></li>
+                        
+                        <li>
+                          <i class="fa fa-users" aria-hidden="true"></i>
+                          <a routerLinkActive="active">
+                            Create New Entity</a>
+                          <label class="checkbox">
+                            <input type="checkbox" checked="checked" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </li>
+                        <li>
+                          <i class="fa fa-users" aria-hidden="true"></i>
+                          <a [routerLink]="['/business-unit']" routerLinkActive="active">
+                            Business Unit</a>
+                          <label class="checkbox">
+                            <input type="checkbox" checked="checked" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </li>
+                        <li>
+                          <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                          <a [routerLink]="['/application']" routerLinkActive="active">Application</a>
+
+                          <label class="checkbox">
+                            <input type="checkbox" checked="checked" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </li>
+                        <li>
+                          <i class="fa fa-user-plus" aria-hidden="true"></i>
+                          <a [routerLink]="['/users']" routerLinkActivate="active">User</a>
+
+                          <label class="checkbox">
+                            <input type="checkbox" checked="checked" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </li>
+                        <li>
+                          <i class="fa fa-print" aria-hidden="true"></i>
+                          <a [routerLink]="['/devices']" routerLinkActive="active">Device</a>
+                          <label class="checkbox">
+                            <input type="checkbox" checked="checked" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </li>
+                      </ul>
+                      <i class="fa fa-info-circle info-icon" aria-hidden="true" (click)="popupOpen()"></i>
+                    </li> 
+                    
+                    <div *ngIf="plus_hot_key" class="info-icon-container">
+                      <p>
+                        Press <b class="hot-key">HOT KEY & Plus sign(+) </b>to
+                        add function on Quick access Toolbar Ex: “A+” to add
+                        Application into quick access tool bar
+                      </p>
+                    </div>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                      <i class="fa fa-refresh" aria-hidden="true"></i><a href="#">Association</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-file-text-o" aria-hidden="true"></i><a href="#">Report</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-align-justify" aria-hidden="true"></i><a [routerLink]="['/logs']">Log</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-submenu">
+                      <a tabindex="-1" class="dropdown-toggle" data-toggle="collapse" href="#collapseExample2">
+                        <i class="fa fa-user  sublink" aria-hidden="true"></i>
+                        <a href="#" class="main-drop-down-menu">Administration</a>
+                        <i class="fa drop-down-icon" aria-hidden="true"></i>
+                      </a>
+                      <ul id="collapseExample2" class="collapse in">
+                        <li>
+                          <i class="fa fa-database" aria-hidden="true"></i>
+                          <a href="#"> Data Management</a>
+                        </li>
+                        <li>
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                          <a href="#">Role Management</a>
+                        </li>
+                        <li>
+                          <i class="fa fa-cog" aria-hidden="true"></i>
+                          <a href="#">Threshold Configuration</a>
+                        </li>
+                        <li>
+                          <i class="fa fa-credit-card" aria-hidden="true"></i>
+                          <a href="#">Template</a>
+                        </li>
+                      </ul>
+                    </li> -->
+                  <!-- </ul> -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </button>
+
+        <a class="navbar-brand" href="#/dashboard">
+          <img src="./../../../../assets/images/dpdhl-group-logo.svg" />
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="navbar-list-item">
+            <span class="serch-icon">
+              <i class="fa fa-search" aria-hidden="true"></i></span>
+          </li> -->
+          <li class="navbar-list-item" dpdhlClickOutside (dpdhlClickOutside)="clickOutsideNotify()">
+            <!-- Commenting the Bell icon due to descopped -->
+            <!-- <i class="ico notifyIco" (click)="toggle('dpdhl_notification')" *ngIf="alertList && alertList.length > 0">
+              <span class="count">{{alertList.length}}</span>
+            </i> -->
+            <div class="notificationBlk" *ngIf="show">
+              <div class="innerNotificationBlk">
+                <h3>Alerts
+                  <span (click)="closePopup()">x</span>
+                </h3>
+                <div class="notifiySearch">
+                  <i class="fa fa-search"></i>
+                  <input type="text" placeholder="Type here to search for..." (keyup)="onSearchText($event.target.value)" />
+                </div>
+                <div class="detailsContainer">
+                  <ul class="nav nav-tabs">
+                    <li class="active">
+
+                    </li>
+                    <li>
+                      <span [routerLink]="'/notifications'" class="viewMoreBtn" (click)="closePopup()">View More</span>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade in active">
+                      <div class="card" *ngFor="let alert of alertList | filter: searchText:['name','date','state','severity']">
+                        <h3>{{alert.name}}</h3>
+                        <p>Last Modified:
+                          <strong>{{alert.date | date : 'MM/dd/yyyy'}}</strong>
+                        </p>
+                        <ul>
+                          <li>
+                            <p>Alert State:
+                              <strong>{{alert.state}}</strong>
+                            </p>
+                          </li>
+                          <li>
+                            <p>Severity:
+                              <strong class="severity">{{alert.severity}}</strong>
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="navbar-list-item">
+            <div class="secrh-line"></div>
+          </li>
+
+          <li class="navbar-list-item">
+            <span class="profile-name">
+              <b>Hi {{ userName }}</b>
+            </span>
+            <br />
+            <span class="profile-role">
+              <b>{{appuserRole == 'Default App User Role' ? 'User' : appuserRole}}</b>
+            </span>
+          </li>
+
+          <li class="navbar-list-item" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="profile-photo">
+                <!-- <img
+                  class="profile-photo-size"
+                  src="../../../../assets/images/user_img.png"
+                /> -->
+                <i class="fa fa-user-circle-o"></i>
+              </span>
+              <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <span>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <a [routerLink]="'/profile'" class="profile-setting-text">My Profile</a>
+                </span>
+              </li>
+              <!-- <li>
+                <span>
+                  <i class="fa fa-cog" aria-hidden="true"></i><a href="#" class="profile-setting-text">Page Setting</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class="fa fa-cogs" aria-hidden="true"></i><a href="#" class="profile-setting-text">Account
+                    settings</a>
+                </span>
+              </li> -->
+              <li role="separator" class="divider"></li>
+              <li>
+                <span>
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <a href="#" (click)="login(false)" class="profile-setting-text">Logout</a>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li class="navbar-list-item" style="display: none">
+            <span class="profile-photo">
+              <!-- <img
+                class="profile-photo-size"
+                src="../../../../assets/images/user_img.png"
+              /> -->
+              <i class="fa fa-user-circle-o"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>

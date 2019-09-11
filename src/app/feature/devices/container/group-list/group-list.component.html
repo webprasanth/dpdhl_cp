@@ -1,0 +1,40 @@
+<div class="page-title">Device Onboarding</div>
+<div class="navigation-button-group">
+  <div class="btn-group" role="group" aria-label="...">
+    <button
+      type="button"
+      class="btn btn-default active"
+      [routerLink]="'/devices'"
+    >
+      <i class="fa fa-list"></i>&nbsp;Device Group List
+    </button>
+    <!-- <button
+      type="button"
+      class="btn btn-default active"
+      [routerLink]="'/devices/group'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Group List
+    </button> -->
+    <button
+      *ngIf="role.onboard_device"
+      type="button"
+      class="btn btn-default"
+      [routerLink]="'/devices/onboard/0'"
+    >
+      <i class="fa fa-share-alt"></i>&nbsp;Device Onboarding
+    </button>
+  </div>
+</div>
+<div class="matGridControlBlk">
+  <dpdhl-mat-grid
+    *ngIf="role.device_list_view"
+    [displayedColumns]="displayedColumns"
+    [data]="deviceGroupList"
+    [configuration]="configuration"
+    [popUpConfig]="popUpConfig"
+    (viewEvent)="viewDevice($event)"
+    (editEvent)="editDevice($event)"
+    (deleteEvent)="deleteDevice($event)"
+  >
+  </dpdhl-mat-grid>
+</div>

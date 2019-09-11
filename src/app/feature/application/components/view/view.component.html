@@ -1,0 +1,115 @@
+<!-- Modal -->
+<div id="myModal" class=" fade" [ngClass]="viewApplication ? 'in' : ''" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="closePopup()">
+          &times;
+        </button>
+        <h4 class="modal-title">Application Details</h4>
+      </div>
+      <div class="modal-body scrollView">
+        <div class="row margin-top">
+          <div class="col-md-1" align="left">
+            <i *ngIf="!viewApplication?.imgData" class="fa fa-id-card" style="font-size:60px;color:#FECB07;"></i>
+            <img [src]="viewApplication.imgData" *ngIf="viewApplication?.imgData" alt="app Image" />
+          </div>
+          <div class="col-md-5" align="left" style="margin-top: -12px;">
+            <h3>{{ viewApplication?.name }}</h3>
+            <p>{{ viewApplication?.description }}</p>
+          </div>
+          <div class="col-md-6" align="right">
+            <p>Created On:
+              <span class="fontclass">{{ viewApplication?.onboarded_date | date: 'MM/dd/yy' }}</span>
+            </p>
+            <p *ngIf="viewApplication.modified_by">Last modified by :
+              <span class="fontclass">{{ viewApplication?.modified_by }}</span>
+            </p>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row margin-top">
+            <!-- col 1 -->
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">BU Name:</label>
+              <p>{{ viewApplication?.parent_name }}</p>
+            </div>
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">App Owner Name:</label>
+              <p>{{ viewApplication?.owner_name }}</p>
+            </div>
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">App Creator Name:</label>
+              <p>{{ viewApplication?.created_by }}</p>
+            </div>
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">App Creation Date:</label>
+              <p>{{ viewApplication?.onboarded_date | date: 'MM/dd/yy' }}</p>
+            </div>
+
+
+          </div>
+
+          <div class="row margin-top">
+            <!-- col 1 -->
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">Resource Group Name:</label>
+              <p>{{ viewApplication?.group_name }}</p>
+            </div>
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">App Owner email id:</label>
+              <p>{{ viewApplication?.owner }}</p>
+            </div>
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">App Group Name:</label>
+              <p>{{ viewApplication?.resource_group_name }}</p>
+            </div>
+            <div class="col-md-3">
+              <label for="upload" class="file-holder">App Modification Date:</label>
+              <p>{{ viewApplication?.modified_date | date: 'MM/dd/yy' }}</p>
+            </div>
+          </div>
+          <!-- <label for="name"> Azure Component: </label> -->
+          <!-- <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-details table-striped mb-0">
+              <thead>
+                <tr>
+                  <th class="col-xs-2">Resource Name</th>
+                  <th class="col-xs-2">Resource Type</th>
+                  <th class="col-xs-2">Tier</th>
+                  <th class="col-xs-2">Creation date</th>
+                  <th class="col-xs-2">Region</th>
+                  <th class="col-xs-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let resource of resourceList; let i = index">
+                  <td>
+                    {{ resource.name }}
+                  </td>
+                  <td>
+                    {{ resource.type }}
+                  </td>
+                  <td>
+                    {{ resource?.sku?.tier }}
+                  </td>
+                  <td>
+                    {{ resource.createdTime | date: 'MM/dd/yy' }}
+                  </td>
+                  <td>
+                    {{ resource.location }}
+                  </td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <p>*It is updated App Details with all the respective association.</p>
+      </div>
+    </div>
+  </div>
+</div>

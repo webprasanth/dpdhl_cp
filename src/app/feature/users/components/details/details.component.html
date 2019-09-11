@@ -1,0 +1,152 @@
+<div class="container-fluid form-panel">
+    <div class="tab-content ">
+        <div class="tab-pane active" id="1">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-panel-header">
+                                <div class="title">
+                                    Edit User Details
+                                </div>
+                                <div class="multiple-edit" *ngIf="multipleEdit && multipleEdit.length > 1">
+                                    <button type="button" [disabled]="slidesIndex == 0">
+                                        <i (click)="decreaseEdit()" class="fa fa-chevron-left"></i>
+                                    </button>
+                                    <button type="button" [disabled]="multipleEdit.length - 1 == slidesIndex">
+                                        <i (click)="increaseEdit()" class="fa fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-top">
+                        <div class="col-md-3 text-center">
+                            <label for="upload" class="file-holder">
+                                <div class="file-upload" *ngIf="!appImage">App Icon</div>
+                                <img [src]="appImage" *ngIf="appImage" alt="app Image" /> Upload/Change Icon
+                                <span class="fa fa-upload" aria-hidden="true"></span>
+                                <input type="file" id="upload" (change)="handleUpload($event)" style="display:none" />
+
+                                <div *ngIf="fileUploadMessage" class="error">
+                                    File exceeded the maximum size
+                                </div>
+                            </label>
+                            <div class="maxProfileSize">Max size <strong>2MB</strong> | Format <strong>JPEG,
+                                    PNG</strong></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"> User Name:
+                                    <sup>*</sup>
+                                </label>
+                                <input type="text" class="form-control" formControlName="firstname" id="first_name"
+                                    placeholder="User Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Email Id:
+                                    <sup>*</sup>
+                                </label>
+                                <input type="text" class="form-control" formControlName="email" id="email_id"
+                                    placeholder="Email Id" />
+                            </div>
+                            <!-- <h5 class="display-title">Address details</h5> -->
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" formControlName="country" id="country"
+                                    placeholder="Enter country
+                              " />
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" formControlName="state" id="state" placeholder="Enter state
+                              " />
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" formControlName="city" id="city" placeholder="Enter city
+                              " />
+                            </div>
+                            <div class="form-group">
+                                <label for="street">Street / Area</label>
+                                <input type="text" class="form-control" formControlName="street" id="street"
+                                    placeholder="Enter street
+                                          " />
+                            </div>
+                            <div class="form-group">
+                                <label for="pincode">Pincode:</label>
+                                <input type="text" class="form-control" formControlName="pincode" id="pincode"
+                                    placeholder="Enter pincode
+                                      " />
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="name">Phone No:</label>
+                                    <input type="text" class="form-control" formControlName="mobile_number"
+                                        id="mobile_number" placeholder="23456" />
+                                </div>
+                            </div>
+
+                            <div class="form-group form-group-search" style="display: none;">
+                                <label for="entityName">Entity Name
+                                    <sup>*</sup>
+                                </label>
+                                <input type="text" class="form-control" formControlName="entities" id="entities"
+                                    placeholder="UX-CP" />
+                                <button type="button" (click)="searchEntityName()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="buID">BU Name:</label>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Business unit" class="form-control"
+                                        formControlName="buID">
+                                        <mat-option *ngFor="let buName of BUList" [value]="buName.id">
+                                            {{ buName.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="buID">Application Name:</label>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Application" class="form-control"
+                                        formControlName="appId">
+                                        <mat-option *ngFor="let applicationName of applicationList"
+                                            [value]="applicationName.id">
+                                            {{ applicationName.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-top20">
+                        <div class="form-group form-button">
+                            <div class="col-sm-offset-8 col-sm-4">
+                                <button type="button" class="btn btn-default" [routerLink]="'/users'">
+                                    Cancel
+                                </button>
+                                <button type="submit" class="btn btn-default" class="btn btn-primary"
+                                    [disabled]="userForm.invalid || !userForm.dirty">
+                                    Update
+                                </button>
+                                <!-- <button type="submit" [disabled]="userForm.invalid || !userForm.dirty"
+                                    class="btn btn-primary">
+                                    {{ userDetails.id > 0 ? 'Update' : 'Create' }}
+                                </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<dpdhl-pop-up *ngIf="popUpVisibility" [popUpConfig]="popUpConfig" (popUpAction)="popUpEvent($event)"></dpdhl-pop-up>
