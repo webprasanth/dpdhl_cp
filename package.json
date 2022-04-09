@@ -37,7 +37,7 @@
     "d3": "^3.5.17",
     "express": "^4.16.4",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng2-nvd3": "^2.0.0",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-treeview": "^6.0.2",
